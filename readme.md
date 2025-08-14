@@ -1,7 +1,9 @@
 # Builds for the SpatGRIS manuals
 
 ## todo:
-Figure out the exact dependencies for pandoc/latex
+- Figure out if we really want this (this pretty much destroys the formatting of the docx version)
+- Figure out the exact dependencies for pandoc/latex
+- Move this to GRIS github and deploy pages
 
 ## how to use
 
