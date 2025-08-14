@@ -1,0 +1,24 @@
+#!/bin/xonsh
+
+# this uses the md sources files to generate a pdf and an html for the manual in english and french.
+
+current_dir = $(pwd).split("/")[-1]
+
+if current_dir != "ManuelGris":
+    print("this script only works if you launch it from the ManuelGris folder")
+
+def make_output(src_file, dst_file):
+    pandoc -o @(dst_file) @(src_file) --standalone --embed-resources -V "maxwidth:60%"
+
+all_outs = [".pdf", ".html"]
+
+def make_all_outs(src_file):
+    # get only the file name
+    fname = [path for path in src_file.split("/") if path][-1]
+    # remove the extension.
+    fname = fname.split(".")[0]
+    for out in all_outs:
+        make_output(src_file, "builds/" + fname + out)
+
+make_all_outs("sources/spatgris-man-en.md")
+make_all_outs("sources/spatgris-man-fr.md")

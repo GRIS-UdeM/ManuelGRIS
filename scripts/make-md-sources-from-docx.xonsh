@@ -1,0 +1,44 @@
+#!/bin/xonsh
+# This requires xonsh and inkscape (tested with inkscape version 1.4.2 (ebf0e940d0, 2025-05-08))
+
+# This script is used to create the md source files and the medias from docx files.
+
+current_dir = $(pwd).split("/")[-1]
+
+if current_dir != "ManuelGris":
+    print("this script only works if you launch it from the ManuelGris folder")
+
+def make_md_from_docx(docx_path, md_path, media_path):
+    pandoc --extract-media @(media_path) -o @(md_path) @(docx_path)
+
+def get_all_emf_img_path(dir_path):
+    emf_files = filter(None, $(ls @(dir_path) | grep emf).split("\n"))
+    emf_img_paths = [dir_path + img for img in emf_files]
+    return emf_img_paths
+
+def convert_emf_to_png(emf_path):
+    png_path = emf_path.replace("emf", "png")
+    inkscape -o @(png_path) @(emf_path)
+
+def replace_emf_to_png_in_md_file(md_path):
+    md_content = ""
+    with open(md_path, "r") as f:
+        md_content = f.read()
+    with open(md_path, "w") as f:
+        # this will have no unforseen consequences, I swear.
+        md_content = md_content.replace(".emf", ".png")
+        f.write(md_content)
+
+def do_it(docx_path, media_path, md_path, process_image=True):
+    make_md_from_docx(docx_path, md_path, media_path)
+    if process_image:
+        # pandoc adds a /media
+        img_paths = get_all_emf_img_path(media_path+"/media/")
+        for emf_path in img_paths:
+            convert_emf_to_png(emf_path)
+    replace_emf_to_png_in_md_file(md_path)
+
+# do it for english docx file and medias
+do_it("manual-docx-sources/SpatGRIS 3.3.7 Manual.docx", "sources/media-en/", "sources/spatgris-man-en.md")
+# do it for french docx file and medias
+do_it("manual-docx-sources/SpatGRIS 3.3.7 Manuel.docx", "sources/media-fr/", "sources/spatgris-man-fr.md")
