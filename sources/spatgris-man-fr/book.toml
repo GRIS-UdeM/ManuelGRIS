@@ -1,0 +1,5 @@
+[book]
+authors = ["Guillaume Riou"]
+language = "en"
+src = "src"
+title = "Manuel SpatGRIS"

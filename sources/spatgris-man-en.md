@@ -1,7 +1,7 @@
 **SpatGRIS**
 
-![](sources/media-en/media/image1.png){width="2.0157206911636045in"
-height="2.0in"}
+<img src="/media-en/media/image1.png"
+style="width:2.01572in;height:2in" />
 
 **Tools for 2D and 3D sound spatialization**
 
@@ -13,13 +13,28 @@ Groupe de Recherche en Immersion Spatiale
 
 <http://gris.musique.umontreal.ca/>
 
-  -----------------------------------------------------------------------
-  **Director:**                       Robert NORMANDEAU
-  ----------------------------------- -----------------------------------
-  **Programmer:**                     Gaël LANE LÉPINE
-
-  **Assistants:**                     Nicola GIANNINI
-  -----------------------------------------------------------------------
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Director:</strong></th>
+<th>Robert NORMANDEAU</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Programmer:</strong></td>
+<td>Gaël LANE LÉPINE</td>
+</tr>
+<tr class="even">
+<td><strong>Assistants:</strong></td>
+<td>Nicola GIANNINI</td>
+</tr>
+</tbody>
+</table>
 
 **Manual**
 
@@ -33,14 +48,15 @@ Groupe de Recherche en Immersion Spatiale
 
 **April 2025**
 
-![](sources/media-en/media/image2.png){width="1.0in" height="1.0in"}
+<img src="/media-en/media/image2.png"
+style="width:1in;height:1in" />
 
 Faculté de musique
 
-![](sources/media-en/media/image3.png){width="3.7115529308836397in"
-height="0.2755905511811024in"}
-![](sources/media-en/media/image4.png){width="1.0211614173228347in"
-height="0.3937007874015748in"}
+<img src="/media-en/media/image3.png"
+style="width:3.71155in;height:0.27559in" />
+<img src="/media-en/media/image4.png"
+style="width:1.02116in;height:0.3937in" />
 
 **Table of Contents**
 
@@ -73,7 +89,7 @@ localization
 [1.5. The three components of SpatGRIS
 [7](#the-three-components-of-spatgris)](#the-three-components-of-spatgris)
 
-[1.6. What's new and improved in ControlGRIS/SpatGRIS?
+[1.6. What’s new and improved in ControlGRIS/SpatGRIS?
 [7](#whats-new-and-improved-in-controlgrisspatgris)](#whats-new-and-improved-in-controlgrisspatgris)
 
 [1.7. Groupe de Recherche en Immersion Spatiale (GRIS)
@@ -282,7 +298,7 @@ Setup and Project?
 [5.8.1. Speaker Setup Edition
 [38](#speaker-setup-edition)](#speaker-setup-edition)
 
-[5.8.2. Speakers' order and image representation
+[5.8.2. Speakers’ order and image representation
 [38](#speakers-order-and-image-representation)](#speakers-order-and-image-representation)
 
 [5.8.3. Minimal requirements
@@ -450,27 +466,27 @@ Setup and Project?
 
 [Index [68](#index)](#index)
 
-**\
+**  
 **
 
-![](sources/media-en/media/image5.png){width="1.0290091863517061in"
-height="1.0236220472440944in"}
+<img src="/media-en/media/image5.png"
+style="width:1.02901in;height:1.02362in" />
 
 # 1. General presentation
 
 ## 1.1. SpatGRIS is a spatialization tool
 
 *SpatGRIS* does spatialization and localization. The spatialization
-gives the listener the impression of being surrounded by the sound. It's
+gives the listener the impression of being surrounded by the sound. It’s
 an immersive experience. The localization is a way to place a sound at a
 very precise place in the space. The two concepts can be used at the
 same time in *SpatGRIS*.
 
 ### 1.1.1. Spatialization 
 
-Using its two algorithms DOME or CUBE, *SpatGRIS* maps the sources ---
-which come from any audio software --- to a speaker setup. The position
-of the sources is provided by OSC messages. The spatialization is done
+Using its two algorithms DOME or CUBE, *SpatGRIS* maps the sources —
+which come from any audio software — to a speaker setup. The position of
+the sources is provided by OSC messages. The spatialization is done
 through a speaker system in a physical space.
 
 ### 1.1.2. Localization 
@@ -509,8 +525,8 @@ parameters (volume and filter).
 
 ## 1.4. The speakers can be part of the spatialization and the localization
 
-Each loudspeaker has a unique number --- whether in spatialized mode or
-as a direct output --- and can be used for these two functions:
+Each loudspeaker has a unique number — whether in spatialized mode or as
+a direct output — and can be used for these two functions:
 spatialization and localization, thanks to the new direct output
 functions. A speaker can be part of the spatialization and at the same
 time be a direct output. This is a major conceptual difference compared
@@ -531,10 +547,10 @@ installation placed in a space.
 audio interface), including the stereo outputs used for stereo
 reduction.
 
-## 1.6. What's new and improved in ControlGRIS/SpatGRIS?
+## 1.6. What’s new and improved in ControlGRIS/SpatGRIS?
 
 • *SpatGRIS* is independent from any audio virtual device, either *Jack,
-Enzian* or *BlackHole*. It's the user's choice.
+Enzian* or *BlackHole*. It’s the user’s choice.
 
 • Direct Outs now have two functions: Independent, for speakers that are
 not part of the spatialization, e.g. subwoofers; Spatialized, through
@@ -554,7 +570,7 @@ the software.
 
 • *ControlGRIS* and *SpatGRIS* are available for Windows.
 
-**What's new:**
+**What’s new:**
 
 ***SpatGRIS***
 
@@ -627,7 +643,7 @@ Assistant.es: Nicola Giannini.
 
 Former programmers: Samuel Béland, Olivier Bélanger, Vincent Berthiaume.
 
-Former assistants: Simone d'Ambrosio, Theo Mathien, Raphaël
+Former assistants: Simone d’Ambrosio, Theo Mathien, Raphaël
 Néron-Baribeau, Ofer Pelz, Dominic Thibault, Alexis Langevin-Tétrault,
 Vincent Monastesse, David Ledoux, Yohan Brimicombe, Christophe Lengelé,
 Mélanie Frisoli, David Piazza, Gabrielle Caux..
@@ -660,16 +676,16 @@ recorded in a DAW (or any OSC device).
 • The *SpatGRIS* itself that spatializes the sound, according to the
 setup of the speakers done in the Speaker Setup Edition window.
 
-• The virtual audio device *BlackHole*[^1] which connects the DAW to
+• The virtual audio device *BlackHole*[1] which connects the DAW to
 *SpatGRIS*.
 
 The whole architecture, including these elements, looks like this (audio
 and OSC are working in parallel):
 
-![](sources/media-en/media/image6.png){width="4.696707130358705in"
-height="3.15in"}
+<img src="/media-en/media/image6.png"
+style="width:4.69671in;height:3.15in" />
 
-NOTE: In each track of the DAW, it's mandatory that the audio output
+NOTE: In each track of the DAW, it’s mandatory that the audio output
 channel numbers match the OSC source numbers (set by the First Source ID
 parameter) in the corresponding ControlGRIS instance to have the sound
 to be spatialized in *SpatGRIS*. Failure to do so will lead to silence
@@ -681,7 +697,7 @@ or frozen spatialization.
 sounds on different speaker configurations, in 2D or 3D. It could be
 used with the virtual audio interface *BlackHole* that may provide up to
 256 inputs and outputs. The trajectories are sent from the *ControlGRIS*
-plugin, or from any other OSC software[^2] to *SpatGRIS*. The audio
+plugin, or from any other OSC software[2] to *SpatGRIS*. The audio
 spatialization itself is performed by *SpatGRIS* and sent to the audio
 interface.
 
@@ -690,7 +706,7 @@ interface.
 The development of *SpatGRIS* began in 2020. It is a rewritten version
 of *ServerGris* (2018) and *SpatGRIS2* (2020). The first official
 version of *SpatGRIS* is 3.0.0 and was released in August 2021. It was
-our first *Jack*[^3] free spatialization tool!
+our first *Jack*[3] free spatialization tool!
 
 ### 2.2.2. System requirements
 
@@ -745,7 +761,7 @@ Two external controllers are available for *ControlGRIS*:
 
 • An Open Stage Control patch for iPad™.
 
-• A Lemur patch[^4] for iPad™.
+• A Lemur patch[4] for iPad™.
 
 An Addendum manual pertaining to these *iPad* controllers is available
 on SourceForge.
@@ -759,9 +775,9 @@ plugin.
 
 There is no Windows version of *BlackHole*. For Reaper™ users, there is
 the *ReaRoute* function which works similarly to *BlackHole*, but only
-for Reaper. It is possible to use *Jack* on Windows[^5]. When
-*BlackHole* is mentioned in the manual, replace it by *ReaRoute* or
-*Jack* when using Windows.
+for Reaper. It is possible to use *Jack* on Windows[5]. When *BlackHole*
+is mentioned in the manual, replace it by *ReaRoute* or *Jack* when
+using Windows.
 
 ### 2.2.4. Access to the microphone
 
@@ -770,17 +786,17 @@ NOTE: Very important for Catalina (10.15) users and up.
 Make sure that *SpatGRIS* has access to the microphone in the System
 Preferences, Security & Privacy:
 
-![](sources/media-en/media/image7.jpg){width="1.9711001749781278in"
-height="1.6929133858267718in"}
+<img src="/media-en/media/image7.jpg"
+style="width:1.9711in;height:1.69291in" />
 
 ### 2.2.5. BlackHole volume at 0 dB
 
 After installing or reinstalling Blackhole, please make sure that the
 volume of BlackHole is at 0 dB in the Audio Midi Setup.
 
-![A screenshot of a chat Description automatically generated with low
-confidence](sources/media-en/media/image8.jpg){width="5.592309711286089in"
-height="1.4960629921259843in"}
+<img src="/media-en/media/image8.jpg"
+style="width:5.59231in;height:1.49606in"
+alt="A screenshot of a chat Description automatically generated with low confidence" />
 
 ### 2.2.6. New Users of BlackHole and macOS 14 Sonoma
 
@@ -789,7 +805,7 @@ BlackHole installer 0.6.0.
 
 ## 2.3. ControlGRIS
 
-*ControlGRIS* is an OSC[^6] plugin available in AU, VST, VST3 and AAX
+*ControlGRIS* is an OSC[6] plugin available in AU, VST, VST3 and AAX
 formats (Mac) and VST and AAX formats (Windows). This free and
 open-source plugin sends OSC data to *SpatGRIS* to spatialize multiple
 sound sources on a variable set of speakers. Different modes of source
@@ -823,7 +839,7 @@ installer is included in the *SpatGRIS* installer):
 <https://sourceforge.net/projects/spatgris3/>
 
 Decompress the downloaded file. The different formats will be installed
-in their proper location. *ControlGRIS* appears under the "UdeM" folder
+in their proper location. *ControlGRIS* appears under the “UdeM” folder
 of your host application.
 
 ### 2.3.4. AU, VST, AAX
@@ -839,7 +855,7 @@ Here are some particularities:
 
 • Use the VST3 version in Reaper and Live.
 
-• Use the AAX version in ProTools[^7].
+• Use the AAX version in ProTools[7].
 
 • Refer to the manual of your preferred DAW to determine which version
 is better.
@@ -850,7 +866,7 @@ is better.
 spatialize the sounds within a set of speakers. The sound itself is sent
 from the DAW to *SpatGRIS* via *BlackHole*.
 
-Don\'t need/want to read the manual? Here are the basic steps to
+Don't need/want to read the manual? Here are the basic steps to
 spatialize a stereo track on a 64-output audio interface.
 
 NOTE: Adjust the Buffer size to the same value in both your DAW and
@@ -863,8 +879,8 @@ and assign the Audio input device to *BlackHole 128ch* and the Audio
 output device to your audio interface (you must do that only the first
 time). Close the window.
 
-![](sources/media-en/media/image9.jpg){width="1.561930227471566in"
-height="1.5748031496062993in"}
+<img src="/media-en/media/image9.jpg"
+style="width:1.56193in;height:1.5748in" />
 
 3\. Open a DOME Speaker Setup (File menu) or use the default one.
 
@@ -890,13 +906,13 @@ red dots in this example).
 
 You are now ready to play and record automation.
 
-![](sources/media-en/media/image10.png){width="5.029682852143482in"
-height="3.54in"}
+<img src="/media-en/media/image10.png"
+style="width:5.02968in;height:3.54in" />
 
-![](sources/media-en/media/image11.png){width="4.896387795275591in"
-height="5.05in"}
+<img src="/media-en/media/image11.png"
+style="width:4.89639in;height:5.05in" />
 
-NOTE: In each track of the DAW, it's mandatory that the audio output
+NOTE: In each track of the DAW, it’s mandatory that the audio output
 numbers match the OSC numbers (set by the First Source ID parameter) in
 the corresponding ControlGRIS to have the sound to be spatialized in
 SpatGRIS. Not doing that will lead to silence, or to freeze
@@ -906,8 +922,8 @@ Questions? Details? Read the manual!
 
 This manual is in the Help menu:
 
-![](sources/media-en/media/image12.jpg){width="1.8122222222222222in"
-height="0.7in"}
+<img src="/media-en/media/image12.jpg"
+style="width:1.81222in;height:0.7in" />
 
 ###  
 
@@ -917,7 +933,7 @@ height="0.7in"}
 
 ### 3.1.1. Open SpatGRIS
 
-The first time you open *SpatGRIS*, you\'ll have to:
+The first time you open *SpatGRIS*, you'll have to:
 
 • Determine the numbers of sources (up to 256). 64 would be enough in
 most cases, but fewer sources mean less CPU load. Or use one of the
@@ -942,8 +958,8 @@ Open your DAW and assign *BlackHole* as the audio output device*.*
 Audio. It is possible to allocate a certain number of active channels
 according to the number set in Set Sources (± icon).
 
-![](sources/media-en/media/image13.png){width="4.906349518810149in"
-height="2.2in"}
+<img src="/media-en/media/image13.png"
+style="width:4.90635in;height:2.2in" />
 
 ### 3.1.4. Multiclient
 
@@ -959,7 +975,7 @@ software receives two types of information:
 Both signals are needed for the sound spatialization. For direct
 outputs, only the audio signal is needed.
 
-If you use only one DAW, there is no problem, but it's mandatory that
+If you use only one DAW, there is no problem, but it’s mandatory that
 the audio output numbers match the OSC numbers (set by First Source ID
 parameter) in the corresponding *ControlGRIS* to have the sound to be
 spatialized in *SpatGRIS*. Not doing that will lead to silence, or to
@@ -988,19 +1004,19 @@ assigned to *BlackHole* channel pairs 1-2, 3-4 and 5-6. The three
 instances of *ControlGRIS2* use the same OSC numbering: 1-2, 3-4 and
 5-6.
 
-![](sources/media-en/media/image14.png){width="4.821166885389326in"
-height="5.12in"}
+<img src="/media-en/media/image14.png"
+style="width:4.82117in;height:5.12in" />
 
 To help to keep things clear, it is recommended to use the same colour
 scheme in the DAW and in *SpatGRIS*.
 
-![](sources/media-en/media/image15.png){width="4.980840988626421in"
-height="3.3in"}
+<img src="/media-en/media/image15.png"
+style="width:4.98084in;height:3.3in" />
 
 NOTE: If by mistake, you are using the same OSC numbers in more than one
 ControlGRIS instance, the sources in SpatGRIS will oscillate between
 different positions because they will receive two (or more) of the same
-position from different *ControlGRIS*. It\'s a good indicator that
+position from different *ControlGRIS*. It's a good indicator that
 something is wrong.
 
 ### 3.2.2. Sources Colour
@@ -1016,8 +1032,8 @@ source on the right by using right-clicking on a colour. You can set
 this way the same colour to a pair of sources or to many contiguous
 sources.
 
-![](sources/media-en/media/image16.jpg){width="2.3622047244094486in"
-height="1.968503937007874in"}
+<img src="/media-en/media/image16.jpg"
+style="width:2.3622in;height:1.9685in" />
 
 # 4. ControlGRIS
 
@@ -1036,7 +1052,7 @@ These two modes will be explained in detail in the *SpatGRIS* section.
 movements of multichannel sound sources on a variable set of speakers.
 Several sources link modes and a trajectory system are provided to allow
 the spatialization of mono, stereo, quad, 5.1 or multichannel sources of
-up to eight channels. *ControlGRIS* doesn\'t handle audio, only data
+up to eight channels. *ControlGRIS* doesn't handle audio, only data
 which is sent to *SpatGRIS*. The audio itself is sent from the DAW
 directly to *SpatGRIS via BlackHole*.
 
@@ -1053,8 +1069,8 @@ Distance is fixed at 1.00, there are only the Azimuth and Elevation
 parameters to adjust. In CUBE, the three parameters, Azimuth-Distance
 and Elevation are adjustable on two different windows.
 
-![](sources/media-en/media/image17.png){width="6.38127624671916in"
-height="4.6in"}
+<img src="/media-en/media/image17.png"
+style="width:6.38128in;height:4.6in" />
 
 ## 4.3. Configuration panel
 
@@ -1062,8 +1078,8 @@ The configuration panel gives access to different plugin parameters.
 These settings are grouped under three tabs: Sources, Settings and
 Controllers.
 
-![](sources/media-en/media/image18.jpg){width="4.028694225721785in"
-height="1.2in"}
+<img src="/media-en/media/image18.jpg"
+style="width:4.02869in;height:1.2in" />
 
 ### 4.3.1. Settings
 
@@ -1074,9 +1090,9 @@ In this mode, the space is represented by a dome where the distance
 between every point of the surface to the centre of the dome is equal to
 1.00.
 
-The CUBE mode is based on an original MBAP[^8] algorithm designed by
-Gaël Lane Lépine. In this mode, the space is represented by a cube
-within which it is possible to design any kind of speaker setup.
+The CUBE mode is based on an original MBAP[8] algorithm designed by Gaël
+Lane Lépine. In this mode, the space is represented by a cube within
+which it is possible to design any kind of speaker setup.
 
 #### OSC Port
 
@@ -1102,7 +1118,7 @@ This number must be unique and different for each audio channel. You
 must use the same numbers for audio and for OSC.
 
 If you have only mono tracks, the numbers are successive. If you have
-stereo tracks, you\'ll have only odd numbers to put here: 1, 3, 5, etc.
+stereo tracks, you'll have only odd numbers to put here: 1, 3, 5, etc.
 because the even numbers are set automatically to the right channel of
 each stereo track. And if you work with octophonic sound files, the
 first source ID will be 1, the second octophonic track will start at 9,
@@ -1116,8 +1132,8 @@ Placement, it is possible to position sources equidistantly, following a
 clockwise or alternate order. To do so, simply select the desired layout
 from the drop-down menu.
 
-![](sources/media-en/media/image19.jpg){width="1.7274704724409449in"
-height="1.2598425196850394in"}
+<img src="/media-en/media/image19.jpg"
+style="width:1.72747in;height:1.25984in" />
 
 Moreover, it is possible to manually adjust the position of each source
 by entering its polar (DOME) or Cartesian (CUBE) coordinates. From the
@@ -1127,27 +1143,27 @@ be moved. Then, enter its new coordinates.
 In DOME, Elevation and Azimuth correspond to the current polar
 coordinates of the selected source:
 
-![](sources/media-en/media/image20.jpg){width="4.133858267716535in"
-height="1.1811023622047243in"}
+<img src="/media-en/media/image20.jpg"
+style="width:4.13386in;height:1.1811in" />
 
 In CUBE, X, Y, and Z correspond to the current Cartesian coordinates of
 the selected source:
 
-![](sources/media-en/media/image21.jpg){width="4.133858267716535in"
-height="1.1811023622047243in"}
+<img src="/media-en/media/image21.jpg"
+style="width:4.13386in;height:1.1811in" />
 
 **NOTE: Manual positioning of individual sources only works when the
 Independent mode is chosen under Sources Link.**
 
 ### 4.3.3. Controllers
 
-![](sources/media-en/media/image22.png){width="4.16in"
-height="1.2821292650918634in"}
+<img src="/media-en/media/image22.png"
+style="width:4.16in;height:1.28213in" />
 
-*ControlGRIS* can be manipulated via an external Open Sound Control[^9]
+*ControlGRIS* can be manipulated via an external Open Sound Control[9]
 (OSC) controller. There is an interface made for Open Stage Control and
 one made for Lemur to manipulate *ControlGRIS* parameters from an
-iPad[^10].
+iPad[10].
 
 • OSC output plugin ID: to control different instances of *ControlGRIS*,
 each one should have a different ID.
@@ -1156,7 +1172,7 @@ each one should have a different ID.
 (Default: 9000 and 8000).
 
 • IP port addresses should be set accordingly to your Wi-Fi network,
-either public or local[^11]. Both the computer and the controller should
+either public or local[11]. Both the computer and the controller should
 be on the same network. *ControlGRIS* automatically receives the input
 address from your network.
 
@@ -1175,9 +1191,9 @@ source placed at the periphery is at the bottom of the dome.
 The dome is represented here from the top, examples with a stereo source
 on the left, an octophonic source on the right:
 
-![](sources/media-en/media/image23.jpg){width="2.5in"
-height="1.5173611111111112in"}![](sources/media-en/media/image24.jpg){width="2.5in"
-height="1.521101268591426in"}
+<img src="/media-en/media/image23.jpg"
+style="width:2.5in;height:1.51736in" /><img src="/media-en/media/image24.jpg"
+style="width:2.5in;height:1.5211in" />
 
 ### 4.4.2. Spans in DOME mode
 
@@ -1185,9 +1201,9 @@ In both modes, Span parameters are available for azimuth and elevation.
 Span spreads the signal to a larger zone than just the source itself. In
 DOME mode, the spans look like an arc on each side of the source:
 
-![](sources/media-en/media/image25.jpg){width="2.5in"
-height="1.5196850393700787in"}![](sources/media-en/media/image26.jpg){width="2.0255129046369205in"
-height="1.52in"}
+<img src="/media-en/media/image25.jpg"
+style="width:2.5in;height:1.51969in" /><img src="/media-en/media/image26.jpg"
+style="width:2.02551in;height:1.52in" />
 
 ### 4.4.3. View in CUBE mode
 
@@ -1198,26 +1214,26 @@ internal white square). The CUBE is represented from the top on the left
 and in profile on the right (the 3D view shows only in *SpatGRIS*).
 Examples for stereo and octophonic sources:
 
-![](sources/media-en/media/image27.jpg){width="2.5306288276465443in"
-height="1.52in"}
-![](sources/media-en/media/image28.jpg){width="2.5043471128608923in"
-height="1.52in"}
+<img src="/media-en/media/image27.jpg"
+style="width:2.53063in;height:1.52in" />
+<img src="/media-en/media/image28.jpg"
+style="width:2.50435in;height:1.52in" />
 
 ### 4.4.4. Spans in CUBE mode
 
 In CUBE mode, the spans look like a cylinder wrapped around the source:
 
-![](sources/media-en/media/image29.jpg){width="2.4666196412948382in"
-height="1.5in"}![](sources/media-en/media/image30.jpg){width="1.75084208223972in"
-height="1.5in"}
+<img src="/media-en/media/image29.jpg"
+style="width:2.46662in;height:1.5in" /><img src="/media-en/media/image30.jpg"
+style="width:1.75084in;height:1.5in" />
 
 In some CUBE setups, where most speakers are spread across the walls and
 the ceiling, a source can be lost in the centre of the hall. If you wish
 to create a flat sound disk that activates only the speakers located at
 the same height as the source, you can add a bit of Azimuth Span:
 
-![](sources/media-en/media/image31.jpg){width="6.15in"
-height="1.9514424759405073in"}
+<img src="/media-en/media/image31.jpg"
+style="width:6.15in;height:1.95144in" />
 
 ### 4.4.5. CUBE Elevation in Normal or Extended Top mode
 
@@ -1230,8 +1246,8 @@ This is the point at with *SpatGRIS* Attenuation Settings start to take
 effect in elevation. Sources will be filtered either in volume and/or in
 frequencies as they move further away from the top of the cube:
 
-![](sources/media-en/media/image32.jpg){width="6.15in"
-height="1.9126760717410323in"}
+<img src="/media-en/media/image32.jpg"
+style="width:6.15in;height:1.91268in" />
 
 ### 4.4.6. CUBE Elevation in Extended Top and Bottom mode
 
@@ -1240,16 +1256,15 @@ sounds that are sent below the floor (for the lucky few who have access
 to a full cube!) The top line represents the value 1.0 of the normal
 mode. The bottom line represents the value 0.0 of the Normal mode:
 
-![](sources/media-en/media/image33.jpg){width="6.15in"
-height="1.9061056430446195in"}
+<img src="/media-en/media/image33.jpg"
+style="width:6.15in;height:1.90611in" />
 
 NOTE 1: Older projects can still be used in the Normal mode where the
 full range from 0.00 to 1.00 is still available.
 
-NOTE 2: It\'s not yet possible to go below the floor in a complete
-sphere with ControlGRIS in DOME mode. We are working on that. But it\'s
-possible to do so by using any software that sends OSC directly to
-SpatGRIS.
+NOTE 2: It's not yet possible to go below the floor in a complete sphere
+with ControlGRIS in DOME mode. We are working on that. But it's possible
+to do so by using any software that sends OSC directly to SpatGRIS.
 
 ## 4.5. How to use ControlGRIS
 
@@ -1257,7 +1272,7 @@ SpatGRIS.
 requires spatialization. *ControlGRIS* comprises a trajectory system
 that can write predefined movements quickly and efficiently. The
 automation function of the host software assures the recording and
-playback of the source\'s movements. It is therefore essential to
+playback of the source's movements. It is therefore essential to
 understand the various automation modes in your preferred host.
 
 ### 4.5.1. Load the plugin on a track
@@ -1266,7 +1281,7 @@ understand the various automation modes in your preferred host.
 often, *ControlGRIS* is loaded at the end of the insert chain of the
 track.
 
-NOTE: In each track of the DAW, it's mandatory that the audio output
+NOTE: In each track of the DAW, it’s mandatory that the audio output
 numbers match the OSC numbers (set by the First Source ID parameter) in
 the corresponding ControlGRIS to have the sound to be spatialized in
 SpatGRIS. Not doing that will lead to silence, or to freeze
@@ -1281,12 +1296,12 @@ within the 50 provided preset slots. The shortcuts are:
 
 • Click Preset number: Load.
 
-• Opt[^12]-Click Preset number: Delete.
+• Opt[12]-Click Preset number: Delete.
 
 These functions appear below the rows 49-50:
 
-![](sources/media-en/media/image34.jpg){width="0.6805555555555556in"
-height="0.6527777777777778in"}
+<img src="/media-en/media/image34.jpg"
+style="width:0.68056in;height:0.65278in" />
 
 These presets allow you to save and recall the following parameters
 only:
@@ -1341,14 +1356,14 @@ As mentioned above, the presets store only the position of the sources.
 When a preset is loaded, the sources are positioned according to the
 stored data. Keep in mind though that the sequencer also has a memory of
 the previous position of the sources, and both can interact strangely.
-Very often then, it\'s only when you start the sequencer that the
-sources take their real positions. To avoid any ambiguity, presets
-selection can be automated.
+Very often then, it's only when you start the sequencer that the sources
+take their real positions. To avoid any ambiguity, presets selection can
+be automated.
 
 ## 4.6. Trajectories
 
-![](sources/media-en/media/image35.jpg){width="4.133863735783027in"
-height="1.1811023622047243in"}
+<img src="/media-en/media/image35.jpg"
+style="width:4.13386in;height:1.1811in" />
 
 It is possible to automate the movement of sound sources using
 predefined trajectories. Within the Trajectories control panel, you can
@@ -1357,18 +1372,18 @@ behind the trajectories is that there is a source leader while the
 others are followers. Only the source No. 1 can be the leader.
 
 If you try to record the automation of any other source than No. 1,
-you'll get this warning:
+you’ll get this warning:
 
-![](sources/media-en/media/image36.jpg){width="4.133858267716535in"
-height="1.105896762904637in"}
+<img src="/media-en/media/image36.jpg"
+style="width:4.13386in;height:1.1059in" />
 
 ### 4.6.1. Sources Link
 
 Independent mode is only available for initially placing sources
-independently in a multichannel track. But the position of sources
-can\'t be automated independently. Only the automation of the Source No.
-1 can be recorded. Therefore, after placing the sources, a different
-source link should be chosen before recording the automation.
+independently in a multichannel track. But the position of sources can't
+be automated independently. Only the automation of the Source No. 1 can
+be recorded. Therefore, after placing the sources, a different source
+link should be chosen before recording the automation.
 
 #### Azimuth-Elevation (DOME) and Azimuth-Distance (CUBE) Links
 
@@ -1386,8 +1401,8 @@ available:
 • Detailed representations of the Azimuth-Elevation and Azimuth-Distance
 Links are shown at the Addendum 8.1.1.
 
-![](sources/media-en/media/image37.jpg){width="4.133858267716535in"
-height="1.1811023622047243in"}
+<img src="/media-en/media/image37.jpg"
+style="width:4.13386in;height:1.1811in" />
 
 #### Elevation Links (CUBE mode only)
 
@@ -1397,8 +1412,8 @@ the Azimuth-Distance parameters.
 • Detailed representations of the Elevation Links are shown at the
 Addendum 8.1.2.
 
-![](sources/media-en/media/image38.jpg){width="4.133858267716535in"
-height="1.1811023622047243in"}
+<img src="/media-en/media/image38.jpg"
+style="width:4.13386in;height:1.1811in" />
 
 ### 4.6.2. Trajectory Type
 
@@ -1414,16 +1429,16 @@ A drop-down menu allows you to select from different types of
 trajectories such as *Circle*, *Ellipse*, *Spiral*, *Square* and
 *Triangle,* either in *Clockwise* or *Counter Clockwise* mode.
 
-![](sources/media-en/media/image39.jpg){width="4.137795275590551in"
-height="2.3332567804024498in"}
+<img src="/media-en/media/image39.jpg"
+style="width:4.1378in;height:2.33326in" />
 
 #### Elevation (CUBE only) Trajectory Type
 
 A drop-down menu with different types of trajectories allows you to
 select from a variety such as *Up Down*, *Down Up.*
 
-![](sources/media-en/media/image40.jpg){width="4.13in"
-height="1.249148075240595in"}
+<img src="/media-en/media/image40.jpg"
+style="width:4.13in;height:1.24915in" />
 
 #### Other settings
 
@@ -1449,34 +1464,34 @@ plugin itself. This trajectory can then be modified by editing the
 duration, dampening and deviation. When the desired settings are found,
 they can be recorded in the DAW itself.
 
-![](sources/media-en/media/image41.png){width="5.286841644794401in"
-height="3.5in"}
+<img src="/media-en/media/image41.png"
+style="width:5.28684in;height:3.5in" />
 
 The Drawing mode is a freehand mode. When you select it, a light grey
 cross will appear with which you draw a trajectory. The timing of the
 trajectory and the design are temporarily stored within the plugin. In
-Azimuth-Elevation (DOME) or Azimuth-Distance (CUBE), it\'s the position
-that is recorded. In Elevation (CUBE only) it\'s the position over time.
+Azimuth-Elevation (DOME) or Azimuth-Distance (CUBE), it's the position
+that is recorded. In Elevation (CUBE only) it's the position over time.
 Both windows share a cycle that can be modified with the regular
 parameters. To see the trajectory in action, you can turn on the
 Activate buttons and play the sequence. When the sequencer stops, the
-Activate buttons return to off. Changes can be made and then it\'s
+Activate buttons return to off. Changes can be made and then it's
 possible to switch on Activate again. Once satisfied with the results,
 you can then record the trajectory in the DAW.
 
 #### Shift-Click in Drawing mode
 
-If Shift is pressed in the Drawing mode, it\'s possible to design
+If Shift is pressed in the Drawing mode, it's possible to design
 straight lines or irregular geometrical figures in the Azimuth-Elevation
 (DOME) or the Azimuth-Distance (CUBE) window. Every time you click, a
-new angle is created. Don\'t forget to click one last time once you're
+new angle is created. Don't forget to click one last time once you’re
 finished!
 
-![](sources/media-en/media/image42.jpg){width="1.3186154855643044in"
-height="1.4015748031496063in"}![](sources/media-en/media/image43.jpg){width="1.3130435258092739in"
-height="1.4in"}
+<img src="/media-en/media/image42.jpg"
+style="width:1.31862in;height:1.40157in" /><img src="/media-en/media/image43.jpg"
+style="width:1.31304in;height:1.4in" />
 
-**NOTE: Be careful with the freehand trajectory because it's temporary.
+**NOTE: Be careful with the freehand trajectory because it’s temporary.
 If you click anywhere in the window after drawing a trajectory, or close
 the plugin or the session, it will automatically be erased. Only one
 gesture can be temporarily recorded at a time. The X cross can be hidden
@@ -1484,25 +1499,25 @@ behind one of the sources. Just move one of those to find it back.**
 
 #### Activate
 
-![](sources/media-en/media/image44.jpg){width="4.120431977252843in"
-height="1.1811023622047243in"}
+<img src="/media-en/media/image44.jpg"
+style="width:4.12043in;height:1.1811in" />
 
 Pressing the Activate button makes *ControlGRIS* wait for the start of
 the sequencer. When the sequence is initiated, the plugin will start the
 trajectory according to the specified settings. The movement produced
-can be recorded --- X, Y and Z-coordinates of the source No. 1 --- like
-any other automation. When the sequencer stops, the *Activate* buttons
-return to off. It\'s important to put the play head at the right
-position before pressing on the activate button and putting the sequence
-into play.
+can be recorded — X, Y and Z-coordinates of the source No. 1 — like any
+other automation. When the sequencer stops, the *Activate* buttons
+return to off. It's important to put the play head at the right position
+before pressing on the activate button and putting the sequence into
+play.
 
 #### Trajectory recording in the DAW
 
 As explained above, *ControlGRIS* waits for the host sequencer to start
 before starting a trajectory. The tracks that contain *ControlGRIS* can
-be set in a write mode (Touch, Latch, or Write --- depending on the
-options within your DAW) to record the sources\' movements as
-automation. This automation is then available for playback and editing.
+be set in a write mode (Touch, Latch, or Write — depending on the
+options within your DAW) to record the sources' movements as automation.
+This automation is then available for playback and editing.
 
 NOTE: Only the source No. 1 (leader) is recorded, the other sources
 being followers. It is always preferable to record the automation of
@@ -1517,12 +1532,12 @@ the basic element of a pendulum. Then the Dur per cycle, Dampening,
 Deviation and Back & Forth can be used to make this pendulum very
 interesting. It can be placed anywhere in the space.
 
-![](sources/media-en/media/image45.jpg){width="1.2904232283464567in"
-height="2.3622047244094486in"}
+<img src="/media-en/media/image45.jpg"
+style="width:1.29042in;height:2.3622in" />
 
 ### 4.6.4. Presets and automated trajectories
 
-It\'s possible to record the presets selection in the sequencer. But to
+It's possible to record the presets selection in the sequencer. But to
 avoid contradictory information between automated trajectories and
 automated presets (which stores x-y position of the sources), in
 automation recording, the x and y coordinates, registered in the preset,
@@ -1530,8 +1545,8 @@ will be automatically written in the x-y automation curves. The
 automated presets are designed essentially to offer the possibility to
 apply sudden changes in the position of the sources.
 
-![](sources/media-en/media/image46.png){width="5.562028652668417in"
-height="3.4645669291338583in"}
+<img src="/media-en/media/image46.png"
+style="width:5.56203in;height:3.46457in" />
 
 NOTE: Be careful with that. If you overwrite the already existing X and
 Y automations, they might become in competition with the information
@@ -1558,16 +1573,16 @@ is the component on the top right of *SpatGRIS*.
 placed in a space and the algorithm used. This is the section shown in
 *SpeakerView*.
 
-• **Save Settings**. User settings are linked to a workstation ---
-computer and audio interface --- including the stereo outputs used for
+• **Save Settings**. User settings are linked to a workstation —
+computer and audio interface — including the stereo outputs used for
 stereo reduction (even without showing them). Most of the settings are
 shown in the Info bar. Click the Info bar or Settings in the File menu
 (Cmd-,).
 
 NOTE: The DOME and the CUBE modes are saved in Speaker Setups and
 Projects, but the HYBRID mode is only saved in projects. The last opened
-document --- whether it be a Speaker Setup or a Project --- determines
-the Mode.
+document — whether it be a Speaker Setup or a Project — determines the
+Mode.
 
 The *SpatGRIS* window is divided into different zones:
 
@@ -1583,8 +1598,8 @@ The *SpatGRIS* window is divided into different zones:
 
 *SpeakerView* shows the speakers in a 3D view.
 
-![](sources/media-en/media/image47.png){width="6.5in"
-height="3.868098206474191in"}
+<img src="/media-en/media/image47.png"
+style="width:6.5in;height:3.8681in" />
 
 ## 5.2. SpeakerView
 
@@ -1597,8 +1612,8 @@ improved.
 
 *SpeakerView* is shown here with the new Show Hall function:
 
-![](sources/media-en/media/image48.jpg){width="3.3246511373578302in"
-height="3.0in"}
+<img src="/media-en/media/image48.jpg"
+style="width:3.32465in;height:3in" />
 
 ### 5.2.1. Visibility and keyboard shortcuts
 
@@ -1609,8 +1624,8 @@ or closed independently (Mac: Opt-V. Windows: Alt-V).
 Keyboard shortcuts in the *SpatGRIS* View menu control display options
 in *SpeakerView*:
 
-![](sources/media-en/media/image49.jpg){width="1.6in"
-height="2.3888101487314084in"}
+<img src="/media-en/media/image49.jpg"
+style="width:1.6in;height:2.38881in" />
 
 ### 5.2.2. Two distinct applications
 
@@ -1621,12 +1636,12 @@ stay on top of *SpatGRIS* (Keep SpeakerView On Top).
 
 NOTE: SpeakerView is an autonomous application, but there is no need for
 the user to worry about that, *SpatGRIS* will take care of everything.
-We even strongly recommend that *SpeakerView* shouldn\'t be started
-neither from the Finder nor the Dock. If it\'s opened this way, this the
+We even strongly recommend that *SpeakerView* shouldn't be started
+neither from the Finder nor the Dock. If it's opened this way, this the
 warning message that will pop up:
 
-![](sources/media-en/media/image50.jpg){width="1.222561242344707in"
-height="1.0in"}
+<img src="/media-en/media/image50.jpg"
+style="width:1.22256in;height:1in" />
 
 ## 5.3. Change the setup not the spatialization
 
@@ -1638,7 +1653,7 @@ arrangement, you could play it on any other speaker setup afterwards,
 especially in DOME mode. You simply have to change the Speaker Setup
 from one location to the next.
 
-Here\'s an example of a piece designed for a 16-Speaker Setup (on the
+Here's an example of a piece designed for a 16-Speaker Setup (on the
 left), presented on an entirely different 24-speaker system (right),
 simply by switching from one system to the other.
 
@@ -1646,14 +1661,14 @@ As you can see, all the sources remain at the exact same coordinates.
 They will be played by different speakers but heard at the same location
 in the concert hall.
 
-![](sources/media-en/media/image51.jpg){width="2.522309711286089in"
-height="3.1496062992125986in"}![](sources/media-en/media/image52.jpg){width="2.5229166666666667in"
-height="3.1493055555555554in"}
+<img src="/media-en/media/image51.jpg"
+style="width:2.52231in;height:3.14961in" /><img src="/media-en/media/image52.jpg"
+style="width:2.52292in;height:3.14931in" />
 
 ## 5.4. Settings
 
-![](sources/media-en/media/image9.jpg){width="1.952412510936133in"
-height="1.968503937007874in"}
+<img src="/media-en/media/image9.jpg"
+style="width:1.95241in;height:1.9685in" />
 
 Audio Settings
 
@@ -1681,11 +1696,12 @@ accordingly.
 Your settings are automatically saved. Under the name of the version of
 *SpatGRIS,* the document is located here (Mac):
 
-• \~/Library/Application Support/GRIS/SpatGRIS.0.0 (for example).
+• ~/Library/Application Support/GRIS/SpatGRIS.0.0 (for example).
 
 ## 5.5. Controls
 
-![](sources/media-en/media/image53.png){width="6.375in" height="3.0in"}
+<img src="/media-en/media/image53.png"
+style="width:6.375in;height:3in" />
 
 ## 5.6. The DOME and the CUBE
 
@@ -1706,9 +1722,9 @@ It is possible to see the triangles by choosing Show Speaker Triplets
 (Opt-T) in the *View* menu. If you have the chance to use a complete
 sphere, it is possible to show it (Opt-O)!
 
-![](sources/media-en/media/image54.jpg){width="2.982508748906387in"
-height="2.35in"}![](sources/media-en/media/image55.jpg){width="2.480658355205599in"
-height="2.35in"}
+<img src="/media-en/media/image54.jpg"
+style="width:2.98251in;height:2.35in" /><img src="/media-en/media/image55.jpg"
+style="width:2.48066in;height:2.35in" />
 
 ### 5.6.2. CUBE
 
@@ -1725,9 +1741,9 @@ As the name suggests, the algorithm is based on a precomputed
 three-dimensional matrix of multiple points per speaker that determines
 the amplitude of a source at a specific position.
 
-![](sources/media-en/media/image56.jpg){width="3.0342858705161855in"
-height="2.36in"}![](sources/media-en/media/image57.jpg){width="2.1369444444444445in"
-height="2.36in"}
+<img src="/media-en/media/image56.jpg"
+style="width:3.03429in;height:2.36in" /><img src="/media-en/media/image57.jpg"
+style="width:2.13694in;height:2.36in" />
 
 ## 5.7. The HYBRID mode: DOME and CUBE in the same project
 
@@ -1735,18 +1751,18 @@ The HYBRID mode is not really a new algorithm, but a combination of the
 DOME and the CUBE ones. HYBRID mode can be selected in the Algorithm
 section:
 
-![](sources/media-en/media/image58.jpg){width="1.6041666666666667in"
-height="0.5in"}
+<img src="/media-en/media/image58.jpg"
+style="width:1.60417in;height:0.5in" />
 
 The Sources menu is then changed to offer the possibility of choosing
 between the dome or the cube behaviour independently for each source:
 
-![](sources/media-en/media/image59.jpg){width="2.486842738407699in"
-height="0.9in"}
+<img src="/media-en/media/image59.jpg"
+style="width:2.48684in;height:0.9in" />
 
 The HYBRID mode uses the DOME algorithm, which means that the speaker
 setup must be a dome (if not, you will be asked to convert it) within
-which the sources can be moved according to CUBE behaviours where it\'s
+which the sources can be moved according to CUBE behaviours where it's
 possible to move the sound inside or outside the dome of speakers. In
 HYBRID mode, the spans keep their usual dome or cube behaviour.
 
@@ -1762,8 +1778,8 @@ also saved with the project.
 
 ### 5.72. What Mode is loaded according to the opening order of Speaker Setup and Project?
 
-As a rule, it is always the last opened document --- Speaker Setup or
-Project --- that determines the algorithm used by *SpatGRIS*.
+As a rule, it is always the last opened document — Speaker Setup or
+Project — that determines the algorithm used by *SpatGRIS*.
 
 A Speaker Setup (SS) followed by a Project (P):
 
@@ -1774,7 +1790,7 @@ A Speaker Setup (SS) followed by a Project (P):
 3.1. SS Dome + P Cube = Cube. The SS Dome has been converted to SS Cube.
 The shape of the SS does not change, since the Cube algorithm accepts
 all domes (this can be confirmed by opening the Speaker Setup Edition
-window). Before closing the SS, you\'ll be asked to save the changes.
+window). Before closing the SS, you'll be asked to save the changes.
 
 4.1. SS Cube + P Dome = Dome. The SS Cube is converted into a Dome after
 the conversion message is approved.
@@ -1797,7 +1813,7 @@ Dome.
 Cube.
 
 5.2. P Hybrid + SS Dome = Hybrid. This is the only exception where
-Hybrid has priority, despite the fact it was loaded first. It\'s because
+Hybrid has priority, despite the fact it was loaded first. It's because
 Hybrid projects works on SS Dome only.
 
 6.2. P Hybrid + SS Cube = Cube. Hybrid disappears from the view since we
@@ -1817,25 +1833,25 @@ their maximum values. You can indicate these maximum values in the
 Attenuation settings menus. In HYBRID mode, Attenuation settings work
 only on CUBE sources.
 
-![](sources/media-en/media/image60.png){width="2.703705161854768in"
-height="3.5in"}
+<img src="/media-en/media/image60.png"
+style="width:2.70371in;height:3.5in" />
 
 Actually, the inner circle is a sphere within which the attenuation
 settings start to be calculated from the «floor», that is to say from
 the coordinates (0.0, 0.0):
 
-![](sources/media-en/media/image61.jpg){width="2.7in"
-height="2.5589424759405075in"}
+<img src="/media-en/media/image61.jpg"
+style="width:2.7in;height:2.55894in" />
 
 Attenuation settings parameters:
 
-![](sources/media-en/media/image62.jpg){width="3.0in"
-height="0.7980774278215224in"}![](sources/media-en/media/image63.jpg){width="3.0in"
-height="0.8in"}
+<img src="/media-en/media/image62.jpg"
+style="width:3in;height:0.79808in" /><img src="/media-en/media/image63.jpg"
+style="width:3in;height:0.8in" />
 
-![](sources/media-en/media/image64.jpg){width="3.0in"
-height="1.1916666666666667in"}![](sources/media-en/media/image65.jpg){width="3.0in"
-height="1.19in"}
+<img src="/media-en/media/image64.jpg"
+style="width:3in;height:1.19167in" /><img src="/media-en/media/image65.jpg"
+style="width:3in;height:1.19in" />
 
 • On/Off
 
@@ -1872,12 +1888,12 @@ stereo DAWs the possibility to manage multispeaker environment like
 cinema standards. But of course, the real power of *SpatGRIS* lies in
 its 3D capabilities.
 
-The following images present an example of a 2D speaker setup --- an
-octophony---, and a 3D speaker setup --- a cube of 24 (3x8) speakers.
+The following images present an example of a 2D speaker setup — an
+octophony—, and a 3D speaker setup — a cube of 24 (3x8) speakers.
 
-![](sources/media-en/media/image66.jpg){width="2.7389566929133857in"
-height="2.3622047244094486in"}![](sources/media-en/media/image67.jpg){width="2.594757217847769in"
-height="2.3622047244094486in"}
+<img src="/media-en/media/image66.jpg"
+style="width:2.73896in;height:2.3622in" /><img src="/media-en/media/image67.jpg"
+style="width:2.59476in;height:2.3622in" />
 
 ## 5.8. Speaker Setup
 
@@ -1885,17 +1901,17 @@ To design a speaker setup is the first step of the process. It is done
 in the *Speaker Setup Edition* window (View menu, Opt-W).
 
 A Templates menu is provided with different speaker setups in DOME or
-CUBE format. The speaker setups in the Templates can't be modified. You
+CUBE format. The speaker setups in the Templates can’t be modified. You
 can use them, edit them, and save them under the name of your choice by
 using Save Speaker Setup As from the File menu.
 
-![](sources/media-en/media/image68.jpg){width="2.0646391076115487in"
-height="1.5in"}
+<img src="/media-en/media/image68.jpg"
+style="width:2.06464in;height:1.5in" />
 
 ### 5.8.1. Speaker Setup Edition
 
-![](sources/media-en/media/image69.png){width="6.2in"
-height="3.7356463254593177in"}
+<img src="/media-en/media/image69.png"
+style="width:6.2in;height:3.73565in" />
 
 Since the introduction of the MBAP (version 3.20 and up) in CUBE mode,
 the Global Sound Diffusion parameter allows changing the diffusion of
@@ -1910,7 +1926,7 @@ Elevation) or by Cartesian values in CUBE (X, Y, Z). In DOME mode,
 Cartesian values are greyed out. In CUBE mode, polar values are greyed
 out.
 
-### 5.8.2. Speakers' order and image representation
+### 5.8.2. Speakers’ order and image representation
 
 By clicking at the top of each column (except for Gain and Highpass) in
 the Speaker Setup Edition window, the order of the speakers can be
@@ -1920,13 +1936,13 @@ reflected in the Speakers VU-meter ordering.
 
 Consecutive order:
 
-![](sources/media-en/media/image70.jpg){width="4.724409448818897in"
-height="1.4173228346456692in"}
+<img src="/media-en/media/image70.jpg"
+style="width:4.72441in;height:1.41732in" />
 
 Odd and even order followed by direct outputs:
 
-![](sources/media-en/media/image71.jpg){width="4.724409448818897in"
-height="1.3537259405074367in"}
+<img src="/media-en/media/image71.jpg"
+style="width:4.72441in;height:1.35373in" />
 
 Here is an example of a speaker order that represents the actual
 position of the speakers in a studio with respect to the Y-axis (See
@@ -1936,25 +1952,25 @@ The speakers 11 and 20 are in the centre, and the subs on the extreme
 left and right like they are placed in the studio. All the other
 speakers are equally distributed along the Y-axis:
 
-![](sources/media-en/media/image72.jpg){width="6.25in"
-height="2.02457239720035in"}
+<img src="/media-en/media/image72.jpg"
+style="width:6.25in;height:2.02457in" />
 
 ### 5.8.3. Minimal requirements
 
 The DOME in particular needs minimal requirements to perform the VBAP
-calculations. If the speaker setup doesn't fulfill them, you'll be
+calculations. If the speaker setup doesn’t fulfill them, you’ll be
 warned by one or two of these messages:
 
-![](sources/media-en/media/image73.jpg){width="3.0in"
-height="1.0in"}![](sources/media-en/media/image74.jpg){width="3.0in"
-height="1.0in"}
+<img src="/media-en/media/image73.jpg"
+style="width:3in;height:1in" /><img src="/media-en/media/image74.jpg"
+style="width:3in;height:1in" />
 
 ### 5.8.4. Direct outputs
 
-![](sources/media-en/media/image75.jpg){width="0.38819444444444445in"
-height="1.9680555555555554in"}A sound Source can be sent directly to a
-speaker via a direct output. There are two types of direct outputs in
-*SpatGRIS*, which was not the case before.
+<img src="/media-en/media/image75.jpg"
+style="width:0.38819in;height:1.96806in" />A sound Source can be sent
+directly to a speaker via a direct output. There are two types of direct
+outputs in *SpatGRIS*, which was not the case before.
 
 #### Independent direct outputs
 
@@ -1962,8 +1978,8 @@ There are independent direct outputs intended for special uses like the
 subwoofers. These speakers are identified with an orange rectangle in
 the Speaker Setup Edition window.
 
-![](sources/media-en/media/image76.jpg){width="5.9in"
-height="0.533267716535433in"}
+<img src="/media-en/media/image76.jpg"
+style="width:5.9in;height:0.53327in" />
 
 Their placement in the setup is not that critical, since they are
 independent of the spatialization, but if you intend to downmix your
@@ -1971,8 +1987,8 @@ project in a two-channel format, their sound will be placed in the
 stereo image according to their left-right position. They are
 represented in black in the 3D SpeakerView.
 
-![](sources/media-en/media/image77.jpg){width="6.180555555555555in"
-height="1.3888888888888888in"}
+<img src="/media-en/media/image77.jpg"
+style="width:6.18056in;height:1.38889in" />
 
 #### Spatialized direct outputs
 
@@ -1997,8 +2013,8 @@ source 8 to speaker 14. Both speakers 9 and 14 remains in the DOME
 configuration. Finally, we have sources 15-16 sent to independent direct
 outputs 17-18:
 
-![](sources/media-en/media/image78.png){width="4.566929133858268in"
-height="5.708661417322834in"}
+<img src="/media-en/media/image78.png"
+style="width:4.56693in;height:5.70866in" />
 
 NOTE: Since direct outputs are assigned to specific outputs, if you open
 a project with different numbers of direct outputs than those in the
@@ -2008,7 +2024,7 @@ that!
 ### 5.8.5. Show Speaker Numbers
 
 The location of the speakers and their numbers can be viewed in the 3D
-window by choosing the Show Speaker Numbers option (Opt-Z[^13]). Direct
+window by choosing the Show Speaker Numbers option (Opt-Z[13]). Direct
 outputs are shown in black. Clicking on a speaker or its number selects
 it; right-clicking deselects it. In the above image, speaker 3 is
 selected and independent direct outputs 17-18 are in black. Show Speaker
@@ -2022,8 +2038,8 @@ speakers. The two main sections are the *Sources* (from the DAW through
 sent directly from the sources to these speakers (for subwoofers for
 instance).
 
-![](sources/media-en/media/image79.png){width="5.25in"
-height="4.861111111111111in"}
+<img src="/media-en/media/image79.png"
+style="width:5.25in;height:4.86111in" />
 
 In this example, the sources are made of 4 X octophonic sources (1-32),
 plus 1 X stereo source (33-34), 1 X stereo spatialized direct outputs
@@ -2036,8 +2052,8 @@ colours, distributed on a 32-speaker dome with 2 independent direct outs
 
 Each source and speaker have a *Mute* and a *Solo* button.
 
-![](sources/media-en/media/image80.png){width="3.4090912073490816in"
-height="3.0in"}
+<img src="/media-en/media/image80.png"
+style="width:3.40909in;height:3in" />
 
 ### 5.9.2. Peak indicators and Reset
 
@@ -2057,19 +2073,19 @@ your sound card. Only your sound card outputs are available for the
 stereo reduction. When using the computer internal sound card, the
 outputs are allocated to numbers 1 and 2. 
 
-![](sources/media-en/media/image81.jpg){width="2.385586176727909in"
-height="0.8in"}
+<img src="/media-en/media/image81.jpg"
+style="width:2.38559in;height:0.8in" />
 
 This mode can be used to downsize a multichannel project to stereo. The
 sources are simply placed on the Y-axis from left to right. Only the
 azimuth span is used in STEREO mode, not the Elevation span. Keep in
 mind that the sources, except for the direct outputs, are never placed
-directly on a speaker, but on many speakers --- at least three on a
-DOME, many more on a CUBE. So, the projection of the sources is probably
-not accurate as it shows on this representation!
+directly on a speaker, but on many speakers — at least three on a DOME,
+many more on a CUBE. So, the projection of the sources is probably not
+accurate as it shows on this representation!
 
-![](sources/media-en/media/image82.png){width="5.0in"
-height="3.173431758530184in"}
+<img src="/media-en/media/image82.png"
+style="width:5in;height:3.17343in" />
 
 ### 5.10.2. BINAURAL
 
@@ -2084,7 +2100,7 @@ the gaming and the Virtual Reality industries. To minimize the number of
 calculations (HRTF can be very demanding in terms of computing power),
 *SpatGRIS* first calculates a VBAP spatialization over 16 speakers (with
 the BINAURAL_SPEAKER_SETUP, made invisible in this version) and then
-transfers the result to HRTF. Don\'t worry, even if your speaker setup
+transfers the result to HRTF. Don't worry, even if your speaker setup
 contains more than 16 speakers, no information is lost in the process.
 BINAURAL modes use the stereo outputs of your choice. Both Spans are
 available in BINAURAL mode.
@@ -2102,7 +2118,7 @@ functional in stereo reduction.
 When the composition of the spatialization is completed, you have two
 options:
 
-1\. To play the piece \"live\" with your DAW and *SpatGRIS*.
+1\. To play the piece "live" with your DAW and *SpatGRIS*.
 
 2\. To record the spatialization to as many audio channels as the number
 of the speakers in the setup.
@@ -2113,8 +2129,8 @@ preferences) or one interleaved file.
 To record: press the big red button on the bottom right of the main
 window.
 
-![](sources/media-en/media/image83.jpg){width="0.7916666666666666in"
-height="0.7916666666666666in"}
+<img src="/media-en/media/image83.jpg"
+style="width:0.79167in;height:0.79167in" />
 
 A pop-up window will then open, allowing you to specify:
 
@@ -2130,23 +2146,23 @@ A pop-up window will then open, allowing you to specify:
 (chapter 6).
 
 Pressing the Record button will start the recording and the timer, and
-it will change the Record button to a blinking one. When it's completed,
+it will change the Record button to a blinking one. When it’s completed,
 you can press the Record button again to stop the recording. You can
 then import the separate mono files (or an interleaved file) into any
 DAW to play your piece in concert.
 
-![](sources/media-en/media/image84.jpg){width="4.5in"
-height="1.202884951881015in"}
+<img src="/media-en/media/image84.jpg"
+style="width:4.5in;height:1.20288in" />
 
 Keep in mind that with interleaved files, there are some limitations,
 and these limitations are reached quite rapidly on big projects:
 
 • AIFF is limited to 2 GB.
 
-• WAV is limited to 4 GB[^14].
+• WAV is limited to 4 GB[14].
 
-Also, if you record a file with many channels, you'll find very few DAWs
-capable of opening it. So, it's preferable to record Mono files.
+Also, if you record a file with many channels, you’ll find very few DAWs
+capable of opening it. So, it’s preferable to record Mono files.
 
 # 6. PLAYER
 
@@ -2169,17 +2185,17 @@ placed in the same folder and must remain there for the PLAYER to work
 properly. These coordinates will be used by the PLAYER to correctly
 position the sources in any given listening setup.
 
-![](sources/media-en/media/image85.jpg){width="4.5in"
-height="1.1701924759405073in"}
+<img src="/media-en/media/image85.jpg"
+style="width:4.5in;height:1.17019in" />
 
-NOTE: Only mono files work with the PLAYER. You\'ll get an error message
+NOTE: Only mono files work with the PLAYER. You'll get an error message
 if you try to open an interleaved file. The reason for this is that the
 PLAYER uses the output numbers in the name of the audio files for the
 spatialization. There is no way to encode this information in an
 interleaved sound file.
 
-![](sources/media-en/media/image86.jpg){width="1.4773589238845144in"
-height="1.5in"}
+<img src="/media-en/media/image86.jpg"
+style="width:1.47736in;height:1.5in" />
 
 ## 6.2. To open and to play a project with the PLAYER
 
@@ -2196,23 +2212,23 @@ templates.
 
 ### 6.2.2. Open the PLAYER window and load the files
 
-View Menu ---\> Show Player View
+View Menu —\> Show Player View
 
 Load the audio files and Speaker Setup folder:
 
-![](sources/media-en/media/image87.jpg){width="5.5in"
-height="2.928044619422572in"}
+<img src="/media-en/media/image87.jpg"
+style="width:5.5in;height:2.92804in" />
 
 The PLAYER is now showing the basic waveform of the audio files:
 
-![](sources/media-en/media/image88.jpg){width="5.5in"
-height="2.928044619422572in"}
+<img src="/media-en/media/image88.jpg"
+style="width:5.5in;height:2.92804in" />
 
 The PLAYER will also show the speaker setup with which the work was
 recorded. The original speaker locations are shown in red:
 
-![](sources/media-en/media/image89.jpg){width="4.714285870516186in"
-height="3.0in"}
+<img src="/media-en/media/image89.jpg"
+style="width:4.71429in;height:3in" />
 
 Please note that the current project loaded in *SpatGRIS* is being
 replaced by the project of the recording.
@@ -2220,24 +2236,26 @@ replaced by the project of the recording.
 ### 6.2.3. To play the piece
 
 The PLAYER is now ready to play the piece. Just use the Play and Stop
-buttons. It\'s also possible to click anywhere in the soundfile to start
+buttons. It's also possible to click anywhere in the soundfile to start
 the playback from there.
 
 ### 6.2.4. DOME in CUBE or CUBE in DOME
 
-Here\'s an example of a recording made with a dome setup
+Here's an example of a recording made with a dome setup
 (Dome20(8-6-4-2)Subs4) and played within a cube setup
 (Cube24(2X12)Subs2). As one can see the shape of the original dome is
 well reproduced in the listening cube:
 
-![](sources/media-en/media/image90.jpg){width="5.5in" height="3.0in"}
+<img src="/media-en/media/image90.jpg"
+style="width:5.5in;height:3in" />
 
 Here is another example showing the opposite situation, a cube recording
 (Cube24(3X8)Subs2) played within a dome (Dome20(8-6-4-2)Subs4). As one
 can see the shape of the original cube is well reproduced in the
 listening dome:
 
-![](sources/media-en/media/image91.jpg){width="5.5in" height="3.0in"}
+<img src="/media-en/media/image91.jpg"
+style="width:5.5in;height:3in" />
 
 ### 6.2.5. Regarding the direct outs in the PLAYER
 
@@ -2251,8 +2269,8 @@ assigned alternatively the direct output numbers from the original to
 the available direct outs of the listening setup. These output numbers
 can be manually adjusted afterwards:
 
-![](sources/media-en/media/image92.jpg){width="5.5in"
-height="2.878685476815398in"}
+<img src="/media-en/media/image92.jpg"
+style="width:5.5in;height:2.87869in" />
 
 ## 6.3. To save a PLAYER project
 
@@ -2264,8 +2282,8 @@ All the files should remain in the same folder. The next time you use
 the Load audio files and Speaker Setup folder button, everything will be
 placed correctly according to the way it was saved.
 
-![](sources/media-en/media/image93.jpg){width="5.5in"
-height="2.9427351268591426in"}
+<img src="/media-en/media/image93.jpg"
+style="width:5.5in;height:2.94274in" />
 
 NOTE: A player project remains active until the PLAYER window is open.
 When you close it, SpatGRIS switches to its normal input mode, waiting
@@ -2278,26 +2296,26 @@ for audio and OSC to come from either a sequencer or any other software.
 In the File menu you will find all the project-related functions, where
 you can:
 
-![](sources/media-en/media/image94.jpg){width="1.6in"
-height="1.5756944444444445in"}
+<img src="/media-en/media/image94.jpg"
+style="width:1.6in;height:1.57569in" />
 
-![](sources/media-en/media/image95.png){width="1.6in"
-height="1.3590277777777777in"}• Create a New Project.
+<img src="/media-en/media/image95.png"
+style="width:1.6in;height:1.35903in" />• Create a New Project.
 
 • Open an existing one.
 
 • Open a project from the Project Templates folder. These templates
-can't be modified but they can be edited and saved as a new file.
+can’t be modified but they can be edited and saved as a new file.
 
-• Save Project or Save As --- make a copy.
+• Save Project or Save As — make a copy.
 
 • Open a speaker setup.
 
 • Open a speaker setup from the Speaker SetupTemplates folder. These
-templates can't be modified but they can be edited and saved as a new
+templates can’t be modified but they can be edited and saved as a new
 file.
 
-• Save Speaker Setup or Save As --- make a copy.
+• Save Speaker Setup or Save As — make a copy.
 
 • Open the Settings window.
 
@@ -2307,10 +2325,10 @@ Under the View menu, you can choose from different perspectives to
 visualize the speakers and sources in real time. The key modifier in
 this menu is Option (Opt) for Mac and Alt for Windows.
 
-![](sources/media-en/media/image96.png){width="1.8in"
-height="2.0625in"}![](sources/media-en/media/image49.jpg){width="1.8in"
-height="2.687412510936133in"}• Show 2D view: A 2D view from the top of
-the space is given showing only the sources.
+<img src="/media-en/media/image96.png"
+style="width:1.8in;height:2.0625in" /><img src="/media-en/media/image49.jpg"
+style="width:1.8in;height:2.68741in" />• Show 2D view: A 2D view from
+the top of the space is given showing only the sources.
 
 • Speaker Setup Edition: Opens a window to access all the given
 parameters for a valid configuration of speakers.
@@ -2322,11 +2340,11 @@ message streams.
 
 • Show SpeakerView: open the 3D view of the speakers
 
----
+—
 
 Keep SpeakerView On Top
 
----
+—
 
 • Show Hall: show the walls of the hall
 
@@ -2348,17 +2366,26 @@ when the DAW is stopped. This option can be useful for checking that
 there are no duplicate OSC channels sent from *ControlGRIS* to
 *SpatGRIS*.
 
-![](sources/media-en/media/image97.jpg){width="2.1232086614173227in"
-height="1.968503937007874in"}![](sources/media-en/media/image98.jpg){width="2.1232086614173227in"
-height="1.968503937007874in"}
+<img src="/media-en/media/image97.jpg"
+style="width:2.12321in;height:1.9685in" /><img src="/media-en/media/image98.jpg"
+style="width:2.12321in;height:1.9685in" />
 
-  -----------------------------------------------------------------------
-  *Show Source Activity* Off: shows *Show Source Activity* On: shows only
-  the position of all the sources   the real activity of the sources in
-                                    play mode
-  --------------------------------- -------------------------------------
-
-  -----------------------------------------------------------------------
+<table>
+<colgroup>
+<col style="width: 46%" />
+<col style="width: 53%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><em>Show Source Activity</em> Off: shows the position of all the
+sources</th>
+<th><em>Show Source Activity</em> On: shows only the real activity of
+the sources in play mode</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
 
 • Show Speaker Level: Shows how much energy each speaker delivers. From
 grey (nothing) to white (maximum).
@@ -2366,7 +2393,7 @@ grey (nothing) to white (maximum).
 • Show Sphere/Cube: If you have the chance to play in a full sphere or
 cube!
 
----
+—
 
 • Colorize Sources: This option allows you to set all the inputs to a
 different colour within the visible spectra from red to purple. Be
@@ -2389,21 +2416,21 @@ Project, Speaker Setup and Settings.
 • Save Speaker Setup. A speaker setup is coupled to an installation
 placed in a space.
 
-• Save Settings. User settings are linked to a workstation --- computer
-and audio interface --- including the stereo outputs used for stereo
+• Save Settings. User settings are linked to a workstation — computer
+and audio interface — including the stereo outputs used for stereo
 reduction (even without showing it)
 
 • Save Settings. The stereo outputs are coupled to a specific audio
 interface.
 
 Speaker setups and Project documents are saved under the .xml format.
-There is no distinction between them. The Project document doesn\'t
+There is no distinction between them. The Project document doesn't
 include the speaker setup and they are therefore independent.
 Consequently, we strongly recommend two things:
 
-• Add the word \"Speaker Dome\" or \" Speaker Cube\" to the name of your
-speaker setups and \"Project Dome\", \"Project Cube\" or \"Project
-Hybrid\" to the name of your project files.
+• Add the word "Speaker Dome" or " Speaker Cube" to the name of your
+speaker setups and "Project Dome", "Project Cube" or "Project Hybrid" to
+the name of your project files.
 
 • Save the DOME or the CUBE speaker setups in two separate folders in a
 folder named *Speaker*s.
@@ -2420,20 +2447,20 @@ right classification.
 project.
 
 If you try to open a *SpatGRIS* project with the command Load Speaker
-Setup (or the opposite), you\'ll be warned:
+Setup (or the opposite), you'll be warned:
 
-![](sources/media-en/media/image99.jpg){width="2.752648731408574in"
-height="1.1023622047244095in"}![](sources/media-en/media/image100.jpg){width="2.75in"
-height="1.1023622047244095in"}
+<img src="/media-en/media/image99.jpg"
+style="width:2.75265in;height:1.10236in" /><img src="/media-en/media/image100.jpg"
+style="width:2.75in;height:1.10236in" />
 
 NOTE: SpatGRIS documents adopt a new format and are not backward
 compatible with older versions of SpatGRIS. By trying to open a SpatGRIS
-project or a speaker setup from the version 2, you'll get one of these
+project or a speaker setup from the version 2, you’ll get one of these
 scary messages! Your files are OK, just not compatible:
 
-![](sources/media-en/media/image101.jpg){width="2.75in"
-height="1.1in"}![](sources/media-en/media/image102.jpg){width="2.75in"
-height="1.1in"}
+<img src="/media-en/media/image101.jpg"
+style="width:2.75in;height:1.1in" /><img src="/media-en/media/image102.jpg"
+style="width:2.75in;height:1.1in" />
 
 ## 7.4. Representations
 
@@ -2447,18 +2474,18 @@ the space and the Spans spread locally around the sources.
 The 3D window in DOME mode (left) or in CUBE mode (right) of the same
 session. Speakers and Sources are represented:
 
-![](sources/media-en/media/image103.jpg){width="2.75in"
-height="2.2998972003499563in"}![](sources/media-en/media/image104.jpg){width="2.75in"
-height="2.3028313648293963in"}
+<img src="/media-en/media/image103.jpg"
+style="width:2.75in;height:2.2999in" /><img src="/media-en/media/image104.jpg"
+style="width:2.75in;height:2.30283in" />
 
 ### 7.4.2. 2D Representation
 
 The 2D view in DOME mode (left) or in CUBE mode (right) of the same
 session. Only Sources are represented:
 
-![](sources/media-en/media/image105.jpg){width="2.3in"
-height="2.3963243657042868in"}![](sources/media-en/media/image106.jpg){width="2.3in"
-height="2.396078302712161in"}
+<img src="/media-en/media/image105.jpg"
+style="width:2.3in;height:2.39632in" /><img src="/media-en/media/image106.jpg"
+style="width:2.3in;height:2.39608in" />
 
 ## 7.5. Performance and CPU burst
 
@@ -2493,10 +2520,10 @@ realistic situations!
 the reliability of the setup. Few tracks over a big speaker setup will
 give the same result as many tracks over a small speaker setup.
 
-If the CPU overpass 100%, this is the warning you\'ll get this alert:
+If the CPU overpass 100%, this is the warning you'll get this alert:
 
-![](sources/media-en/media/image107.jpg){width="1.600479002624672in"
-height="0.3937007874015748in"}
+<img src="/media-en/media/image107.jpg"
+style="width:1.60048in;height:0.3937in" />
 
 Want to know what to expect? Try it for yourself!
 
@@ -2505,8 +2532,8 @@ Want to know what to expect? Try it for yourself!
 The Help menu comprises information about the GRIS and this manual,
 under the Open Documentation option.
 
-![](sources/media-en/media/image12.jpg){width="1.8122222222222222in"
-height="0.7in"}
+<img src="/media-en/media/image12.jpg"
+style="width:1.81222in;height:0.7in" />
 
 **Take the plunge and have fun!**
 
@@ -2516,184 +2543,259 @@ height="0.7in"}
 
 ### 8.1.1. Azimuth-Elevation and Azimuth-Distance
 
-+-----------------------------------------------------------------------+
-| **1) Independent** MONO + STEREO + MULTIPHONIC                        |
-+=======================================================================+
-| !                                                                     |
-| [](sources/media-en/media/image108.jpeg){width="1.3333333333333333in" |
-| height="1.0in"}This mode is selected by default. The sources can be   |
-| moved independently from one                                          |
-| another.![](sources/media-en/media/image109.jpeg){width="1.0in"       |
-| height="1.0in"}                                                       |
-+-----------------------------------------------------------------------+
-| **2) Circular** STEREO + MULTIPHONIC                                  |
-+-----------------------------------------------------------------------+
-| !                                                                     |
-| [](sources/media-en/media/image110.jpeg){width="0.9528827646544182in" |
-| height="1.0in"}This mode enables the circular grouped movement. The   |
-| angles between the sources remain constant while the radius adjusts   |
-| proportionally.                                                       |
-|                                                                       |
-| !                                                                     |
-| [](sources/media-en/media/image111.jpeg){width="0.9978816710411199in" |
-| height="1.0in"}                                                       |
-+-----------------------------------------------------------------------+
-| **3) Circular Fixed Radius** STEREO + MULTIPHONIC                     |
-+-----------------------------------------------------------------------+
-| ![](sources/media-en/media/image112.jpeg){width="1.046550743657043in" |
-| height="1.0in"}The sources are linked in a circular motion by the     |
-| Radius parameter, which remains fixed and equal. The relative         |
-| distance between each source and the centre is the same for all       |
-| sources.!                                                             |
-| [](sources/media-en/media/image113.jpeg){width="0.9978816710411199in" |
-| height="1.0in"}                                                       |
-+-----------------------------------------------------------------------+
-| **4) Circular Fixed Angle** STEREO + MULTIPHONIC                      |
-+-----------------------------------------------------------------------+
-| !                                                                     |
-| [](sources/media-en/media/image114.jpeg){width="0.8333333333333334in" |
-| height="1.0in"}The sources are linked in a circular motion with the   |
-| Angle parameter, which remains fixed and equal.                       |
-|                                                                       |
-| For example, in octophony the opening angle between each of the       |
-| sources will be fixed to                                              |
-| 45°.![](sources/media-en/media/image115.jpeg){width="1.0in"           |
-| height="1.0in"}                                                       |
-+-----------------------------------------------------------------------+
-| **5) Circular Fully Fixed** STEREO + MULTIPHONIC                      |
-+-----------------------------------------------------------------------+
-| !                                                                     |
-| [](sources/media-en/media/image116.jpeg){width="1.0016699475065616in" |
-| height="1.0in"}The sources are linked in a circular motion by both    |
-| the Radius and Angle parameters, which remain fixed and equal. The    |
-| opening between the sources and their radius is therefore always      |
-| identical.![](sources/media-en/media/image117.jpeg){width="1.0in"     |
-| height="1.0in"}                                                       |
-+-----------------------------------------------------------------------+
-| **6) Delta Lock** STEREO + MULTIPHONIE                                |
-+-----------------------------------------------------------------------+
-| !                                                                     |
-| [](sources/media-en/media/image118.jpeg){width="1.2170384951881015in" |
-| height="1.0in"}This mode locks the position of the sources in         |
-| relation to others along the X and Y axes, without the possibility of |
-| rotation.![](sources/media-en/media/image119.jpeg){width="1.0in"      |
-| height="1.0in"}                                                       |
-+-----------------------------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>1) Independent</strong> MONO + STEREO + MULTIPHONIC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="/media-en/media/image108.jpeg"
+style="width:1.33333in;height:1in" />This mode is selected by default.
+The sources can be moved independently from one another.<img
+src="/media-en/media/image109.jpeg"
+style="width:1in;height:1in" /></td>
+</tr>
+<tr class="even">
+<td><strong>2) Circular</strong> STEREO + MULTIPHONIC</td>
+</tr>
+<tr class="odd">
+<td><p><img src="/media-en/media/image110.jpeg"
+style="width:0.95288in;height:1in" />This mode enables the circular
+grouped movement. The angles between the sources remain constant while
+the radius adjusts proportionally.</p>
+<p><img src="/media-en/media/image111.jpeg"
+style="width:0.99788in;height:1in" /></p></td>
+</tr>
+<tr class="even">
+<td><strong>3) Circular Fixed Radius</strong> STEREO + MULTIPHONIC</td>
+</tr>
+<tr class="odd">
+<td><img src="/media-en/media/image112.jpeg"
+style="width:1.04655in;height:1in" />The sources are linked in a
+circular motion by the Radius parameter, which remains fixed and equal.
+The relative distance between each source and the centre is the same for
+all sources.<img src="/media-en/media/image113.jpeg"
+style="width:0.99788in;height:1in" /></td>
+</tr>
+<tr class="even">
+<td><strong>4) Circular Fixed Angle</strong> STEREO + MULTIPHONIC</td>
+</tr>
+<tr class="odd">
+<td><p><img src="/media-en/media/image114.jpeg"
+style="width:0.83333in;height:1in" />The sources are linked in a
+circular motion with the Angle parameter, which remains fixed and
+equal.</p>
+<p>For example, in octophony the opening angle between each of the
+sources will be fixed to 45°.<img
+src="/media-en/media/image115.jpeg"
+style="width:1in;height:1in" /></p></td>
+</tr>
+<tr class="even">
+<td><strong>5) Circular Fully Fixed</strong> STEREO + MULTIPHONIC</td>
+</tr>
+<tr class="odd">
+<td><img src="/media-en/media/image116.jpeg"
+style="width:1.00167in;height:1in" />The sources are linked in a
+circular motion by both the Radius and Angle parameters, which remain
+fixed and equal. The opening between the sources and their radius is
+therefore always identical.<img
+src="/media-en/media/image117.jpeg"
+style="width:1in;height:1in" /></td>
+</tr>
+<tr class="even">
+<td><strong>6) Delta Lock</strong> STEREO + MULTIPHONIE</td>
+</tr>
+<tr class="odd">
+<td><img src="/media-en/media/image118.jpeg"
+style="width:1.21704in;height:1in" />This mode locks the position of the
+sources in relation to others along the X and Y axes, without the
+possibility of rotation.<img src="/media-en/media/image119.jpeg"
+style="width:1in;height:1in" /></td>
+</tr>
+</tbody>
+</table>
 
-  ------------------------------------------------------------------------
-  **7) Symmetric X** STEREO
-  ------------------------------------------------------------------------
-  ![](sources/media-en/media/image120.jpeg){width="1.3333333333333333in"
-  height="1.0in"}This mode enables the symmetry between two sources
-  following the
-  X axis.![](sources/media-en/media/image121.jpeg){width="1.0in"
-  height="1.0in"}
-
-  **8) Symmetric Y** STEREO
-
-  ![](sources/media-en/media/image122.jpeg){width="1.3333333333333333in"
-  height="1.0in"}This mode enables the symmetry between two sources
-  following the
-  Y axis.![](sources/media-en/media/image123.jpeg){width="1.0in"
-  height="1.0in"}
-  ------------------------------------------------------------------------
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>7) Symmetric X</strong> STEREO</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="/media-en/media/image120.jpeg"
+style="width:1.33333in;height:1in" />This mode enables the symmetry
+between two sources following the X axis.<img
+src="/media-en/media/image121.jpeg"
+style="width:1in;height:1in" /></td>
+</tr>
+<tr class="even">
+<td><strong>8) Symmetric Y</strong> STEREO</td>
+</tr>
+<tr class="odd">
+<td><img src="/media-en/media/image122.jpeg"
+style="width:1.33333in;height:1in" />This mode enables the symmetry
+between two sources following the Y axis.<img
+src="/media-en/media/image123.jpeg"
+style="width:1in;height:1in" /></td>
+</tr>
+</tbody>
+</table>
 
 ### 8.1.2. Elevation (CUBE mode only)
 
-  -----------------------------------------------------------------------
-  **1) Independent** MONO + STEREO + MULTIPHONIC
-  -----------------------------------------------------------------------
-  ![](sources/media-en/media/image124.jpg){width="0.9465409011373578in"
-  height="1.0in"} This mode is selected by default. The sources can be
-  moved independently from one another.
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>1) Independent</strong> MONO + STEREO + MULTIPHONIC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="/media-en/media/image124.jpg"
+style="width:0.94654in;height:1in" /> This mode is selected by default.
+The sources can be moved independently from one another.</td>
+</tr>
+<tr class="even">
+<td><strong>2) Fixed Elevation</strong> STEREO + MULTIPHONIC</td>
+</tr>
+<tr class="odd">
+<td><img src="/media-en/media/image125.jpg"
+style="width:0.9375in;height:1in" />Same elevation for each source.</td>
+</tr>
+<tr class="even">
+<td><strong>3) Bottom Top</strong> STEREO + MULTIPHONIC</td>
+</tr>
+<tr class="odd">
+<td><img src="/media-en/media/image126.jpeg"
+style="width:0.94643in;height:1in" />This mode locks the position of the
+sources from a minimum to a maximum value in a linear relationship.</td>
+</tr>
+<tr class="even">
+<td><strong>4) Top Bottom</strong> STEREO + MULTIPHONIC</td>
+</tr>
+<tr class="odd">
+<td><img src="/media-en/media/image127.jpg"
+style="width:0.94028in;height:1in" />This mode locks the position of the
+sources from a maximum to a minimum value in a linear relationship.</td>
+</tr>
+</tbody>
+</table>
 
-  **2) Fixed Elevation** STEREO + MULTIPHONIC
-
-  ![](sources/media-en/media/image125.jpg){width="0.9375in"
-  height="1.0in"}Same elevation for each source.
-
-  **3) Bottom Top** STEREO + MULTIPHONIC
-
-  ![](sources/media-en/media/image126.jpeg){width="0.946428258967629in"
-  height="1.0in"}This mode locks the position of the sources from a
-  minimum to a maximum value in a linear relationship.
-
-  **4) Top Bottom** STEREO + MULTIPHONIC
-
-  ![](sources/media-en/media/image127.jpg){width="0.9402777777777778in"
-  height="1.0in"}This mode locks the position of the sources from a
-  maximum to a minimum value in a linear relationship.
-  -----------------------------------------------------------------------
-
-  -----------------------------------------------------------------------
-  **5) Delta Lock** STEREO + MULTIPHONIC
-  -----------------------------------------------------------------------
-  ![](sources/media-en/media/image128.jpg){width="0.9465409011373578in"
-  height="1.0in"}This mode locks the position of the sources in relation
-  to others.
-
-  -----------------------------------------------------------------------
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>5) Delta Lock</strong> STEREO + MULTIPHONIC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="/media-en/media/image128.jpg"
+style="width:0.94654in;height:1in" />This mode locks the position of the
+sources in relation to others.</td>
+</tr>
+</tbody>
+</table>
 
 ## 8.2. Trajectory descriptions
 
 ### 8.2.1. Azimuth-Elevation and Azimuth-Distance
 
-+-----------------------------------------------------------------------+
-| **1) Circle**                                                         |
-+=======================================================================+
-| ![](sources/media-en/media/image129.jpg){width="0.9409722222222222in" |
-| height="1.0in"}Circular motion around the centre.                     |
-|                                                                       |
-| Options: CW/CCW, Back & Forth, Dampening, Deviation.                  |
-+-----------------------------------------------------------------------+
-| **2) Ellipse**                                                        |
-+-----------------------------------------------------------------------+
-| ![](sources/media-en/media/image130.jpg){width="0.94080927384077in"   |
-| height="1.0in"}Elliptical motion around the centre.                   |
-|                                                                       |
-| Options: CW/CCW, Back & Forth, Dampening, Deviation.                  |
-+-----------------------------------------------------------------------+
-| **3) Spiral**                                                         |
-+-----------------------------------------------------------------------+
-| ![](sources/media-en/media/image131.jpg){width="0.9404757217847769in" |
-| height="1.0in"}Concentric motion around the centre.                   |
-|                                                                       |
-| Options: CW/CCW, Back & Forth, Dampening, Deviation.                  |
-+-----------------------------------------------------------------------+
-| **4) Square**                                                         |
-+-----------------------------------------------------------------------+
-| ![](sources/media-en/media/image132.jpg){width="0.9439479440069991in" |
-| height="1.0in"}Square shape around the centre.                        |
-|                                                                       |
-| Options: CW/CCW, Back & Forth, Dampening, Deviation.                  |
-+-----------------------------------------------------------------------+
-| **5) Triangle**                                                       |
-+-----------------------------------------------------------------------+
-| ![](sources/media-en/media/image133.jpg){width="0.9409722222222222in" |
-| height="1.0in"}Triangle shape around the centre.                      |
-|                                                                       |
-| Options: CW/CCW, Back & Forth, Dampening, Deviation.                  |
-+-----------------------------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>1) Circle</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><img src="/media-en/media/image129.jpg"
+style="width:0.94097in;height:1in" />Circular motion around the
+centre.</p>
+<p>Options: CW/CCW, Back &amp; Forth, Dampening, Deviation.</p></td>
+</tr>
+<tr class="even">
+<td><strong>2) Ellipse</strong></td>
+</tr>
+<tr class="odd">
+<td><p><img src="/media-en/media/image130.jpg"
+style="width:0.94081in;height:1in" />Elliptical motion around the
+centre.</p>
+<p>Options: CW/CCW, Back &amp; Forth, Dampening, Deviation.</p></td>
+</tr>
+<tr class="even">
+<td><strong>3) Spiral</strong></td>
+</tr>
+<tr class="odd">
+<td><p><img src="/media-en/media/image131.jpg"
+style="width:0.94048in;height:1in" />Concentric motion around the
+centre.</p>
+<p>Options: CW/CCW, Back &amp; Forth, Dampening, Deviation.</p></td>
+</tr>
+<tr class="even">
+<td><strong>4) Square</strong></td>
+</tr>
+<tr class="odd">
+<td><p><img src="/media-en/media/image132.jpg"
+style="width:0.94395in;height:1in" />Square shape around the centre.</p>
+<p>Options: CW/CCW, Back &amp; Forth, Dampening, Deviation.</p></td>
+</tr>
+<tr class="even">
+<td><strong>5) Triangle</strong></td>
+</tr>
+<tr class="odd">
+<td><p><img src="/media-en/media/image133.jpg"
+style="width:0.94097in;height:1in" />Triangle shape around the
+centre.</p>
+<p>Options: CW/CCW, Back &amp; Forth, Dampening, Deviation.</p></td>
+</tr>
+</tbody>
+</table>
 
 ### 8.2.2. Elevation (CUBE mode only)
 
-+-----------------------------------------------------------------------+
-| **1) Down Up**                                                        |
-+=======================================================================+
-| !                                                                     |
-| [](sources/media-en/media/image134.jpeg){width="0.9314643482064742in" |
-| height="1.0in"}From the bottom to the top.                            |
-|                                                                       |
-| Options: Back & Forth, Dampening.                                     |
-+-----------------------------------------------------------------------+
-| **2) Up Down**                                                        |
-+-----------------------------------------------------------------------+
-| !                                                                     |
-| [](sources/media-en/media/image135.jpeg){width="0.9406255468066491in" |
-| height="1.0in"} From the top to the bottom.                           |
-|                                                                       |
-| Options: Back & Forth, Dampening                                      |
-+-----------------------------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>1) Down Up</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><img src="/media-en/media/image134.jpeg"
+style="width:0.93146in;height:1in" />From the bottom to the top.</p>
+<p>Options: Back &amp; Forth, Dampening.</p></td>
+</tr>
+<tr class="even">
+<td><strong>2) Up Down</strong></td>
+</tr>
+<tr class="odd">
+<td><p><img src="/media-en/media/image135.jpeg"
+style="width:0.94063in;height:1in" /> From the top to the bottom.</p>
+<p>Options: Back &amp; Forth, Dampening</p></td>
+</tr>
+</tbody>
+</table>
 
 ## 8.3. OSC messages in SpatGRIS
 
@@ -2710,107 +2812,283 @@ the upstage centre (the positive Y direction).**
 
 **pol** moves a source using polar coordinates in radians.
 
-  -----------------------------------------------------------------------------
-  **#parameter**   **type**   **allowed values**   **meaning**
-  ---------------- ---------- -------------------- ----------------------------
-  1                string     pol                  \-
-
-  2                int        \[1, 256\]           Source index
-
-  3                float      any                  azimuth angle
-
-  4                float      any                  elevation angle
-
-  5                float      \[-3.0, 3.0\]        radius
-
-  6                float      \[0, 1\]             Horizontal span
-
-  7                float      \[0, 1\]             Vertical span
-  -----------------------------------------------------------------------------
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 13%" />
+<col style="width: 28%" />
+<col style="width: 39%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>#parameter</strong></th>
+<th><strong>type</strong></th>
+<th><strong>allowed values</strong></th>
+<th><strong>meaning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>string</td>
+<td>pol</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>int</td>
+<td>[1, 256]</td>
+<td>Source index</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>float</td>
+<td>any</td>
+<td>azimuth angle</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>float</td>
+<td>any</td>
+<td>elevation angle</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>float</td>
+<td>[-3.0, 3.0]</td>
+<td>radius</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>float</td>
+<td>[0, 1]</td>
+<td>Horizontal span</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>float</td>
+<td>[0, 1]</td>
+<td>Vertical span</td>
+</tr>
+</tbody>
+</table>
 
 ex : The message /spat/serv pol 7 0.0 0.78 0.5 0.1 0.2 moves the source
-#7 in the front at half elevation and placed at half the distance from
+\#7 in the front at half elevation and placed at half the distance from
 the origin, with an horizontal span of 10% and a vertical span of 20%.
 
-**\
+**  
 **
 
 **deg** moves a source using polar coordinates in degrees.
 
-  ------------------------------------------------------------------------
-  **index**      **type**   **allowed values** **meaning**
-  -------------- ---------- ------------------ ---------------------------
-  1              string     deg                \-
-
-  2              int        \[1, 256\]         Source index
-
-  3              float      any                azimuth angle
-
-  4              float      any                elevation angle
-
-  5              float      \[-3.0, 3.0\]      radius
-
-  6              float      \[0, 1\]           Horizontal span
-
-  7              float      \[0, 1\]           Vertical span
-  ------------------------------------------------------------------------
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 26%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>index</strong></th>
+<th><strong>type</strong></th>
+<th><strong>allowed values</strong></th>
+<th><strong>meaning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>string</td>
+<td>deg</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>int</td>
+<td>[1, 256]</td>
+<td>Source index</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>float</td>
+<td>any</td>
+<td>azimuth angle</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>float</td>
+<td>any</td>
+<td>elevation angle</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>float</td>
+<td>[-3.0, 3.0]</td>
+<td>radius</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>float</td>
+<td>[0, 1]</td>
+<td>Horizontal span</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>float</td>
+<td>[0, 1]</td>
+<td>Vertical span</td>
+</tr>
+</tbody>
+</table>
 
 ex : The message /spat/serv deg 7 -90.0 45.0 0.5 0.1 0.2 moves the
-source #7 at the extreme left, at half elevation and half the distance
+source \#7 at the extreme left, at half elevation and half the distance
 of the space, with an horizontal span of 10% and a vertical span of 20%.
 
 **car** moves a source using Cartesian coordinates.
 
-  -------------------------------------------------------------------------
-  **index**      **type**      **allowed        **meaning**
-                               values**         
-  -------------- ------------- ---------------- ---------------------------
-  1              string        car              \-
-
-  2              int           \[1, 256\]       Source index
-
-  3              float         \[-1.66, 1.66\]  x (left/right)
-
-  4              float         \[-1.66, 1.66\]  y (back/front)
-
-  5              float         \[-1.66, 1.66\]  z (down/up)
-
-  6              float         \[0, 1\]         Horizontal span
-
-  7              float         \[0, 1\]         Vertical span
-  -------------------------------------------------------------------------
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 18%" />
+<col style="width: 22%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>index</strong></th>
+<th><strong>type</strong></th>
+<th><strong>allowed values</strong></th>
+<th><strong>meaning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>string</td>
+<td>car</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>int</td>
+<td>[1, 256]</td>
+<td>Source index</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>float</td>
+<td>[-1.66, 1.66]</td>
+<td>x (left/right)</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>float</td>
+<td>[-1.66, 1.66]</td>
+<td>y (back/front)</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>float</td>
+<td>[-1.66, 1.66]</td>
+<td>z (down/up)</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>float</td>
+<td>[0, 1]</td>
+<td>Horizontal span</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>float</td>
+<td>[0, 1]</td>
+<td>Vertical span</td>
+</tr>
+</tbody>
+</table>
 
 ex : The message /spat/serv car 7 1.0 1.0 1.0 0.0 0.0 moves the source
-#7 at the top right corner, with no horizontal or vertical spans.
+\#7 at the top right corner, with no horizontal or vertical spans.
 
-**clr** clears a source\'s position.
+**clr** clears a source's position.
 
-  -------------------------------------------------------------------------
-  **index**        **type**     **allowed      **meaning**
-                                values**       
-  ---------------- ------------ -------------- ----------------------------
-  1                string       clr            clear
+<table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 17%" />
+<col style="width: 20%" />
+<col style="width: 39%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>index</strong></th>
+<th><strong>type</strong></th>
+<th><strong>allowed values</strong></th>
+<th><strong>meaning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>string</td>
+<td>clr</td>
+<td>clear</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>int</td>
+<td>[1, 256]</td>
+<td>Source index</td>
+</tr>
+</tbody>
+</table>
 
-  2                int          \[1, 256\]     Source index
-  -------------------------------------------------------------------------
+ex : The message /spat/serv clr 7 clears the seventh source's position.
 
-ex : The message /spat/serv clr 7 clears the seventh source\'s position.
+**alg** sets a source's hybrid spatialization mode.
 
-**alg** sets a source\'s hybrid spatialization mode.
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>index</strong></th>
+<th><strong>type</strong></th>
+<th><strong>allowed values</strong></th>
+<th><strong>meaning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>string</td>
+<td>alg</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>int</td>
+<td>[1, 256]</td>
+<td>Source index</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>string</td>
+<td>dome or cube</td>
+<td>Algorithm</td>
+</tr>
+</tbody>
+</table>
 
-  -----------------------------------------------------------------------
-  **index**         **type**   **allowed      **meaning**
-                               values**       
-  ----------------- ---------- -------------- ---------------------------
-  1                 string     alg            \-
-
-  2                 int        \[1, 256\]     Source index
-
-  3                 string     dome or cube   Algorithm
-  -----------------------------------------------------------------------
-
-ex : The message /spat/serv alg 7 cube sets the seventh source\'s
-spatialization algorithm to \"cube\" (only works in *hybrid* mode).
+ex : The message /spat/serv alg 7 cube sets the seventh source's
+spatialization algorithm to "cube" (only works in *hybrid* mode).
 
 ## 8.4. OSC messages in ControlGRIS
 
@@ -2894,15 +3172,15 @@ An Addendum manual concerning these patches is available on SourceForge.
 ### 8.6.1. SpatGRIS
 
 If you need to uninstall *SpatGRIS*, or if you find some strange
-behaviour of the software, you\'ll have to do so manually.
+behaviour of the software, you'll have to do so manually.
 
 • Put the application itself in the trash.
 
 • Put these files to the trash:
 
-\~/Library/Preferences/ca.umontreal.musique.gris.spatgris.plist
+~/Library/Preferences/ca.umontreal.musique.gris.spatgris.plist
 
-\~/Application Support/GRIS/ SpatGRIS.x.x.xml where x.x.x is the version
+~/Application Support/GRIS/ SpatGRIS.x.x.xml where x.x.x is the version
 of *SpatGRIS* (3.2.1 for instance).
 
 ### 8.6.2. ControlGRIS
@@ -2912,13 +3190,13 @@ If you need to uninstall *ControlGRIS*.
 Here are the paths for Mac users:
 
 • To uninstall the Audio Unit version, delete it from the following
-location: \~/Library/Audio/Plug-Ins/Components
+location: ~/Library/Audio/Plug-Ins/Components
 
 • To uninstall the VST version, delete it from the VST folder to the
-following location: \~/Library/Audio/Plug-Ins/VST
+following location: ~/Library/Audio/Plug-Ins/VST
 
 • To uninstall the VST3 version, delete it from the VST3 folder to the
-following location: \~/Library/Audio/Plug-Ins/VST3.
+following location: ~/Library/Audio/Plug-Ins/VST3.
 
 • To uninstall the AAX version, delete it from the following location:
 MacIntosh HD/Library/Application Support/Avid/Audio/Plug-Ins/
@@ -2926,7 +3204,7 @@ MacIntosh HD/Library/Application Support/Avid/Audio/Plug-Ins/
 # 9. Known issues and warnings
 
 There are so many different situations and setups that it would be
-impossible for us to cover them all. So far, we haven\'t found any
+impossible for us to cover them all. So far, we haven't found any
 situation where the system does not work at all. But we have found
 situations where some parameters must be adjusted before the system
 works properly. Here are a few of them.
@@ -2937,11 +3215,11 @@ works properly. Here are a few of them.
 
 We have a couple of graphical issues with the Apple Silicon machines.
 
-• Issue #378 (Github): When using the \'Show Speaker Level\' function on
+• Issue \#378 (Github): When using the 'Show Speaker Level' function on
 M1 and M2, the speakers are not visible unless an audio signal is sent
 to them.
 
-• Issue #344 (Github): Unable to zoom out in the 3D display after a
+• Issue \#344 (Github): Unable to zoom out in the 3D display after a
 maximum zoom in, only with Mac M1.
 
 Both these issues are currently under review and should be resolved
@@ -2951,7 +3229,7 @@ soon.
 
 • The usage of the Back & Forth option leads to many different and
 unpredictable behaviours that vary according to the DAW and the kind of
-tracks --- audio, MIDI, Aux or Instruments --- in which *ControlGRIS* is
+tracks — audio, MIDI, Aux or Instruments — in which *ControlGRIS* is
 inserted (Issue \# 94).
 
 • *ControlGRIS* is in an intensive process of refurbishment at the
@@ -2959,7 +3237,7 @@ moment. Stay tuned!
 
 ### 9.1.3. SpatGris, the plugin and SpatGRIS, the software
 
-For those who used the plugin *SpatGris1*, you'll notice that it isn\'t
+For those who used the plugin *SpatGris1*, you’ll notice that it isn't
 working anymore on most recent macOS and on the Apple Silicon machines.
 We recommend switching to *ControlGRIS*. The development of *SpatGris*
 ended in 2018.
@@ -2977,7 +3255,7 @@ adjustment knob.
 • In the window that opens, uncheck Master send.
 
 • At the bottom left of this same window, click on the Add new hardware
-output...
+output…
 
 • At the very bottom of the list of outputs on the output interface are
 the individual, mono outputs.
@@ -2986,7 +3264,7 @@ the individual, mono outputs.
 source in *ControlGRIS*.
 
 There is no need to pan mono sources to the left for odd tracks and to
-the right for even tracks, since you don\'t have to choose the stereo
+the right for even tracks, since you don't have to choose the stereo
 outputs of Blackhole. Also, currently the Master track in Reaper is
 limited to 128 channels, so it is convenient to use the Reaper hardware
 outputs directly as described.
@@ -2998,8 +3276,8 @@ device when stopped and application is inactive*. Otherwise, *Jack* will
 lose contact with Reaper when it is inactive, and the system will never
 work.
 
-![](sources/media-en/media/image136.jpg){width="3.0in"
-height="1.988830927384077in"}
+<img src="/media-en/media/image136.jpg"
+style="width:3in;height:1.98883in" />
 
 ## 9.3. Logic Pro
 
@@ -3021,26 +3299,26 @@ They will have to be deactivated manually.
 
 The recorded presets in DP show soft curves instead of the square
 expected ones. It means that changing from one automated preset to the
-next is very smooth and progressive, where it's expected to be drastic.
+next is very smooth and progressive, where it’s expected to be drastic.
 We are working on that.
 
 ## 9.5. Using SpatGRIS with live inputs
 
 When using live inputs, we recommend using the Aggregate Device on a
 Mac. According to our tests, the system is stable when you create an
-aggregate device comprising *BlackHole* and the sound card you\'re
-using. This aggregate device must be designated as the audio input and
-output device in your DAW and as the audio input and output device in
+aggregate device comprising *BlackHole* and the sound card you're using.
+This aggregate device must be designated as the audio input and output
+device in your DAW and as the audio input and output device in
 *SpatGRIS*.
 
 For channel numbering, please refer to the Audio / Midi Configuration
 application on your Mac once you have created your aggregated device. By
-placing your physical sound card as the first device element, you won\'t
+placing your physical sound card as the first device element, you won't
 need to change the numbering of speaker configurations. This workflow
 has been tested with Ableton Live.
 
-For Windows use, using *Jack* seems sufficient, but we haven\'t tested
-it in depth.
+For Windows use, using *Jack* seems sufficient, but we haven't tested it
+in depth.
 
 NOTE: Adjust the Buffer size to the same value, both in your DAW and
 SpatGRIS. A value of 256 and up is recommended.
@@ -3073,16 +3351,16 @@ In the DAW of your choice (DP, Logic, Live, Nuendo, Reaper, etc.), you
 place the stereo audio file on the first stereo track, on which you also
 place a ControlGRIS plug-in. You then multiply copies of this first
 stereo track on as many additional copies as your spatialization
-scenario requires. It\'s also possible to have just one audio track and
+scenario requires. It's also possible to have just one audio track and
 as many auxiliary outputs as you need, if your SAN allows. Each track
 and each instance of ControlGRIS will be assigned consecutive numbers.
-It\'s important to mention here that we\'re not talking about one
+It's important to mention here that we're not talking about one
 potentiometer = one loudspeaker. Each loudspeaker can be used for
 several **spatialization** scenarios
 
 ### 10.1.3. Acousmatic setup
 
-Let\'s use the Dome24(8-5x2-6)Subs2 Acousmonium setup present in the
+Let's use the Dome24(8-5x2-6)Subs2 Acousmonium setup present in the
 SpatGRIS Templates. This consists of:
 
 • 1 octophonic, from 1 to 8
@@ -3101,8 +3379,8 @@ SpatGRIS Templates. This consists of:
 
 • 1 pair of subwoofers 25-26 (direct outputs)
 
-![](sources/media-en/media/image137.jpg){width="3.136428258967629in"
-height="2.8in"}
+<img src="/media-en/media/image137.jpg"
+style="width:3.13643in;height:2.8in" />
 
 ### 10.1.4. Scenario
 
@@ -3114,8 +3392,8 @@ need ControlGRIS.
 • Potentiometer 1: ControlGRIS 1-2, BlackHole audio outputs 1-2,
 Left-Right position, Azimuth Span at 50%.
 
-![](sources/media-en/media/image138.jpg){width="1.6330938320209973in"
-height="2.0in"}
+<img src="/media-en/media/image138.jpg"
+style="width:1.63309in;height:2in" />
 
 In this way, the stereo source is fully distributed over the 8 hp of the
 octophonic group.
@@ -3123,22 +3401,22 @@ octophonic group.
 The left channel on the odd-numbered speakers (in pale turquoise) and
 the right channel on the even-numbered speakers (in darker turquoise):
 
-![](sources/media-en/media/image139.jpg){width="3.803847331583552in"
-height="3.0in"}
+<img src="/media-en/media/image139.jpg"
+style="width:3.80385in;height:3in" />
 
 • Potentiometer 2: no ControlGRIS, BlackHole outputs 3-4, H-P 9-10
 direct outputs in SpatGRIS (in black):
 
-![](sources/media-en/media/image140.jpg){width="0.9209930008748907in"
-height="2.0in"}![](sources/media-en/media/image141.jpg){width="2.95918416447944in"
-height="2.0in"}
+<img src="/media-en/media/image140.jpg"
+style="width:0.92099in;height:2in" /><img src="/media-en/media/image141.jpg"
+style="width:2.95918in;height:2in" />
 
 • Potentiometer 3: no ControlGRIS, BlackHole outputs 5-6, H-P 11-12
 direct outputs in SpatGRIS (in black):
 
-![](sources/media-en/media/image142.jpg){width="0.8968613298337708in"
-height="2.0in"}![](sources/media-en/media/image143.jpg){width="2.7224671916010497in"
-height="2.0in"}
+<img src="/media-en/media/image142.jpg"
+style="width:0.89686in;height:2in" /><img src="/media-en/media/image143.jpg"
+style="width:2.72247in;height:2in" />
 
 • Potentiometer 4: no ControlGRIS, BlackHole outputs 7-8, H-P 13-14
 direct outputs in SpatGRIS (in black):
@@ -3158,15 +3436,15 @@ Same scenario
 • Potentiometer 7: ControlGRIS 13-14, BlackHole outputs 13-14, H-P 19-24
 Left-right position, Azimuth Span at 50%, Elevation at top of dome:
 
-![](sources/media-en/media/image144.jpg){width="1.940323709536308in"
-height="1.8in"}![](sources/media-en/media/image145.jpg){width="1.2369860017497813in"
-height="1.8in"}
+<img src="/media-en/media/image144.jpg"
+style="width:1.94032in;height:1.8in" /><img src="/media-en/media/image145.jpg"
+style="width:1.23699in;height:1.8in" />
 
 The left channel on odd-numbered hp (in light orange) and the right
 channel on even-numbered hp (in darker orange):
 
-![](sources/media-en/media/image146.jpg){width="3.6548228346456693in"
-height="2.0in"}
+<img src="/media-en/media/image146.jpg"
+style="width:3.65482in;height:2in" />
 
 ## 10.2. Using the PLAYER without you being present
 
@@ -3177,8 +3455,8 @@ is when one of your works is played elsewhere in your absence. You can
 then record your project using the Record function (see section 5.11.
 Recording) by checking the Export Speaker Setup box:
 
-![](sources/media-en/media/image85.jpg){width="4.5in"
-height="1.1701913823272092in"}
+<img src="/media-en/media/image85.jpg"
+style="width:4.5in;height:1.17019in" />
 
 The audio files and the original loudspeaker setup will be saved in the
 same folder. You can send this one to your destination, who could play
@@ -3194,14 +3472,14 @@ the VBAP algorithm. It is therefore not possible to place a sound inside
 or outside the dome. By adopting HYBRID mode, the sources can either
 behave in DOME mode or in CUBE mode:
 
-![](sources/media-en/media/image147.jpg){width="4.403225065616798in"
-height="0.9in"}
+<img src="/media-en/media/image147.jpg"
+style="width:4.40323in;height:0.9in" />
 
 As can be seen here, some sources (in burgundy) are located outside the
 dome, while others (in light blue) are inside it:
 
-![](sources/media-en/media/image148.jpg){width="6.5in"
-height="4.235416666666667in"}
+<img src="/media-en/media/image148.jpg"
+style="width:6.5in;height:4.23542in" />
 
 HYBRID mode allows you to vary the trajectories in DOME mode.
 
@@ -3401,7 +3679,7 @@ Spans · 20, 52, 53
 
 Spatialized direct outputs · 39
 
-Speakers' order · 37
+Speakers’ order · 37
 
 *SpeakerView.* · 29
 
@@ -3445,40 +3723,39 @@ Z
 
 *ZirkOSC* · 9
 
-[^1]: *BlackHole* is not mandatory. Any software that can send audio to
-    *SpatGRIS* can be used. *BlackHole* is a HAL plugin.
+[1] *BlackHole* is not mandatory. Any software that can send audio to
+*SpatGRIS* can be used. *BlackHole* is a HAL plugin.
 
-[^2]: See the format of the OSC messages in the Addendum.
+[2] See the format of the OSC messages in the Addendum.
 
-[^3]: JackRouter is a HAL plugin that was not compatible with MacOS
-    10.15 and up, and was not supported for a while.
+[3] JackRouter is a HAL plugin that was not compatible with MacOS 10.15
+and up, and was not supported for a while.
 
-[^4]: Designed by Christophe Lengelé
+[4] Designed by Christophe Lengelé
 
-[^5]: See this link for more information:
-    https://jackaudio.org/downloads/
+[5] See this link for more information: https://jackaudio.org/downloads/
 
-[^6]: Open Sound Control
+[6] Open Sound Control
 
-[^7]: The AAX plugin for Windows is signed using a self-issued
-    certificate. It is unclear for now whether this is sufficient for
-    ProTools and/or Windows Defender.
+[7] The AAX plugin for Windows is signed using a self-issued
+certificate. It is unclear for now whether this is sufficient for
+ProTools and/or Windows Defender.
 
-[^8]: Since version 3.2.0, the LBAP, Layer Base Amplitude Panning,
-    designed by Olivier Bélanger, is not in use anymore.
+[8] Since version 3.2.0, the LBAP, Layer Base Amplitude Panning,
+designed by Olivier Bélanger, is not in use anymore.
 
-[^9]: <http://opensoundcontrol.org>
+[9] <http://opensoundcontrol.org>
 
-[^10]: See the Addendum manual for more information.
+[10] See the Addendum manual for more information.
 
-[^11]: See the Open Stage Control manual for that:
-    https://openstagecontrol.ammd.net/
+[11] See the Open Stage Control manual for that:
+https://openstagecontrol.ammd.net/
 
-[^12]: On the Mac, most keyboards use Option (Opt), while others use
-    Alt. Opt will be used in this manual.
+[12] On the Mac, most keyboards use Option (Opt), while others use Alt.
+Opt will be used in this manual.
 
-[^13]: It seems that on some Azerty keyboard, this key combination is
-    not working. The function is still available though.
+[13] It seems that on some Azerty keyboard, this key combination is not
+working. The function is still available though.
 
-[^14]: CAF (Core Audio Format) and WAV RF64 will eventually be
-    implemented enabling size to exceed 4 GB.
+[14] CAF (Core Audio Format) and WAV RF64 will eventually be implemented
+enabling size to exceed 4 GB.
