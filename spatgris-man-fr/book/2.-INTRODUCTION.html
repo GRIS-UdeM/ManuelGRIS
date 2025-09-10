@@ -1,0 +1,462 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Introduction - Manuel SpatGRIS</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Manuel SpatGRIS</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="2-introduction"><a class="header" href="#2-introduction">2. INTRODUCTION</a></h1>
+<p>Ces instructions supposent que vous connaissez les outils suivants :</p>
+<p>• La SAN (Station Audio Numérique) que vous utilisez, compatible avec
+les plugiciels AU, VST, VST3 ou AAX.</p>
+<p>• Votre interface audio.</p>
+<h2 id="21-architecture"><a class="header" href="#21-architecture">2.1. Architecture</a></h2>
+<p>Le système <em>SpatGRIS</em> est composé de trois éléments :</p>
+<p>• Le plugiciel <em>ControlGRIS2</em> où les trajectoires sont conçues et
+enregistrées dans un SAN (ou tout autre dispositif OSC<sup class="footnote-reference" id="fr-osc-footnote-1"><a href="#footnote-osc-footnote">1</a></sup>).</p>
+<p>• <em>SpatGRIS</em> lui-même qui spatialise le son, en fonction de la
+configuration des haut-parleurs sélectionnée</p>
+<p>• Le dispositif audio virtuel <em>BlackHole</em><sup class="footnote-reference" id="fr-BH-footnote-1"><a href="#footnote-BH-footnote">2</a></sup> qui connecte la SAN à
+<em>SpatGRIS</em>.</p>
+<p>L'architecture se présente comme suit (l'audio et l'OSC fonctionnent en
+parallèle):</p>
+<p><img src="/media-fr/media/image6.png"
+style="width:4.66875in;height:3.15in" /></p>
+<h2 id="22-spatgris"><a class="header" href="#22-spatgris">2.2. SpatGRIS</a></h2>
+<p><em>SpatGRIS</em> est un logiciel autonome qui permet la spatialisation des
+sons sur différentes configurations de haut-parleurs, en 2D ou en 3D. Il
+peut être utilisé avec l'interface virtuelle <em>BlackHole</em> qui peut
+fournir jusqu'à 256 entrées et sorties. Les trajectoires sont envoyées à
+<em>SpatGRIS</em> depuis le plugiciel <em>ControlGRIS2</em>, ou depuis n'importe quel
+autre logiciel OSC<sup class="footnote-reference" id="fr-OSC-format-footnote-1"><a href="#footnote-OSC-format-footnote">3</a></sup>. La spatialisation audio elle-même est effectuée
+par <em>SpatGRIS</em> et envoyée à l'interface audio.</p>
+<h3 id="221-lhistoire"><a class="header" href="#221-lhistoire">2.2.1. L'histoire</a></h3>
+<p>Le développement de <em>SpatGRIS</em> a commencé en 2020. Il s'agit d'une
+version réécrite de <em>ServerGris</em> (2018) et de <em>SpatGRIS2</em> (2020). La
+première version officielle de <em>SpatGRIS</em> 3.0.0 a été publiée en août
+2021. Il s'agit de notre premier outil de spatialisation sans <em>Jack</em><sup class="footnote-reference" id="fr-jack-footnote-1"><a href="#footnote-jack-footnote">4</a></sup>
+!</p>
+<h3 id="222-configuration-requise"><a class="header" href="#222-configuration-requise">2.2.2. Configuration requise</a></h3>
+<p>Le logiciel a été testé sur les OS suivants :</p>
+<p>• macOS de 10.15 Catalina™ à 14.7 Sonoma™.</p>
+<p>• Il est natif sur les ordinateurs Apple Silicon M1-M2-M3 (version 3.1.8
+et plus).</p>
+<p>• Windows™ 10. 11.</p>
+<h3 id="223-notes-dinstallation"><a class="header" href="#223-notes-dinstallation">2.2.3. Notes d'installation</a></h3>
+<p>• Téléchargez la dernière version de <em>SpatGRIS</em> à partir de SourceForge
+:</p>
+<p><a href="https://sourceforge.net/projects/spatgris3/">https://sourceforge.net/projects/SpatGRIS3/</a></p>
+<p><em>SpatGRIS</em> pour Mac comprend deux programmes d'installation dans le même
+dossier :</p>
+<p>SpatGRIS_v3:</p>
+<p>• <em>SpatGRIS</em> lui-même.</p>
+<p>• <em>SpeakerView</em> sous trois versions: Forward (recommandé), Compatibility
+et Mobile</p>
+<p>• <em>ControlGRIS2</em> ou <em>ControlGRIS22</em> sous forme de dossier compressé
+contenant les différents formats du plugiciel.</p>
+<p>BlackHole:</p>
+<p>• Le périphérique audio virtuel <em>BlackHole</em> qui fournit 64, 128 ou 256
+canaux audio entre la SAN et <em>SpatGRIS</em>.</p>
+<p>Notes pour les utilisateurs de MacOS</p>
+<p>• <em>SpatGRIS</em>, ainsi que <em>SpeakerView</em> et un dossier d'utilitaires, sont
+maintenant installés dans un dossier GRIS, dans le dossier Applications.
+Il est possible de renommer le dossier GRIS (pour avoir plusieurs
+installations, par exemple), mais il n'est pas conseillé de renommer
+quoi que ce soit à l'intérieur de ce dossier.</p>
+<p>• Pour faciliter la gestion du focus entre <em>SpeakerView</em> et <em>SpatGRIS</em>,
+nous vous recommandons d'autoriser <em>SpeakerView</em> à contrôler votre
+ordinateur lorsque cela vous est demandé. Si <em>SpeakerView</em> ne le demande
+pas, allez dans Réglages système… &gt; Confidentialité et sécurité &gt;
+Accessibilité, et autorisez <em>SpeakerView</em>.</p>
+<p><em>SpatGRIS, SpeakerView, ControlGRIS22</em> et <em>BlackHole</em> seront mis à jour
+séparément. Veuillez-vous inscrire à notre infolettre sur
+http://gris.musique.umontreal.ca/ pour être informé.es des mises à jour
+<s>du logiciel</s> sur notre site web*.*</p>
+<p>Deux contrôleurs externes sont disponibles pour <em>ControlGRIS2</em> :</p>
+<p>• Un patch de Open Stage Control pour <em>iPad</em>™.</p>
+<p>• Un patch de Lemur<sup class="footnote-reference" id="fr-ipad-footnote-1"><a href="#footnote-ipad-footnote">5</a></sup> pour <em>iPad</em>™.</p>
+<p>Un manuel Addendum relatif à ces contrôleurs <em>iPad</em> est disponible sur
+SourceForge.</p>
+<p><em>SpatGRIS</em> pour Windows a un seul programme d'installation :</p>
+<p>• <em>SpatGRIS</em> lui-même.</p>
+<p>• <em>ControlGRIS2</em> et <em>ControlGRIS22</em> sous forme de dossier compressé
+contenant les différents formats du plugiciel.</p>
+<p>Il n'existe pas de version Windows de <em>BlackHole</em>. Pour les
+utilisateur.rices de Reaper™, il existe la fonction <em>ReaRoute</em>, qui
+fonctionne de manière similaire à <em>BlackHole</em>, mais uniquement pour
+Reaper. Il est possible d'utiliser <em>Jack</em> sous Windows<sup class="footnote-reference" id="fr-jack-win-footnote-1"><a href="#footnote-jack-win-footnote">6</a></sup>. Lorsque
+<em>BlackHole</em> est mentionné dans le manuel, remplacez-le par <em>ReaRoute</em> ou
+<em>Jack</em> lorsque vous utilisez Windows.</p>
+<h3 id="224-accès-au-microphone"><a class="header" href="#224-accès-au-microphone">2.2.4. Accès au microphone</a></h3>
+<p><strong>NOTE : Très important pour les utilisateur.rices de Catalina (10.15)
+et plus.</strong></p>
+<p>Assurez-vous que <em>SpatGRIS</em> a accès au microphone dans les Préférences
+système, Sécurité et confidentialité:</p>
+<p><img src="/media-fr/media/image7.jpg"
+style="width:3.75283in;height:1.36in" /></p>
+<h3 id="225-volume-de-blackhole-à-0-db"><a class="header" href="#225-volume-de-blackhole-à-0-db">2.2.5. Volume de BlackHole à 0 dB</a></h3>
+<p>Après avoir installé ou réinstallé <em>Blackhole</em>, assurez-vous que le
+volume de <em>BlackHole</em> est à 0 dB dans la configuration Audio Midi.</p>
+<p><img src="/media-fr/media/image8.jpg"
+style="width:6.24833in;height:1.5in" /></p>
+<h3 id="226-nouveaux-utilisateurs-de-blackhole-et-de-macos-14-sonoma"><a class="header" href="#226-nouveaux-utilisateurs-de-blackhole-et-de-macos-14-sonoma">2.2.6. Nouveaux utilisateurs de BlackHole et de macOS 14 Sonoma</a></h3>
+<p>NOTE : Les nouveaux utilisateurs de BlackHole sous macOS 14 Sonoma
+doivent utiliser la dernière version de l'installateur de BlackHole
+0.6.0.</p>
+<h2 id="23-controlgris2"><a class="header" href="#23-controlgris2">2.3. ControlGRIS2</a></h2>
+<p>Il existe désormais deux versions de ControlGRIS. La version 1 demeure
+disponible afin d'assurer la compatibilité avec les projets existants
+qui l'utilisent. Et à partir de 2025, <em>ControlGRIS2</em> qui introduit le
+traitement de signal. Les deux versions peuvent cohabiter. Ce manuel est
+consacré à <em>ControlGRIS2</em>. Pour la version 1, consulter le manuel de
+<em>SpatGRIS</em> 3.3.7.</p>
+<p><em>ControlGRIS2</em> est un plugiciel OSC disponible dans les formats AU,
+VST, VST3 et AAX (Mac) et dans les formats VST et AAX (Windows). Ce
+plugiciel gratuit et open-source envoie des données OSC à <em>SpatGRIS</em>
+pour spatialiser plusieurs sources sonores sur une configuration
+variable de haut-parleurs. Différents modes de liens entre les sources,
+Source Link, et un système de trajectoires sont fournis pour la
+spatialisation de sources mono, stéréo et multicanaux (jusqu'à huit
+canaux).</p>
+<h3 id="231-lhistoire"><a class="header" href="#231-lhistoire">2.3.1. L’histoire</a></h3>
+<p>Le développement de <em>ControlGRIS</em> a commencé en 2019. Il s'est inspiré
+de trois plugiciels plus anciens, <em>OctoGris</em> (2010), <em>ZirkOSC</em> (2012) et
+<em>SpatGris1</em>(2017). La première version (1.1.0) a été publiée en avril
+2020. La première version (2.0.5) de <em>ControlGRIS2</em> a été publiée en
+avril 2025.</p>
+<h3 id="232-configuration-requise"><a class="header" href="#232-configuration-requise">2.3.2. Configuration requise</a></h3>
+<p>Le plugiciel a été testé sur les systèmes d'exploitation et les SAN
+suivants :</p>
+<p>• macOS de 10.15 Catalina™ à 14.7 Sonoma; Digital Performer™ 10 et 11;
+Ableton Live™ 10 et 11; Logic Pro™ 10; Reaper™ 6 et 7; Pro Tools™ 2023.6
+et 2024.10.</p>
+<p>• Il est natif sur les machines Apple Silicon M1-M2-M3 (version 1.3.2 et
+plus).</p>
+<p>• Windows™ 10, 11<sup class="footnote-reference" id="fr-win-11-footnote-1"><a href="#footnote-win-11-footnote">7</a></sup>; Reaper™ 6.</p>
+<h3 id="233-notes-dinstallation"><a class="header" href="#233-notes-dinstallation">2.3.3. Notes d'installation</a></h3>
+<p>Téléchargez la dernière version de <em>ControlGRIS2</em> depuis SourceForge
+(<em>ControlGRIS2</em> est inclus dans le programme d'installation de
+<em>SpatGRIS</em>) : <a href="https://sourceforge.net/projects/spatgris3/">https://sourceforge.net/projects/spatgris3/</a></p>
+<p>Décompressez le fichier téléchargé. Les différents formats seront
+installés à l'endroit approprié. <em>ControlGRIS2</em> apparaît dans le dossier
+"UdeM" de votre SAN.</p>
+<h3 id="234-au-vst-aax"><a class="header" href="#234-au-vst-aax">2.3.4. AU, VST, AAX</a></h3>
+<p>Les versions Mac ont été testées de manière intensive, mais les versions
+Windows 10 et 11, pas tant que ça !</p>
+<p>Les commentaires sont bienvenus.</p>
+<p>Voici quelques particularités :</p>
+<p>• Utilisez la version AU dans DP et Logic Pro sur Mac</p>
+<p>• Utiliser la version VST3 dans Reaper et Live.</p>
+<p>• Utilisez la version AAX dans ProTools<sup class="footnote-reference" id="fr-aax-protools-footnote-1"><a href="#footnote-aax-protools-footnote">8</a></sup>.</p>
+<p>• Pour les autres SAN, consultez leur manuel pour déterminer quelle
+version est la meilleure.</p>
+<h2 id="24-guide-de-démarrage-rapide"><a class="header" href="#24-guide-de-démarrage-rapide">2.4. Guide de démarrage rapide</a></h2>
+<p><em>SpatGRIS</em> reçoit des données <em>Open Sound Control (OSC)</em> de
+<em>ControlGRIS2</em>, pour spatialiser les sons dans une configuration de
+haut-parleurs. Le son est envoyé du SAN à <em>SpatGRIS</em> via <em>BlackHole.</em></p>
+<p>Vous n'avez pas envie de lire le manuel ? Voici les étapes de base pour
+spatialiser une piste stéréo sur une interface audio à 64 sorties.</p>
+<p>NOTE : Ajustez la taille de la mémoire tampon à la même valeur dans
+votre SAN et dans <em>SpatGRIS</em>. Une valeur de 512, voire 1024 et plus est
+recommandée.</p>
+<p>1. Ouvrez <em>SpatGRIS</em>.</p>
+<p>2. Ouvrez les Settings (menu File) ou cliquez directement sur ceux-ci
+dans la barre d'information et attribuez le périphérique d'entrée audio
+à <em>BlackHole</em> 128ch et le périphérique de sortie audio à votre interface
+audio (vous ne devez le faire que la première fois). Fermer la fenêtre.</p>
+<p><img src="/media-fr/media/image9.jpg"
+style="width:1.56193in;height:1.5748in" /></p>
+<p>3. Ouvrez un Speaker Setup DOME (menu File) ou utilisez celui par
+défaut.</p>
+<p>4. Ouvrez votre SAN.</p>
+<p>5. Assignez la sortie audio de votre SAN à <em>BlackHole</em> 128ch.</p>
+<p>6. Créez une piste stéréo et assignez les sorties à <em>BlackHole</em> 128ch
+1-2.</p>
+<p>7. Insérez un plugiciel <em>ControlGRIS2</em> sur cette piste et mettez-le en
+mode DOME.</p>
+<p>8. Le nombre de sources devrait être déjà initialisé et réglé sur 2 et
+le First Source ID réglé sur 1.</p>
+<p>9. Sélectionnez Circular Fully Fixed dans Sources Link et démarrer le
+séquenceur.</p>
+<p>10. Jouer avec la Source No. 1 et voir le résultat dans <em>SpatGRIS</em>.</p>
+<p>11. La couleur des sources est celle des sources sélectionnées dans
+Sources (les points rouges dans cet exemple).</p>
+<p>Vous êtes maintenant prêt.e.s à jouer et à enregistrer des automations.</p>
+<p><img src="/media-fr/media/image10.png"
+style="width:4.65287in;height:3.2in" /></p>
+<p><img src="/media-fr/media/image11.png"
+style="width:4.93346in;height:5.05in" /></p>
+<p>NOTE : Dans chaque piste du SAN, il est obligatoire que les numéros des
+canaux de sortie audio correspondent aux numéros des sources OSC
+(définis par le paramètre First Source ID) dans l'instance de
+<em>ControlGRIS2</em> correspondante pour que le son soit spatialisé dans
+<em>SpatGRIS</em>. Si ce n'est pas le cas, la spatialisation sera silencieuse
+ou ne fonctionnera pas correctement.</p>
+<p>Des questions ? Des précisions ? Lisez le manuel !</p>
+<p>Ce manuel se trouve dans le menu Help :</p>
+<p><img src="/media-fr/media/image12.jpg"
+style="width:1.81222in;height:0.7in" /></p>
+<hr>
+<ol class="footnote-definition"><li id="footnote-osc-footnote">
+<p><a href="http://opensoundcontrol.org">http://opensoundcontrol.org</a> <a href="#fr-osc-footnote-1">↩</a></p>
+</li>
+<li id="footnote-BH-footnote">
+<p><em>BlackHole</em> n'est pas obligatoire. Tout logiciel capable d'envoyer de l'audio à <em>SpatGRIS</em> peut être utilisé. <em>BlackHole</em> est un plugiciel HAL. <a href="#fr-BH-footnote-1">↩</a></p>
+</li>
+<li id="footnote-OSC-format-footnote">
+<p>Voir le format des messages OSC dans l'addendum. <a href="#fr-OSC-format-footnote-1">↩</a></p>
+</li>
+<li id="footnote-jack-footnote">
+<p>JackRouter est un plugiciel HAL qui n'était pas compatible avec MacOS 10.15 et plus, et qui n'a pas été supporté pendant un certain temps. <a href="#fr-jack-footnote-1">↩</a></p>
+</li>
+<li id="footnote-ipad-footnote">
+<p>Conçu par Christophe Lengelé. <a href="#fr-ipad-footnote-1">↩</a></p>
+</li>
+<li id="footnote-jack-win-footnote">
+<p>Pour plus d'informations, voir le lien suivant : <a href="https://jackaudio.org/downloads/">https://jackaudio.org/downloads/</a> <a href="#fr-jack-win-footnote-1">↩</a></p>
+</li>
+<li id="footnote-win-11-footnote">
+<p>Nous n'avons que peu testé sur Windows 11. <a href="#fr-win-11-footnote-1">↩</a></p>
+</li>
+<li id="footnote-aax-protools-footnote">
+<p>Le plugiciel AAX pour Windows est signé à l'aide d'un certificat auto-émis. Il n'est pas clair pour l'instant si cela est suffisant pour ProTools et/ou Windows Defender. <a href="#fr-aax-protools-footnote-1">↩</a></p>
+</li>
+</ol>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="1.-Présentation-générale.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.-Connections.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="1.-Présentation-générale.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.-Connections.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

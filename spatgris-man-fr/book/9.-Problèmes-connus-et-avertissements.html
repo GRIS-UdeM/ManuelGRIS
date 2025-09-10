@@ -1,0 +1,321 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Problèmes connus et avertissements - Manuel SpatGRIS</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Manuel SpatGRIS</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="9-problèmes-connus-et-avertissements"><a class="header" href="#9-problèmes-connus-et-avertissements">9. Problèmes connus et avertissements</a></h1>
+<p>Il y a tellement de situations et de configurations différentes qu'il
+nous serait impossible de les couvrir toutes. Jusqu'à présent, nous
+n'avons trouvé aucune situation où le système ne fonctionne pas du tout.
+Mais nous avons trouvé des situations où certains paramètres doivent
+être ajustés avant que le système puisse fonctionner correctement. En
+voici quelques-unes.</p>
+<h2 id="91-problèmes-connus"><a class="header" href="#91-problèmes-connus">9.1. Problèmes connus</a></h2>
+<h3 id="911-spatgris-le-plugiciel-et-spatgris-le-logiciel"><a class="header" href="#911-spatgris-le-plugiciel-et-spatgris-le-logiciel">9.1.1. SpatGRIS, le plugiciel et SpatGRIS, le logiciel</a></h3>
+<p>Pour ceux qui ont utilisé le plugiciel <em>SpatGRIS</em>, vous remarquerez
+qu'il ne fonctionne plus sur les plus récents systèmes macOS et sur les
+ordinateurs Apple Silicon. Nous recommandons de passer à <em>ControlGRIS2</em>.
+Le développement de <em>SpatGRIS1</em> s'est terminé en 2018.</p>
+<h3 id="912"><a class="header" href="#912">9.1.2.</a></h3>
+<h3 id="913"><a class="header" href="#913">9.1.3.</a></h3>
+<h2 id="92-reaper"><a class="header" href="#92-reaper">9.2. Reaper</a></h2>
+<h3 id="921-pistes-mono"><a class="header" href="#921-pistes-mono">9.2.1. Pistes mono</a></h3>
+<p>• Créez une piste et insérez-y une instance de <em>ControlGRIS2</em> et un
+fichier audio mono.</p>
+<p>• Cliquez sur le bouton Route situé à droite du bouton de réglage du
+gain de la piste.</p>
+<p>• Dans la fenêtre qui s'ouvre, décochez Master send.</p>
+<p>• En bas à gauche de cette même fenêtre, cliquez sur le bouton Add new
+hardware sortie... (Ajouter une nouvelle sortie matérielle).</p>
+<p>• Tout en bas de la liste des sorties de l'interface de sortie se
+trouvent les sorties individuelles mono.</p>
+<p>• Sélectionnez la sortie qui correspond au numéro attribué à la source
+dans <em>ControlGRIS2</em>.</p>
+<p>Il n'est pas nécessaire de panoramiser les sources monos vers la gauche
+pour les pistes impaires et vers la droite pour les pistes paires,
+puisque les sorties matérielles monos de Reaper sont utilisées. De plus,
+la piste Master de Reaper est actuellement limitée à 128 canaux, il est
+donc pratique d'utiliser les sorties matérielles de Reaper directement
+comme décrit.</p>
+<h3 id="922-préférences-avec-jack"><a class="header" href="#922-préférences-avec-jack">9.2.2. Préférences avec Jack</a></h3>
+<p>Dans les Préférences de Reaper, sous l'onglet Audio : décocher "Close
+audio device when stopped and application is inactive". Sinon, <em>Jack</em>
+perdra le contact avec Reaper lorsqu'il est inactif, et le système ne
+fonctionnera jamais.</p>
+<p><img src="/media-fr/media/image136.jpg"
+style="width:3in;height:1.98883in" /></p>
+<h2 id="93-logic-pro"><a class="header" href="#93-logic-pro">9.3. Logic Pro</a></h2>
+<h3 id="931-une-seule-sortie-surround"><a class="header" href="#931-une-seule-sortie-surround">9.3.1. Une seule sortie Surround</a></h3>
+<p>Dans Logic Pro, il n'y a qu'une seule instance Surround possible. Cela
+signifie qu'il n'est pas possible d'avoir plusieurs pistes multicanaux
+dans Logic tout en utilisant <em>SpatGRIS</em>. Pour éviter cette restriction,
+n'utilisez que des pistes mono et stéréo dans Logic.</p>
+<h3 id="932-bouton-activate"><a class="header" href="#932-bouton-activate">9.3.2. Bouton Activate</a></h3>
+<p>Lorsque vous utilisez les trajectoires prédéfinies de <em>ControlGRIS2</em>, il
+y a une exception concernant le bouton Activate dans Logic Pro. S'il n'y
+a plus d'audio dans la piste à la position d'arrêt, le bouton Activate
+ne s'éteindra pas. Il devra être désactivé manuellement.</p>
+<h2 id="94-digital-performer-11-et-automatisation-des-mémoires"><a class="header" href="#94-digital-performer-11-et-automatisation-des-mémoires">9.4. Digital Performer 11 et automatisation des mémoires</a></h2>
+<p>L'automatisation des mémoires enregistrées dans DP présentent des
+courbes lisses au lieu des courbes carrées attendues. Cela signifie que
+le passage d'une mémoire automatisée à une autre est progressif, alors
+qu'on s'attend à ce qu'il soit discret. Nous y travaillons.</p>
+<h2 id="95-utilisation-de-spatgris-avec-des-entrées-en-direct"><a class="header" href="#95-utilisation-de-spatgris-avec-des-entrées-en-direct">9.5. Utilisation de SpatGRIS avec des entrées en direct</a></h2>
+<p>Dans le cas de l'utilisation d'entrées en direct, nous recommandons
+l'utilisation du périphérique agrégé sur un Mac. D'après nos tests, le
+système est stable lorsqu'on crée un périphérique agrégé comprenant
+<em>BlackHole</em> et la carte son que vous utilisez. Ce périphérique agrégé
+doit être désigné comme périphérique d'entrée et de sortie audio dans
+votre SAN et comme périphérique d'entrée et de sortie audio dans
+SpatGRIS.</p>
+<p>Pour la numérotation des canaux, veuillez vous référer à l'application
+Audio / Midi Configuration sur votre Mac une fois que vous avez créé
+votre périphérique agrégé. En plaçant votre carte son physique comme
+premier élément de périphérique, vous n'aurez pas besoin de modifier la
+numérotation des configurations de haut-parleurs. Ce flux de travail a
+été testé avec Ableton Live.</p>
+<p>Pour une utilisation sous Windows, l'utilisation de Jack semble
+suffisante, mais nous ne l'avons pas testé de manière approfondie.</p>
+<p>NOTE : Ajustez la taille de la mémoire tampon à la même valeur dans
+votre SAN et dans <em>SpatGRIS</em>. Une valeur de 256 et plus est recommandée.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="7.-Menus.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="10.-Conseil-et-astuces.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="7.-Menus.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="10.-Conseil-et-astuces.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

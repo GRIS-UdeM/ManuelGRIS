@@ -1,0 +1,2933 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Manuel SpatGRIS</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Manuel SpatGRIS</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p><strong>SpatGRIS</strong></p>
+<p><img src="/media-fr/media/image1.png"
+style="width:2.01572in;height:2in" /></p>
+<p><strong>Outils pour la spatialisation du son en 2D et 3D</strong></p>
+<p>Développés par le</p>
+<p>Groupe de Recherche en Immersion Spatiale</p>
+<p><strong>GRIS</strong></p>
+<p><a href="http://gris.musique.umontreal.ca/">http://gris.musique.umontreal.ca/</a></p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Directeur:</strong></th>
+<th>Robert NORMANDEAU</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Programmeur:</strong></td>
+<td>Gaël LANE LÉPINE</td>
+</tr>
+<tr class="even">
+<td><strong>Assistants:</strong></td>
+<td>Nicola GIANNINI</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Manuel</strong></p>
+<p><em>SpatGRIS</em> 3.3.7</p>
+<p><em>SpeakerView</em> 0.0.7</p>
+<p><em>ControlGRIS</em> 1.4.5</p>
+<p>BlackHole 0.6.0</p>
+<p><strong>Avril 2025</strong></p>
+<p><img src="/media-fr/media/image2.png"
+style="width:1in;height:1in" /></p>
+<p>Faculté de musique</p>
+<p><img src="/media-fr/media/image3.png"
+style="width:3.71155in;height:0.27559in" />
+<img src="/media-fr/media/image4.png"
+style="width:1.02116in;height:0.3937in" /></p>
+<!-- TODO: find a way to integrate that table of content with mdbook -->
+<!-- **Table des matières** -->
+<!-- [1. Présentation générale -->
+<!-- [6](#groupe-de-recherche-en-immersion-spatiale-gris)](#groupe-de-recherche-en-immersion-spatiale-gris) -->
+<!-- [1.1. SpatGRIS est un outil de spatialisation -->
+<!-- [6](#spatgris-est-un-outil-de-spatialisation-et-de-locaisation)](#spatgris-est-un-outil-de-spatialisation-et-de-locaisation) -->
+<!-- [1.1.1. Spatialisation [6](#spatialisation)](#spatialisation) -->
+<!-- [1.1.2. Localisation [6](#localisation)](#localisation) -->
+<!-- [1.2. SpatGRIS est un enregistreur et un lecteur -->
+<!-- [6](#spatgris-est-un-enregistreur-et-un-lecteur)](#spatgris-est-un-enregistreur-et-un-lecteur) -->
+<!-- [1.3. SpatGRIS fabrique des configurations de haut-parleurs -->
+<!-- [6](#spatgris-produit-des-configurations-de-haut-parleurs)](#spatgris-produit-des-configurations-de-haut-parleurs) -->
+<!-- [1.3.1. Configuration DOME -->
+<!-- [6](#configuration-dome)](#configuration-dome) -->
+<!-- [1.3.2 Configuration CUBE [6](#configuration-cube)](#configuration-cube) -->
+<!-- [1.4. Les haut-parleurs peuvent faire partie de la spatialisation et de -->
+<!-- la localisation -->
+<!-- [6](#les-haut-parleurs-participe-à-la-spatialisation-et-à-la-localisation)](#les-haut-parleurs-participe-à-la-spatialisation-et-à-la-localisation) -->
+<!-- [1.5. Les trois composantes de SpatGRIS -->
+<!-- [7](#les-trois-composantes-de-spatgris)](#les-trois-composantes-de-spatgris) -->
+<!-- [1.6. Qu'y a-t-il de nouveau et d'amélioré dans ControlGRIS/SpatGRIS? -->
+<!-- [7](#quy-a-t-il-de-nouveau-et-damélioré-dans-controlgrisspatgris)](#quy-a-t-il-de-nouveau-et-damélioré-dans-controlgrisspatgris) -->
+<!-- [1.7. Groupe de Recherche en Immersion Spatiale (GRIS) -->
+<!-- [8](#groupe-de-recherche-en-immersion-spatiale-gris)](#groupe-de-recherche-en-immersion-spatiale-gris) -->
+<!-- [2. INTRODUCTION [8](#introduction)](#introduction) -->
+<!-- [2.1. Architecture [8](#architecture)](#architecture) -->
+<!-- [2.2. SpatGRIS [9](#spatgris)](#spatgris) -->
+<!-- [2.2.1. L'histoire [9](#lhistoire)](#lhistoire) -->
+<!-- [2.2.2. Configuration requise -->
+<!-- [9](#configuration-requise)](#configuration-requise) -->
+<!-- [2.2.3. Notes d'installation -->
+<!-- [9](#notes-dinstallation)](#notes-dinstallation) -->
+<!-- [2.2.4. Accès au microphone -->
+<!-- [10](#accès-au-microphone)](#accès-au-microphone) -->
+<!-- [2.2.5. Volume de BlackHole à 0 dB -->
+<!-- [10](#volume-de-blackhole-à-0-db)](#volume-de-blackhole-à-0-db) -->
+<!-- [2.2.6. Nouveaux utilisateurs de BlackHole et de macOS 14 Sonoma -->
+<!-- [10](#nouveaux-utilisateurs-de-blackhole-et-de-macos-14-sonoma)](#nouveaux-utilisateurs-de-blackhole-et-de-macos-14-sonoma) -->
+<!-- [2.3. ControlGRIS [10](#controlgris2)](#controlgris2) -->
+<!-- [2.3.1. L’histoire [10](#lhistoire-1)](#lhistoire-1) -->
+<!-- [2.3.2. Configuration requise -->
+<!-- [10](#configuration-requise-1)](#configuration-requise-1) -->
+<!-- [2.3.3. Notes d'installation -->
+<!-- [11](#notes-dinstallation-1)](#notes-dinstallation-1) -->
+<!-- [2.3.4. AU, VST, AAX [11](#au-vst-aax)](#au-vst-aax) -->
+<!-- [2.4. Guide de démarrage rapide -->
+<!-- [12](#guide-de-démarrage-rapide)](#guide-de-démarrage-rapide) -->
+<!-- [3. Connections [14](#connections)](#connections) -->
+<!-- [3.1. Connecter la SAN à SpatGRIS -->
+<!-- [14](#connecter-la-san-à-spatgris)](#connecter-la-san-à-spatgris) -->
+<!-- [3.1.1. Ouvrir SpatGRIS [14](#ouvrir-spatgris)](#ouvrir-spatgris) -->
+<!-- [3.1.2. Régler le niveau de sortie -->
+<!-- [14](#régler-le-niveau-de-sortie)](#régler-le-niveau-de-sortie) -->
+<!-- [3.1.3. Assigner la SAN à BlackHole -->
+<!-- [14](#assigner-la-san-à-blackhole)](#assigner-la-san-à-blackhole) -->
+<!-- [3.1.4. Multiclient [14](#multiclient)](#multiclient) -->
+<!-- [3.2. Connecter ControlGRIS à SpatGRIS -->
+<!-- [15](#connecter-controlgris2-à-spatgris)](#connecter-controlgris2-à-spatgris) -->
+<!-- [3.2.1. Numérotation des canaux audio et OSC -->
+<!-- [15](#numérotation-des-canaux-audio-et-osc)](#numérotation-des-canaux-audio-et-osc) -->
+<!-- [3.2.2. Couleurs des sources -->
+<!-- [16](#couleurs-des-sources)](#couleurs-des-sources) -->
+<!-- [4. ControlGRIS [17](#controlgris2-1)](#controlgris2-1) -->
+<!-- [4.1. Introduction [17](#introduction-1)](#introduction-1) -->
+<!-- [4.2. Interface graphique -->
+<!-- [17](#interface-graphique)](#interface-graphique) -->
+<!-- [4.3. Panneau de configuration -->
+<!-- [18](#panneau-de-configuration)](#panneau-de-configuration) -->
+<!-- [4.3.1. Settings [18](#settings)](#settings) -->
+<!-- [MODE [18](#mode)](#mode) -->
+<!-- [OSC Port [18](#osc-port)](#osc-port) -->
+<!-- [IP Address [18](#ip-address)](#ip-address) -->
+<!-- [Nombre des sources [18](#nombre-des-sources)](#nombre-des-sources) -->
+<!-- [First Source ID [18](#first-source-id)](#first-source-id) -->
+<!-- [4.3.2. Sources [19](#sources)](#sources) -->
+<!-- [4.3.3. Contrôleurs [19](#contrôleurs)](#contrôleurs) -->
+<!-- [4.4. Vues de la spatialisation -->
+<!-- [20](#vues-de-la-spatialisation)](#vues-de-la-spatialisation) -->
+<!-- [4.4.1 Vue en mode DOME [20](#vue-en-mode-dome)](#vue-en-mode-dome) -->
+<!-- [4.4.2. Spans en mode DOME -->
+<!-- [20](#spans-en-mode-dome)](#spans-en-mode-dome) -->
+<!-- [4.4.3. Vue en mode CUBE [21](#vue-en-mode-cube)](#vue-en-mode-cube) -->
+<!-- [4.4.4. Spans en mode CUBE -->
+<!-- [21](#spans-en-mode-cube)](#spans-en-mode-cube) -->
+<!-- [4.4.5. Élévation en mode CUBE en mode Normal ou Extended Top -->
+<!-- [22](#élévation-en-mode-cube-en-mode-normal-ou-extended-top)](#élévation-en-mode-cube-en-mode-normal-ou-extended-top) -->
+<!-- [4.4.6. Élévation en mode CUBE dans les modes Extended Top et Bottom -->
+<!-- [22](#élévation-en-mode-cube-dans-les-modes-extended-top-et-bottom)](#élévation-en-mode-cube-dans-les-modes-extended-top-et-bottom) -->
+<!-- [4.5. Comment utiliser ControlGRIS -->
+<!-- [22](#comment-utiliser-controlgris2)](#comment-utiliser-controlgris2) -->
+<!-- [4.5.1. Charger le plugiciel sur une piste -->
+<!-- [23](#charger-le-plugiciel-sur-une-piste)](#charger-le-plugiciel-sur-une-piste) -->
+<!-- [4.5.2. Sauvegarde des mémoires et enregistrement des automations -->
+<!-- [23](#sauvegarde-des-mémoires-et-enregistrement-des-automations)](#sauvegarde-des-mémoires-et-enregistrement-des-automations) -->
+<!-- [4.5.3. Rappeler les mémoires -->
+<!-- [23](#rappeler-les-mémoires)](#rappeler-les-mémoires) -->
+<!-- [4.6. Trajectoires -->
+<!-- [24](#trajectoires-abstraites)](#trajectoires-abstraites) -->
+<!-- [4.6.1. Sources Link [24](#sources-link)](#sources-link) -->
+<!-- [Azimuth-Elevation (DOME) et Azimuth-Distance (CUBE) Links -->
+<!-- [24](#azimuth-elevation-dome-et-azimuth-distance-cube-links)](#azimuth-elevation-dome-et-azimuth-distance-cube-links) -->
+<!-- [Elevation Links (CUBE mode seulement) -->
+<!-- [24](#elevation-links-cube-mode-seulement)](#elevation-links-cube-mode-seulement) -->
+<!-- [4.6.2. Types de trajectoires -->
+<!-- [25](#types-de-trajectoires)](#types-de-trajectoires) -->
+<!-- [Azimuth-Elevation (DOME) et Azimuth-Distance (CUBE) Trajectory Type -->
+<!-- [25](#azimuth-elevation-dome-et-azimuth-distance-cube-trajectory-type)](#azimuth-elevation-dome-et-azimuth-distance-cube-trajectory-type) -->
+<!-- [Elevation (CUBE seulement) Trajectory Type -->
+<!-- [25](#elevation-cube-seulement-trajectory-type)](#elevation-cube-seulement-trajectory-type) -->
+<!-- [Realtime [26](#realtime)](#realtime) -->
+<!-- [Drawing [26](#drawing)](#drawing) -->
+<!-- [Maj-Clic en mode Drawing -->
+<!-- [26](#maj-clic-en-mode-drawing)](#maj-clic-en-mode-drawing) -->
+<!-- [Activate [27](#activate)](#activate) -->
+<!-- [Enregistrement de la trajectoire dans la SAN -->
+<!-- [27](#enregistrement-de-la-trajectoire-dans-la-san)](#enregistrement-de-la-trajectoire-dans-la-san) -->
+<!-- [4.6.3. Un cas particulier : le pendule -->
+<!-- [27](#un-cas-particulier-le-pendule)](#un-cas-particulier-le-pendule) -->
+<!-- [4.6.4. Mémoires et trajectoires automatisées -->
+<!-- [27](#mémoires-et-trajectoires-automatisées)](#mémoires-et-trajectoires-automatisées) -->
+<!-- [5. SpatGRIS [29](#spatgris-1)](#spatgris-1) -->
+<!-- [5.1. Introduction [29](#introduction-2)](#introduction-2) -->
+<!-- [5.2. SpeakerView [30](#speakerview)](#speakerview) -->
+<!-- [5.2.1. Visibilité et raccourcis-clavier -->
+<!-- [30](#visibilité-et-raccourcis-clavier)](#visibilité-et-raccourcis-clavier) -->
+<!-- [5.2.2. Deux applications distinctes -->
+<!-- [30](#deux-applications-distinctes)](#deux-applications-distinctes) -->
+<!-- [5.3. Modifier la configuration de haut-parleurs et non la -->
+<!-- spatialisation -->
+<!-- [31](#modifier-la-configuration-de-haut-parleurs-et-non-la-spatialisation)](#modifier-la-configuration-de-haut-parleurs-et-non-la-spatialisation) -->
+<!-- [5.4. Réglages (Settings) [32](#réglages-settings)](#réglages-settings) -->
+<!-- [5.5. Contrôles [32](#contrôles)](#contrôles) -->
+<!-- [5.6. Le DOME et le CUBE [32](#le-dome-et-le-cube)](#le-dome-et-le-cube) -->
+<!-- [5.6.1. DOME [33](#dome)](#dome) -->
+<!-- [5.6.2. CUBE [33](#cube)](#cube) -->
+<!-- [5.7. Le mode HYBRID: DOME et CUBE dans le même projet -->
+<!-- [34](#le-mode-hybrid-dome-et-cube-dans-le-même-projet)](#le-mode-hybrid-dome-et-cube-dans-le-même-projet) -->
+<!-- [5.7.1. Qu'est-ce qui est sauvegardé en mode HYBRID ? -->
+<!-- [34](#quest-ce-qui-est-sauvegardé-en-mode-hybrid)](#quest-ce-qui-est-sauvegardé-en-mode-hybrid) -->
+<!-- [5.7.2. Quel mode est chargé en fonction de l'ordre d'ouverture du -->
+<!-- Speaker Setup et du Project? -->
+<!-- [34](#quel-mode-est-chargé-en-fonction-de-lordre-douverture-du-speaker-setup-et-du-project)](#quel-mode-est-chargé-en-fonction-de-lordre-douverture-du-speaker-setup-et-du-project) -->
+<!-- [5.7.3. Attenuation settings dans le mode CUBE ou HYBRID -->
+<!-- [35](#attenuation-settings-dans-le-mode-cube-ou-hybrid)](#attenuation-settings-dans-le-mode-cube-ou-hybrid) -->
+<!-- [5.7.4. Conversion de DOME en CUBE et vice versa -->
+<!-- [36](#conversion-de-dome-en-cube-et-vice-versa)](#conversion-de-dome-en-cube-et-vice-versa) -->
+<!-- [5.7.5. Spatialisation en 2D et 3D -->
+<!-- [36](#spatialisation-en-2d-et-3d)](#spatialisation-en-2d-et-3d) -->
+<!-- [5.8. Dispositif de haut-parleurs -->
+<!-- [37](#dispositif-de-haut-parleurs)](#dispositif-de-haut-parleurs) -->
+<!-- [5.8.1. Speaker Setup Edition -->
+<!-- [38](#speaker-setup-edition)](#speaker-setup-edition) -->
+<!-- [5.8.2. Ordre des haut-parleurs et représentation visuelle -->
+<!-- [38](#ordre-des-haut-parleurs-et-représentation-visuelle)](#ordre-des-haut-parleurs-et-représentation-visuelle) -->
+<!-- [5.8.3. Exigences minimales -->
+<!-- [39](#exigences-minimales)](#exigences-minimales) -->
+<!-- [5.8.4. Sorties directes [40](#sorties-directes)](#sorties-directes) -->
+<!-- [Sorties directes indépendantes -->
+<!-- [40](#sorties-directes-indépendantes)](#sorties-directes-indépendantes) -->
+<!-- [Sorties directes spatialisées -->
+<!-- [40](#sorties-directes-spatialisées)](#sorties-directes-spatialisées) -->
+<!-- [5.8.5. Show Speaker Numbers -->
+<!-- [41](#show-speaker-numbers)](#show-speaker-numbers) -->
+<!-- [5.9. Sources et Speakers -->
+<!-- [42](#sources-et-speakers)](#sources-et-speakers) -->
+<!-- [5.9.1. Mute et Solo [43](#mute-et-solo)](#mute-et-solo) -->
+<!-- [5.9.2. Indicateurs de crête et réinitialisation -->
+<!-- [43](#indicateurs-de-crête-et-réinitialisation)](#indicateurs-de-crête-et-réinitialisation) -->
+<!-- [5.10. Les réductions stéréo -->
+<!-- [43](#les-réductions-stéréo)](#les-réductions-stéréo) -->
+<!-- [5.10.1. STEREO [43](#stereo)](#stereo) -->
+<!-- [5.10.2. BINAURAL [44](#binaural)](#binaural) -->
+<!-- [5.11. Enregistrement [44](#enregistrement)](#enregistrement) -->
+<!-- [6. PLAYER [46](#player)](#player) -->
+<!-- [6.1. Effectuer un enregistrement pour le PLAYER -->
+<!-- [46](#effectuer-un-enregistrement-pour-le-player)](#effectuer-un-enregistrement-pour-le-player) -->
+<!-- [6.2. Ouvrir et lire un projet avec le PLAYER -->
+<!-- [46](#ouvrir-et-lire-un-projet-avec-le-player)](#ouvrir-et-lire-un-projet-avec-le-player) -->
+<!-- [6.2.1. Ouvrir le Speaker Setup pour l'écoute -->
+<!-- [46](#ouvrir-le-speaker-setup-pour-lécoute)](#ouvrir-le-speaker-setup-pour-lécoute) -->
+<!-- [6.2.2. Ouvrir la fenêtre PLAYER et charger les fichiers -->
+<!-- [47](#ouvrir-la-fenêtre-player-et-charger-les-fichiers)](#ouvrir-la-fenêtre-player-et-charger-les-fichiers) -->
+<!-- [6.2.3. Jouer la pièce [48](#jouer-la-pièce)](#jouer-la-pièce) -->
+<!-- [6.2.4. DOME dans CUBE ou CUBE dans DOME -->
+<!-- [48](#dome-dans-cube-ou-cube-dans-dome)](#dome-dans-cube-ou-cube-dans-dome) -->
+<!-- [6.2.5. Les sorties directes dans le PLAYER -->
+<!-- [49](#les-sorties-directes-dans-le-player)](#les-sorties-directes-dans-le-player) -->
+<!-- [6.3. Sauvegarder un projet PLAYER -->
+<!-- [50](#sauvegarder-un-projet-player)](#sauvegarder-un-projet-player) -->
+<!-- [7. Menus [51](#menus)](#menus) -->
+<!-- [7.1. Menu File [51](#menu-file)](#menu-file) -->
+<!-- [7.2. Menu View [51](#menu-view)](#menu-view) -->
+<!-- [7.3. Nommer et sauvegarder -->
+<!-- [52](#nommer-et-sauvegarder)](#nommer-et-sauvegarder) -->
+<!-- [7.4. Représentations [53](#représentations)](#représentations) -->
+<!-- [7.4.1. Représentation 3D [53](#représentation-3d)](#représentation-3d) -->
+<!-- [7.4.2. Représentation 2D [54](#représentation-2d)](#représentation-2d) -->
+<!-- [7.5. Performance et charge de travail du CPU -->
+<!-- [54](#performance-et-charge-de-travail-du-cpu)](#performance-et-charge-de-travail-du-cpu) -->
+<!-- [7.6. Menu d'aide [54](#menu-daide)](#menu-daide) -->
+<!-- [8. Addendum [55](#addendum)](#addendum) -->
+<!-- [8.1. Descriptions des Sources Link -->
+<!-- [55](#descriptions-des-sources-link)](#descriptions-des-sources-link) -->
+<!-- [8.1.1. Azimuth-Elevation et Azimuth-Distance -->
+<!-- [55](#azimuth-elevation-et-azimuth-distance)](#azimuth-elevation-et-azimuth-distance) -->
+<!-- [8.1.2. Elevation (Mode CUBE uniquement) -->
+<!-- [56](#elevation-mode-cube-uniquement)](#elevation-mode-cube-uniquement) -->
+<!-- [8.2. Descriptions des trajectoires -->
+<!-- [57](#descriptions-des-trajectoires)](#descriptions-des-trajectoires) -->
+<!-- [8.2.1. Azimuth-Elevation et Azimuth-Distance -->
+<!-- [57](#azimuth-elevation-et-azimuth-distance-1)](#azimuth-elevation-et-azimuth-distance-1) -->
+<!-- [8.2.2. Elevation (Mode CUBE uniquement) -->
+<!-- [58](#elevation-mode-cube-uniquement-1)](#elevation-mode-cube-uniquement-1) -->
+<!-- [8.3. Messages OSC dans SpatGRIS -->
+<!-- [58](#messages-osc-dans-spatgris)](#messages-osc-dans-spatgris) -->
+<!-- [8.4. Messages OSC dans ControlGRIS -->
+<!-- [60](#messages-osc-dans-controlgris2)](#messages-osc-dans-controlgris2) -->
+<!-- [8.5. Open Stage Control et Lemur -->
+<!-- [60](#open-stage-control-et-lemur)](#open-stage-control-et-lemur) -->
+<!-- [8.6. Désinstaller [60](#désinstaller)](#désinstaller) -->
+<!-- [8.6.1. SpatGRIS [60](#spatgris-2)](#spatgris-2) -->
+<!-- [8.6.2. ControlGRIS [60](#controlgris2-2)](#controlgris2-2) -->
+<!-- [9. Problèmes connus et avertissements -->
+<!-- [61](#problèmes-connus-et-avertissements)](#problèmes-connus-et-avertissements) -->
+<!-- [9.1. Problèmes connus [61](#problèmes-connus)](#problèmes-connus) -->
+<!-- [9.1.1. SpatGRIS, le plugiciel et SpatGRIS, le logiciel -->
+<!-- [61](#spatgris-le-plugiciel-et-spatgris-le-logiciel)](#spatgris-le-plugiciel-et-spatgris-le-logiciel) -->
+<!-- [9.1.2. [61](#section)](#section) -->
+<!-- [9.1.3. [61](#section-1)](#section-1) -->
+<!-- [9.2. Reaper [61](#reaper)](#reaper) -->
+<!-- [9.2.1. Pistes mono [61](#pistes-mono)](#pistes-mono) -->
+<!-- [9.2.2. Préférences avec Jack -->
+<!-- [62](#préférences-avec-jack)](#préférences-avec-jack) -->
+<!-- [9.3. Logic Pro [62](#logic-pro)](#logic-pro) -->
+<!-- [9.3.1. Une seule sortie Surround -->
+<!-- [62](#une-seule-sortie-surround)](#une-seule-sortie-surround) -->
+<!-- [9.3.2. Bouton Activate [62](#bouton-activate)](#bouton-activate) -->
+<!-- [9.4. Digital Performer 11 et automatisation des mémoires -->
+<!-- [62](#digital-performer-11-et-automatisation-des-mémoires)](#digital-performer-11-et-automatisation-des-mémoires) -->
+<!-- [9.5. Utilisation de SpatGRIS avec des entrées en direct -->
+<!-- [62](#utilisation-de-spatgris-avec-des-entrées-en-direct)](#utilisation-de-spatgris-avec-des-entrées-en-direct) -->
+<!-- [10. Conseil et astuces [63](#conseil-et-astuces)](#conseil-et-astuces) -->
+<!-- [10.1. Spatialisation acousmatique -->
+<!-- [63](#spatialisation-acousmatique)](#spatialisation-acousmatique) -->
+<!-- [10.1.1. Console de mixage [63](#console-de-mixage)](#console-de-mixage) -->
+<!-- [10.1.2. Station Audio Numérique -->
+<!-- [63](#station-audio-numérique)](#station-audio-numérique) -->
+<!-- [10.1.3. Dispositif acousmatique -->
+<!-- [63](#dispositif-acousmatique)](#dispositif-acousmatique) -->
+<!-- [10.1.4. Scénario [64](#scénario)](#scénario) -->
+<!-- [10.2. Utilisation du PLAYER sans votre présence -->
+<!-- [66](#utilisation-du-player-en-votre-absence)](#utilisation-du-player-en-votre-absence) -->
+<!-- [10.3. Le mode HYBRID pour varier les trajectoires -->
+<!-- [66](#le-mode-hybrid-pour-varier-les-trajectoires)](#le-mode-hybrid-pour-varier-les-trajectoires) -->
+<!-- [Index [68](#index)](#index) -->
+<p><img src="/media-fr/media/image5.png"
+style="width:1.02901in;height:1.02362in" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="1-présentation-générale"><a class="header" href="#1-présentation-générale">1. Présentation générale</a></h1>
+<h2 id="11-spatgris-est-un-outil-de-spatialisation-et-de-locaisation"><a class="header" href="#11-spatgris-est-un-outil-de-spatialisation-et-de-locaisation">1.1. SpatGRIS est un outil de spatialisation et de locaisation</a></h2>
+<p><em>SpatGRIS</em> fait de la spatialisation et de la localisation. La
+spatialisation donne à l'auditeur l'impression d'être entouré par le
+son. C'est une expérience immersive. La localisation est un moyen de
+placer un son à un endroit très précis dans l'espace. Les deux concepts
+peuvent être utilisés en même temps dans <em>SpatGRIS</em>.</p>
+<h3 id="111-spatialisation"><a class="header" href="#111-spatialisation">1.1.1. Spatialisation</a></h3>
+<p>En utilisant ses deux algorithmes DOME ou CUBE, <em>SpatGRIS</em> met en
+correspondance les sources sonores - qui proviennent de n'importe quel
+logiciel audio - avec une configuration de haut-parleurs. La position
+des sources est fournie par des messages OSC. La spatialisation est
+réalisée par un système de haut-parleurs dans un espace physique.</p>
+<h3 id="112-localisation"><a class="header" href="#112-localisation">1.1.2. Localisation</a></h3>
+<p>Avec **l'**option des sorties directes (indépendantes ou spatialisées),
+<em>SpatGRIS</em> permet l'accès direct aux enceintes, par exemple pour gérer
+les subwoofers, pour placer un son sur une enceinte particulière ou pour
+utiliser une approche de spatialisation basée sur les canaux
+(<em>channel-based</em>).</p>
+<h2 id="12-spatgris-est-un-enregistreur-et-un-lecteur"><a class="header" href="#12-spatgris-est-un-enregistreur-et-un-lecteur">1.2. SpatGRIS est un enregistreur et un lecteur</a></h2>
+<p><em>SpatGRIS</em> permet d'enregistrer les sorties des haut-parleurs en mode
+spatialisé (DOME ou CUBE) ou en mode à deux canaux (STEREO ou BINAURAL)
+dans deux standards - WAV, AIFF - et dans deux formats - Mono Files ou
+Interleaved (entrelacé). Avec l'outil PLAYER, <em>SpatGRIS</em> peut jouer
+n'importe quelle œuvre multicanale enregistrée avec lui.</p>
+<h2 id="13-spatgris-produit-des-configurations-de-haut-parleurs"><a class="header" href="#13-spatgris-produit-des-configurations-de-haut-parleurs">1.3. SpatGRIS produit des configurations de haut-parleurs</a></h2>
+<p>La configuration des haut-parleurs, <em>Speaker Setup</em>, peut adopter la
+forme d'un DOME ou la forme libre d'un CUBE virtuel.</p>
+<h3 id="131-configuration-dome"><a class="header" href="#131-configuration-dome">1.3.1. Configuration DOME</a></h3>
+<p>Dans le DOME, la distance entre chaque haut-parleur et le centre du DOME
+est fixe. Les sources sonores peuvent être spatialisées sur la surface
+du DOME.</p>
+<h3 id="132-configuration-cube"><a class="header" href="#132-configuration-cube">1.3.2 Configuration CUBE</a></h3>
+<p>Dans le CUBE, les haut-parleurs peuvent être disposés librement dans
+l'espace. Il n'y a pas de distance fixe entre les enceintes et le centre
+de la configuration. Contrairement aux configurations DOME, les sources
+sonores peuvent entrer, traverser et sortir de la configuration. Les
+sources sonores qui se trouvent à l'extérieur de la configuration
+peuvent être traitées avec des paramètres d'atténuation (volume et
+filtre).</p>
+<h2 id="14-les-haut-parleurs-participe-à-la-spatialisation-et-à-la-localisation"><a class="header" href="#14-les-haut-parleurs-participe-à-la-spatialisation-et-à-la-localisation">1.4. Les haut-parleurs participe à la spatialisation et à la localisation</a></h2>
+<p>Chaque haut-parleur a un numéro unique - que ce soit en mode spatialisé
+ou en sortie directe - et peut être utilisé pour ces deux fonctions : la
+spatialisation et la localisation, grâce aux nouvelles fonctionnalités
+de sortie directe. Un haut-parleur peut faire partie de la
+spatialisation et être en même temps une sortie directe. Il s'agit d'une
+différence conceptuelle majeure par rapport aux versions précédentes,
+introduite avec la version 3.</p>
+<h2 id="15-les-trois-composantes-de-spatgris"><a class="header" href="#15-les-trois-composantes-de-spatgris">1.5. Les trois composantes de SpatGRIS</a></h2>
+<p><em>SpatGRIS</em> comporte trois composantes qui sont sauvegardées
+indépendamment l'une de l'autre : Project, Speaker Setup and Settings.</p>
+<p>• Save Project. Un projet est couplé à une œuvre et contient un certain
+nombre de sources.</p>
+<p>• Save Speaker Setup. Une configuration de haut-parleurs est couplée à
+une installation physique placée dans un espace.</p>
+<p>• Save Settings. Ces paramètres sont liés à une station de travail
+(ordinateur et interface audio), y compris les sorties stéréo utilisées
+pour la réduction stéréo.</p>
+<h2 id="16-quy-a-t-il-de-nouveau-et-damélioré-dans-controlgrisspatgris"><a class="header" href="#16-quy-a-t-il-de-nouveau-et-damélioré-dans-controlgrisspatgris">1.6. Qu'y a-t-il de nouveau et d'amélioré dans ControlGRIS/SpatGRIS?</a></h2>
+<p>• <em>SpatGRIS</em> est indépendant de toute interface audio virtuelle, que ce
+soit <em>Jack</em>, <em>Enzian</em> ou <em>BlackHole</em>. Celle-ci est au choix de
+l'utilisateur.rice.</p>
+<p>• Les sorties directes (<em>Direct Outs),</em> ont désormais deux fonctions :
+<em>Independent</em>, pour les enceintes qui ne font pas partie de la
+spatialisation, comme les <em>subwoofers</em> ; <em>Spatialized</em>, par laquelle le
+son peut être envoyé directement à n'importe quelle enceinte faisant
+partie du Speaker Setup.</p>
+<p>• Compatibilité avec les dernières versions de macOS, de 10.15
+(Catalina) à 14.7 (Sonoma) et les nouvelles machines (M1-M2-M3).</p>
+<p>• Compatibilité avec ProTools grâce à l'ajout du format AAX de
+<em>ControlGRIS.</em></p>
+<p>• STEREO et BINAURAL peuvent être assignés à n'importe quelle sortie de
+la carte son.</p>
+<p>• Plusieurs Speaker Setups et Templates de projets sont désormais
+intégrés dans le logiciel.</p>
+<p>• <em>ControlGRIS</em> et <em>SpatGRIS</em> sont disponibles pour Windows.</p>
+<p><strong>Nouveautés :</strong></p>
+<p><em><strong>SpatGRIS</strong></em></p>
+<p>• Version 3.4.0</p>
+<p>- Mise à jour avec JUCE 8</p>
+<p>- Un bouton MUTE général a été ajouté.</p>
+<p>• Ajouts et correctifs récents</p>
+<p>- Speaker View: les numéros des haut-parleurs sont automatiquement mis
+à jour.</p>
+<p>- La fenêtre 3D qui représente les haut-parleurs et les sources est
+maintenant indépendante de <em>SpatGRIS</em>. La représentation graphique se
+fait maintenant dans <em>SpeakerView</em>, sous une interface graphique
+nettement améliorée.</p>
+<p>- <em>SpatGRIS</em> et <em>BlackHole</em> possèdent désormais 256 canaux chacun</p>
+<p>- Mode CUBE : Les réglages d'atténuation ont un bouton Bypass.</p>
+<p>- Mode CUBE : l'atténuation Z négative commence au plancher.</p>
+<p>- Réduction stéréo : Les Attenuation settings (les réglages
+d'atténuation) sont fonctionnels dans la réduction stéréo en mode CUBE
+ou HYBRID.</p>
+<p>- Attenuation settings: Ils sont sauvegardés avec les projets.</p>
+<p>- Introduction du PLAYER, un outil qui permet à <em>SpatGRIS</em> d'être
+utilisé comme un logiciel autonome pour jouer n'importe quelle pièce
+enregistrée par lui sur n'importe quelle configuration de haut-parleurs.</p>
+<p>- Le mode CUBE utilise un nouvel algorithme : MBAP (Matrix Based
+Amplitude Panning).</p>
+<p>- Les fonctions Mute et Solo sont désormais sauvegardées respectivement
+avec les projets ou les Speaker Setups.</p>
+<p>- Speaker Setup Edition en modes CUBE et HYBRID : ajout d'un paramètre
+Global Sound Diffusion.</p>
+<p>- Introduction du mode HYBRID qui combine les algorithmes DOME et CUBE.</p>
+<p>- L'option Show Numbers a été divisée en Show Source Numbers et Show
+Speaker Numbers.</p>
+<p><em><strong>ControlGRIS2</strong></em></p>
+<p>• Version 2.0.5</p>
+<p>- Changements majeurs, passage à la version 2.</p>
+<p>- Introduction des trajectoires basées sur l'analyse du signal selon
+différents descripteurs audio.</p>
+<p>• Ajouts et correctifs récents</p>
+<p><s>- La fenêtre Speaker Setup Edition a été considérablement
+optimisée.</s></p>
+<p>- Offre la possibilité de placer des signaux en dehors du CUBE sur
+l'axe Z*.*</p>
+<p><s>- Meilleure compatibilité des paramètres entre <em>ControlGRIS</em> et
+<em>SpatGRIS</em>.</s></p>
+<p><s>- Beaucoup d'améliorations très pratiques et de changements dans la
+terminologie !</s></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="2-introduction"><a class="header" href="#2-introduction">2. INTRODUCTION</a></h1>
+<p>Ces instructions supposent que vous connaissez les outils suivants :</p>
+<p>• La SAN (Station Audio Numérique) que vous utilisez, compatible avec
+les plugiciels AU, VST, VST3 ou AAX.</p>
+<p>• Votre interface audio.</p>
+<h2 id="21-architecture"><a class="header" href="#21-architecture">2.1. Architecture</a></h2>
+<p>Le système <em>SpatGRIS</em> est composé de trois éléments :</p>
+<p>• Le plugiciel <em>ControlGRIS2</em> où les trajectoires sont conçues et
+enregistrées dans un SAN (ou tout autre dispositif OSC<sup class="footnote-reference" id="fr-osc-footnote-1"><a href="#footnote-osc-footnote">1</a></sup>).</p>
+<p>• <em>SpatGRIS</em> lui-même qui spatialise le son, en fonction de la
+configuration des haut-parleurs sélectionnée</p>
+<p>• Le dispositif audio virtuel <em>BlackHole</em><sup class="footnote-reference" id="fr-BH-footnote-1"><a href="#footnote-BH-footnote">2</a></sup> qui connecte la SAN à
+<em>SpatGRIS</em>.</p>
+<p>L'architecture se présente comme suit (l'audio et l'OSC fonctionnent en
+parallèle):</p>
+<p><img src="/media-fr/media/image6.png"
+style="width:4.66875in;height:3.15in" /></p>
+<h2 id="22-spatgris"><a class="header" href="#22-spatgris">2.2. SpatGRIS</a></h2>
+<p><em>SpatGRIS</em> est un logiciel autonome qui permet la spatialisation des
+sons sur différentes configurations de haut-parleurs, en 2D ou en 3D. Il
+peut être utilisé avec l'interface virtuelle <em>BlackHole</em> qui peut
+fournir jusqu'à 256 entrées et sorties. Les trajectoires sont envoyées à
+<em>SpatGRIS</em> depuis le plugiciel <em>ControlGRIS2</em>, ou depuis n'importe quel
+autre logiciel OSC<sup class="footnote-reference" id="fr-OSC-format-footnote-1"><a href="#footnote-OSC-format-footnote">3</a></sup>. La spatialisation audio elle-même est effectuée
+par <em>SpatGRIS</em> et envoyée à l'interface audio.</p>
+<h3 id="221-lhistoire"><a class="header" href="#221-lhistoire">2.2.1. L'histoire</a></h3>
+<p>Le développement de <em>SpatGRIS</em> a commencé en 2020. Il s'agit d'une
+version réécrite de <em>ServerGris</em> (2018) et de <em>SpatGRIS2</em> (2020). La
+première version officielle de <em>SpatGRIS</em> 3.0.0 a été publiée en août
+2021. Il s'agit de notre premier outil de spatialisation sans <em>Jack</em><sup class="footnote-reference" id="fr-jack-footnote-1"><a href="#footnote-jack-footnote">4</a></sup>
+!</p>
+<h3 id="222-configuration-requise"><a class="header" href="#222-configuration-requise">2.2.2. Configuration requise</a></h3>
+<p>Le logiciel a été testé sur les OS suivants :</p>
+<p>• macOS de 10.15 Catalina™ à 14.7 Sonoma™.</p>
+<p>• Il est natif sur les ordinateurs Apple Silicon M1-M2-M3 (version 3.1.8
+et plus).</p>
+<p>• Windows™ 10. 11.</p>
+<h3 id="223-notes-dinstallation"><a class="header" href="#223-notes-dinstallation">2.2.3. Notes d'installation</a></h3>
+<p>• Téléchargez la dernière version de <em>SpatGRIS</em> à partir de SourceForge
+:</p>
+<p><a href="https://sourceforge.net/projects/spatgris3/">https://sourceforge.net/projects/SpatGRIS3/</a></p>
+<p><em>SpatGRIS</em> pour Mac comprend deux programmes d'installation dans le même
+dossier :</p>
+<p>SpatGRIS_v3:</p>
+<p>• <em>SpatGRIS</em> lui-même.</p>
+<p>• <em>SpeakerView</em> sous trois versions: Forward (recommandé), Compatibility
+et Mobile</p>
+<p>• <em>ControlGRIS2</em> ou <em>ControlGRIS22</em> sous forme de dossier compressé
+contenant les différents formats du plugiciel.</p>
+<p>BlackHole:</p>
+<p>• Le périphérique audio virtuel <em>BlackHole</em> qui fournit 64, 128 ou 256
+canaux audio entre la SAN et <em>SpatGRIS</em>.</p>
+<p>Notes pour les utilisateurs de MacOS</p>
+<p>• <em>SpatGRIS</em>, ainsi que <em>SpeakerView</em> et un dossier d'utilitaires, sont
+maintenant installés dans un dossier GRIS, dans le dossier Applications.
+Il est possible de renommer le dossier GRIS (pour avoir plusieurs
+installations, par exemple), mais il n'est pas conseillé de renommer
+quoi que ce soit à l'intérieur de ce dossier.</p>
+<p>• Pour faciliter la gestion du focus entre <em>SpeakerView</em> et <em>SpatGRIS</em>,
+nous vous recommandons d'autoriser <em>SpeakerView</em> à contrôler votre
+ordinateur lorsque cela vous est demandé. Si <em>SpeakerView</em> ne le demande
+pas, allez dans Réglages système… &gt; Confidentialité et sécurité &gt;
+Accessibilité, et autorisez <em>SpeakerView</em>.</p>
+<p><em>SpatGRIS, SpeakerView, ControlGRIS22</em> et <em>BlackHole</em> seront mis à jour
+séparément. Veuillez-vous inscrire à notre infolettre sur
+http://gris.musique.umontreal.ca/ pour être informé.es des mises à jour
+<s>du logiciel</s> sur notre site web*.*</p>
+<p>Deux contrôleurs externes sont disponibles pour <em>ControlGRIS2</em> :</p>
+<p>• Un patch de Open Stage Control pour <em>iPad</em>™.</p>
+<p>• Un patch de Lemur<sup class="footnote-reference" id="fr-ipad-footnote-1"><a href="#footnote-ipad-footnote">5</a></sup> pour <em>iPad</em>™.</p>
+<p>Un manuel Addendum relatif à ces contrôleurs <em>iPad</em> est disponible sur
+SourceForge.</p>
+<p><em>SpatGRIS</em> pour Windows a un seul programme d'installation :</p>
+<p>• <em>SpatGRIS</em> lui-même.</p>
+<p>• <em>ControlGRIS2</em> et <em>ControlGRIS22</em> sous forme de dossier compressé
+contenant les différents formats du plugiciel.</p>
+<p>Il n'existe pas de version Windows de <em>BlackHole</em>. Pour les
+utilisateur.rices de Reaper™, il existe la fonction <em>ReaRoute</em>, qui
+fonctionne de manière similaire à <em>BlackHole</em>, mais uniquement pour
+Reaper. Il est possible d'utiliser <em>Jack</em> sous Windows<sup class="footnote-reference" id="fr-jack-win-footnote-1"><a href="#footnote-jack-win-footnote">6</a></sup>. Lorsque
+<em>BlackHole</em> est mentionné dans le manuel, remplacez-le par <em>ReaRoute</em> ou
+<em>Jack</em> lorsque vous utilisez Windows.</p>
+<h3 id="224-accès-au-microphone"><a class="header" href="#224-accès-au-microphone">2.2.4. Accès au microphone</a></h3>
+<p><strong>NOTE : Très important pour les utilisateur.rices de Catalina (10.15)
+et plus.</strong></p>
+<p>Assurez-vous que <em>SpatGRIS</em> a accès au microphone dans les Préférences
+système, Sécurité et confidentialité:</p>
+<p><img src="/media-fr/media/image7.jpg"
+style="width:3.75283in;height:1.36in" /></p>
+<h3 id="225-volume-de-blackhole-à-0-db"><a class="header" href="#225-volume-de-blackhole-à-0-db">2.2.5. Volume de BlackHole à 0 dB</a></h3>
+<p>Après avoir installé ou réinstallé <em>Blackhole</em>, assurez-vous que le
+volume de <em>BlackHole</em> est à 0 dB dans la configuration Audio Midi.</p>
+<p><img src="/media-fr/media/image8.jpg"
+style="width:6.24833in;height:1.5in" /></p>
+<h3 id="226-nouveaux-utilisateurs-de-blackhole-et-de-macos-14-sonoma"><a class="header" href="#226-nouveaux-utilisateurs-de-blackhole-et-de-macos-14-sonoma">2.2.6. Nouveaux utilisateurs de BlackHole et de macOS 14 Sonoma</a></h3>
+<p>NOTE : Les nouveaux utilisateurs de BlackHole sous macOS 14 Sonoma
+doivent utiliser la dernière version de l'installateur de BlackHole
+0.6.0.</p>
+<h2 id="23-controlgris2"><a class="header" href="#23-controlgris2">2.3. ControlGRIS2</a></h2>
+<p>Il existe désormais deux versions de ControlGRIS. La version 1 demeure
+disponible afin d'assurer la compatibilité avec les projets existants
+qui l'utilisent. Et à partir de 2025, <em>ControlGRIS2</em> qui introduit le
+traitement de signal. Les deux versions peuvent cohabiter. Ce manuel est
+consacré à <em>ControlGRIS2</em>. Pour la version 1, consulter le manuel de
+<em>SpatGRIS</em> 3.3.7.</p>
+<p><em>ControlGRIS2</em> est un plugiciel OSC disponible dans les formats AU,
+VST, VST3 et AAX (Mac) et dans les formats VST et AAX (Windows). Ce
+plugiciel gratuit et open-source envoie des données OSC à <em>SpatGRIS</em>
+pour spatialiser plusieurs sources sonores sur une configuration
+variable de haut-parleurs. Différents modes de liens entre les sources,
+Source Link, et un système de trajectoires sont fournis pour la
+spatialisation de sources mono, stéréo et multicanaux (jusqu'à huit
+canaux).</p>
+<h3 id="231-lhistoire"><a class="header" href="#231-lhistoire">2.3.1. L’histoire</a></h3>
+<p>Le développement de <em>ControlGRIS</em> a commencé en 2019. Il s'est inspiré
+de trois plugiciels plus anciens, <em>OctoGris</em> (2010), <em>ZirkOSC</em> (2012) et
+<em>SpatGris1</em>(2017). La première version (1.1.0) a été publiée en avril
+2020. La première version (2.0.5) de <em>ControlGRIS2</em> a été publiée en
+avril 2025.</p>
+<h3 id="232-configuration-requise"><a class="header" href="#232-configuration-requise">2.3.2. Configuration requise</a></h3>
+<p>Le plugiciel a été testé sur les systèmes d'exploitation et les SAN
+suivants :</p>
+<p>• macOS de 10.15 Catalina™ à 14.7 Sonoma; Digital Performer™ 10 et 11;
+Ableton Live™ 10 et 11; Logic Pro™ 10; Reaper™ 6 et 7; Pro Tools™ 2023.6
+et 2024.10.</p>
+<p>• Il est natif sur les machines Apple Silicon M1-M2-M3 (version 1.3.2 et
+plus).</p>
+<p>• Windows™ 10, 11<sup class="footnote-reference" id="fr-win-11-footnote-1"><a href="#footnote-win-11-footnote">7</a></sup>; Reaper™ 6.</p>
+<h3 id="233-notes-dinstallation"><a class="header" href="#233-notes-dinstallation">2.3.3. Notes d'installation</a></h3>
+<p>Téléchargez la dernière version de <em>ControlGRIS2</em> depuis SourceForge
+(<em>ControlGRIS2</em> est inclus dans le programme d'installation de
+<em>SpatGRIS</em>) : <a href="https://sourceforge.net/projects/spatgris3/">https://sourceforge.net/projects/spatgris3/</a></p>
+<p>Décompressez le fichier téléchargé. Les différents formats seront
+installés à l'endroit approprié. <em>ControlGRIS2</em> apparaît dans le dossier
+"UdeM" de votre SAN.</p>
+<h3 id="234-au-vst-aax"><a class="header" href="#234-au-vst-aax">2.3.4. AU, VST, AAX</a></h3>
+<p>Les versions Mac ont été testées de manière intensive, mais les versions
+Windows 10 et 11, pas tant que ça !</p>
+<p>Les commentaires sont bienvenus.</p>
+<p>Voici quelques particularités :</p>
+<p>• Utilisez la version AU dans DP et Logic Pro sur Mac</p>
+<p>• Utiliser la version VST3 dans Reaper et Live.</p>
+<p>• Utilisez la version AAX dans ProTools<sup class="footnote-reference" id="fr-aax-protools-footnote-1"><a href="#footnote-aax-protools-footnote">8</a></sup>.</p>
+<p>• Pour les autres SAN, consultez leur manuel pour déterminer quelle
+version est la meilleure.</p>
+<h2 id="24-guide-de-démarrage-rapide"><a class="header" href="#24-guide-de-démarrage-rapide">2.4. Guide de démarrage rapide</a></h2>
+<p><em>SpatGRIS</em> reçoit des données <em>Open Sound Control (OSC)</em> de
+<em>ControlGRIS2</em>, pour spatialiser les sons dans une configuration de
+haut-parleurs. Le son est envoyé du SAN à <em>SpatGRIS</em> via <em>BlackHole.</em></p>
+<p>Vous n'avez pas envie de lire le manuel ? Voici les étapes de base pour
+spatialiser une piste stéréo sur une interface audio à 64 sorties.</p>
+<p>NOTE : Ajustez la taille de la mémoire tampon à la même valeur dans
+votre SAN et dans <em>SpatGRIS</em>. Une valeur de 512, voire 1024 et plus est
+recommandée.</p>
+<p>1. Ouvrez <em>SpatGRIS</em>.</p>
+<p>2. Ouvrez les Settings (menu File) ou cliquez directement sur ceux-ci
+dans la barre d'information et attribuez le périphérique d'entrée audio
+à <em>BlackHole</em> 128ch et le périphérique de sortie audio à votre interface
+audio (vous ne devez le faire que la première fois). Fermer la fenêtre.</p>
+<p><img src="/media-fr/media/image9.jpg"
+style="width:1.56193in;height:1.5748in" /></p>
+<p>3. Ouvrez un Speaker Setup DOME (menu File) ou utilisez celui par
+défaut.</p>
+<p>4. Ouvrez votre SAN.</p>
+<p>5. Assignez la sortie audio de votre SAN à <em>BlackHole</em> 128ch.</p>
+<p>6. Créez une piste stéréo et assignez les sorties à <em>BlackHole</em> 128ch
+1-2.</p>
+<p>7. Insérez un plugiciel <em>ControlGRIS2</em> sur cette piste et mettez-le en
+mode DOME.</p>
+<p>8. Le nombre de sources devrait être déjà initialisé et réglé sur 2 et
+le First Source ID réglé sur 1.</p>
+<p>9. Sélectionnez Circular Fully Fixed dans Sources Link et démarrer le
+séquenceur.</p>
+<p>10. Jouer avec la Source No. 1 et voir le résultat dans <em>SpatGRIS</em>.</p>
+<p>11. La couleur des sources est celle des sources sélectionnées dans
+Sources (les points rouges dans cet exemple).</p>
+<p>Vous êtes maintenant prêt.e.s à jouer et à enregistrer des automations.</p>
+<p><img src="/media-fr/media/image10.png"
+style="width:4.65287in;height:3.2in" /></p>
+<p><img src="/media-fr/media/image11.png"
+style="width:4.93346in;height:5.05in" /></p>
+<p>NOTE : Dans chaque piste du SAN, il est obligatoire que les numéros des
+canaux de sortie audio correspondent aux numéros des sources OSC
+(définis par le paramètre First Source ID) dans l'instance de
+<em>ControlGRIS2</em> correspondante pour que le son soit spatialisé dans
+<em>SpatGRIS</em>. Si ce n'est pas le cas, la spatialisation sera silencieuse
+ou ne fonctionnera pas correctement.</p>
+<p>Des questions ? Des précisions ? Lisez le manuel !</p>
+<p>Ce manuel se trouve dans le menu Help :</p>
+<p><img src="/media-fr/media/image12.jpg"
+style="width:1.81222in;height:0.7in" /></p>
+<hr>
+<ol class="footnote-definition"><li id="footnote-osc-footnote">
+<p><a href="http://opensoundcontrol.org">http://opensoundcontrol.org</a> <a href="#fr-osc-footnote-1">↩</a></p>
+</li>
+<li id="footnote-BH-footnote">
+<p><em>BlackHole</em> n'est pas obligatoire. Tout logiciel capable d'envoyer de l'audio à <em>SpatGRIS</em> peut être utilisé. <em>BlackHole</em> est un plugiciel HAL. <a href="#fr-BH-footnote-1">↩</a></p>
+</li>
+<li id="footnote-OSC-format-footnote">
+<p>Voir le format des messages OSC dans l'addendum. <a href="#fr-OSC-format-footnote-1">↩</a></p>
+</li>
+<li id="footnote-jack-footnote">
+<p>JackRouter est un plugiciel HAL qui n'était pas compatible avec MacOS 10.15 et plus, et qui n'a pas été supporté pendant un certain temps. <a href="#fr-jack-footnote-1">↩</a></p>
+</li>
+<li id="footnote-ipad-footnote">
+<p>Conçu par Christophe Lengelé. <a href="#fr-ipad-footnote-1">↩</a></p>
+</li>
+<li id="footnote-jack-win-footnote">
+<p>Pour plus d'informations, voir le lien suivant : <a href="https://jackaudio.org/downloads/">https://jackaudio.org/downloads/</a> <a href="#fr-jack-win-footnote-1">↩</a></p>
+</li>
+<li id="footnote-win-11-footnote">
+<p>Nous n'avons que peu testé sur Windows 11. <a href="#fr-win-11-footnote-1">↩</a></p>
+</li>
+<li id="footnote-aax-protools-footnote">
+<p>Le plugiciel AAX pour Windows est signé à l'aide d'un certificat auto-émis. Il n'est pas clair pour l'instant si cela est suffisant pour ProTools et/ou Windows Defender. <a href="#fr-aax-protools-footnote-1">↩</a></p>
+</li>
+</ol><div style="break-before: page; page-break-before: always;"></div><h1 id="3-connections"><a class="header" href="#3-connections">3. Connections</a></h1>
+<h2 id="31-connecter-la-san-à-spatgris"><a class="header" href="#31-connecter-la-san-à-spatgris">3.1. Connecter la SAN à SpatGRIS</a></h2>
+<h3 id="311-ouvrir-spatgris"><a class="header" href="#311-ouvrir-spatgris">3.1.1. Ouvrir SpatGRIS</a></h3>
+<p>La première fois que vous ouvrirez <em>SpatGRIS</em>, vous devrez :</p>
+<p>• Déterminer le nombre de sources (jusqu'à 256). 64 suffisent dans la
+plupart des cas, mais moins de sources signifient moins de charges pour
+le processeur. Vous pouvez également utiliser l'un des projets inclus
+dans le menu File -&gt; Project Templates.</p>
+<p>• Créer un speaker setup ou en utiliser un dans le menu File -&gt; Speaker
+Setup Templates.</p>
+<p>Après ces deux premières étapes, sauvegardez le Speaker Setup et le
+projet dans un dossier de votre choix. Lors du prochain démarrage de
+<em>SpatGRIS</em>, le dernier Speaker Setup et le dernier projet enregistré
+seront chargés automatiquement.</p>
+<h3 id="312-régler-le-niveau-de-sortie"><a class="header" href="#312-régler-le-niveau-de-sortie">3.1.2. Régler le niveau de sortie</a></h3>
+<p>Par défaut, le niveau de sortie de <em>SpatGRIS</em> est réglé sur le gain
+unitaire : 0,00 dB. Il peut être nécessaire de l'atténuer ou de
+l'augmenter, surtout si c'est la première fois que vous essayez le
+système !</p>
+<h3 id="313-assigner-la-san-à-blackhole"><a class="header" href="#313-assigner-la-san-à-blackhole">3.1.3. Assigner la SAN à BlackHole</a></h3>
+<p>Ouvrez votre SAN et assignez BlackHole comme périphérique de sortie
+audio. <em>BlackHole</em> devrait être détecté comme n'importe quelle autre
+interface audio disponible dans Core Audio*.* Il est possible
+d'attribuer un certain nombre de canaux actifs en fonction du nombre
+défini par la commande Set Sources (icône ±)</p>
+<p><img src="/media-fr/media/image13.png"
+style="width:5.00813in;height:2.2in" /></p>
+<h3 id="314-multiclient"><a class="header" href="#314-multiclient">3.1.4. Multiclient</a></h3>
+<p><em>SpatGRIS</em> est un logiciel multiclient, ce qui signifie qu'il peut se
+connecter à plusieurs logiciels audios en même temps. Gardez à l'esprit,
+cependant, que son utilisation principale est de spatialiser les sons
+provenant d'un seul SAN et il est plutôt rare que deux SAN arrivent à
+cohabiter en même temps. Le logiciel reçoit deux types d'informations:</p>
+<p>• Signaux audio provenant de <em>BlackHole</em></p>
+<p>• Signaux OSC provenant de <em>ControlGRIS2</em>.</p>
+<p>Les deux signaux sont nécessaires pour la spatialisation du son. Pour
+les sorties directes, seul le signal audio est nécessaire.</p>
+<p>Si vous n'utilisez qu'un seul SAN, il n'y a pas de problème, mais il est
+obligatoire que les numéros des canaux de sortie audio correspondent aux
+numéros des sources OSC (définis par le paramètre First Source ID) dans
+l'instance de <em>ControlGRIS2</em> correspondante pour que le son soit
+spatialisé dans <em>SpatGRIS</em>. Si ce n'est pas le cas, la spatialisation
+sera silencieuse ou ne fonctionnera pas correctement. Les choses
+deviennent un peu plus compliquées si vous avez l'intention d'utiliser
+plus d'un logiciel à la fois…</p>
+<p>• <em>BlackHole</em> dispose d'un nombre limité de 256 canaux au total. Si vous
+voulez connecter un SAN avec 24 canaux et un autre avec 8 canaux, gardez
+à l'esprit que le second SAN devra être réglé sur les canaux n° 25-32 de
+<em>BlackHole</em> et il sera nécessaire que <em>ControlGRIS2</em> utilise les numéros
+d'OSC correspondants*.*</p>
+<p>NOTE: Ajustez la taille de la mémoire tampon à la même valeur dans votre
+SAN et dans <em>SpatGRIS</em>. Une valeur de 512 et plus est recommandée.</p>
+<h2 id="32-connecter-controlgris2-à-spatgris"><a class="header" href="#32-connecter-controlgris2-à-spatgris">3.2. Connecter ControlGRIS2 à SpatGRIS</a></h2>
+<h3 id="321-numérotation-des-canaux-audio-et-osc"><a class="header" href="#321-numérotation-des-canaux-audio-et-osc">3.2.1. Numérotation des canaux audio et OSC</a></h3>
+<p>La spatialisation est gérée par <em>SpatGRIS</em> qui reçoit les signaux OSC de
+<em>ControlGRIS2</em>. Il est obligatoire que les numéros des canaux de sortie
+audio dans la SAN correspondent aux numéros des sources OSC (définis par
+le paramètre First Source ID) dans l'instance de <em>ControlGRIS</em>
+correspondante pour que le son soit spatialisé dans <em>SpatGRIS</em>.</p>
+<p>Dans l'exemple suivant, trois pistes stéréo (rouge, bleu et vert) sont
+assignées aux paires de canaux <em>BlackHole</em> 1-2, 3-4 et 5-6. Les trois
+instances de <em>ControlGRIS2</em> utilisent la même numérotation OSC : 1-2,
+3-4 et 5-6.</p>
+<p><img src="/media-fr/media/image14.png"
+style="width:4.69333in;height:5.12in" /></p>
+<p>Pour que les choses soient claires, il est recommandé d'utiliser le même
+schéma de couleurs dans la SAN et dans <em>SpatGRIS</em>.</p>
+<p><img src="/media-fr/media/image15.png"
+style="width:5.01834in;height:3.3in" /></p>
+<p>NOTE: Si, par erreur, vous utilisez les mêmes numéros OSC dans plus
+d'une instance de <em>ControlGRIS2</em>, les sources dans <em>SpatGRIS</em>
+oscilleront entre différentes positions parce qu'elles recevront deux
+(ou plusieurs) positions identiques de différents <em>ControlGRIS2</em>. C'est
+un bon indicateur que quelque chose ne va pas.</p>
+<h3 id="322-couleurs-des-sources"><a class="header" href="#322-couleurs-des-sources">3.2.2. Couleurs des sources</a></h3>
+<p>La couleur des sources peut être réglée sur n'importe quelle valeur en
+cliquant sur le carré de couleur. Cela ouvre une fenêtre dans laquelle
+vous pouvez définir les paramètres de la couleur. C'est la couleur que
+vous verrez dans la fenêtre 2D ou 3D. Si vous utilisez un grand nombre
+de sources, il est recommandé de concevoir votre configuration de
+couleurs attentivement.</p>
+<p>Après avoir fermé cette fenêtre, vous pouvez attribuer la même couleur à
+la source suivante sur la droite en cliquant avec le bouton droit de la
+souris sur une couleur. Vous pouvez ainsi attribuer la même couleur à
+une paire de sources ou à plusieurs sources contiguës.</p>
+<p><img src="/media-fr/media/image16.jpg"
+style="width:2.3622in;height:1.9685in" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="4-controlgris2"><a class="header" href="#4-controlgris2">4. ControlGRIS2</a></h1>
+<p><em>ControlGRIS2</em> est un plugiciel OSC qui offre deux possibilités, selon
+le mode choisi dans <em>SpatGRIS</em>:</p>
+<p>• DOME.</p>
+<p>• CUBE.</p>
+<p>Ces deux modes seront expliqués en détail dans la section <em>SpatGRIS</em>.</p>
+<h2 id="41-introduction"><a class="header" href="#41-introduction">4.1. Introduction</a></h2>
+<p><em>ControlGRIS2</em> est un plugiciel de spatialisation OSC. Ce plugiciel
+permet de déplacer des sources sonores multicanaux sur un ensemble
+variable de haut-parleurs. Plusieurs modes de liaison des sources et un
+système de trajectoires sont fournis pour permettre la spatialisation de
+sources mono, stéréo, quad, 5.1 ou multicanaux jusqu'à huit canaux.
+<em>ControlGRIS2</em> ne gère pas l'audio, il ne gère que les données qui sont
+envoyées à <em>SpatGRIS</em>. L'audio lui-même est envoyé du SAN directement à
+<em>SpatGRIS</em> via <em>BlackHole</em>.</p>
+<p>Ce document décrit les instructions d'utilisation et les fonctions
+spécifiques à <em>ControlGRIS2</em>. Il est supposé que l'utilisateur.trice ait
+une connaissance suffisante du logiciel hôte et qu'iel peut exécuter les
+fonctions de base pour le configurer.</p>
+<h2 id="42-interface-graphique"><a class="header" href="#42-interface-graphique">4.2. Interface graphique</a></h2>
+<p>L'interface graphique permet de placer les sources sonores. Elle est
+légèrement différente en mode DOME qu'en mode CUBE. Dans DOME, la
+distance étant fixée à 1.00, il n'y a que les paramètres Azimuth et
+Elevation à régler. En CUBE, les trois paramètres, X, Y et Z sont
+réglables sur deux fenêtres différentes.</p>
+<p><img src="/media-fr/media/image17.png"
+style="width:6.50345in;height:4.6in" /></p>
+<h2 id="43-panneau-de-configuration"><a class="header" href="#43-panneau-de-configuration">4.3. Panneau de configuration</a></h2>
+<p>Le panneau de configuration donne accès aux différents paramètres du
+plugiciel. Ces paramètres sont regroupés sous trois onglets : Sources,
+Settings, et Controllers.</p>
+<p><img src="/media-fr/media/image18.jpg"
+style="width:4.02869in;height:1.2in" /></p>
+<h3 id="431-settings"><a class="header" href="#431-settings">4.3.1. Settings</a></h3>
+<h4 id="mode"><a class="header" href="#mode">MODE</a></h4>
+<p>Le mode DOME est basé sur l'algorithme VBAP conçu par Ville Pulkki. Dans
+ce mode, l'espace est représenté par un dôme où la distance entre chaque
+point de la surface et le centre du dôme est égale à 1,00. Le mode CUBE
+est basé sur l'algorithme original MBAP<sup class="footnote-reference" id="fr-lbap-footnote-1"><a href="#footnote-lbap-footnote">1</a></sup> conçu par Gaël Lane Lépine.
+Dans ce mode, l'espace est représenté par un cube à l'intérieur duquel
+il est possible de concevoir n'importe quelle configuration de
+haut-parleurs.</p>
+<h4 id="osc-port"><a class="header" href="#osc-port">OSC Port</a></h4>
+<p>Il s'agit du numéro de port OSC pour la communication entre
+<em>ControlGRIS2</em> et <em>SpatGRIS</em>. Ils doivent être réglés sur le même. 18032
+est la valeur par défaut.</p>
+<h4 id="ip-address"><a class="header" href="#ip-address">IP Address</a></h4>
+<p>La valeur par défaut est 127.0.0.1, ce qui correspond à l'adresse du
+dispositif interne (c'est-à-dire votre ordinateur). Cette valeur peut
+être modifiée pour envoyer l'OSC à un ordinateur externe.</p>
+<h4 id="nombre-des-sources"><a class="header" href="#nombre-des-sources">Nombre des sources</a></h4>
+<p>Le nombre de sources par piste correspond au nombre de canaux audio de
+la piste. Ce nombre est limité à huit canaux (comme dans la plupart des
+SAN).</p>
+<h4 id="first-source-id"><a class="header" href="#first-source-id">First Source ID</a></h4>
+<p>Ce numéro doit être unique et différent pour chaque canal audio. Vous
+devez utiliser les mêmes numéros pour l'audio et pour l'OSC.</p>
+<p>Si vous n'avez que des pistes mono, les numéros sont successifs. Si vous
+avez des pistes stéréo, vous n'aurez que des numéros impairs à placer
+ici : 1, 3, 5, etc., car les numéros pairs sont automatiquement
+attribués au canal droit de chaque piste stéréo. Et si vous travaillez
+avec des fichiers sonores octophoniques, le premier identifiant de
+source sera 1, la deuxième piste octophonique commencera à 9, etc.</p>
+<h3 id="432-sources"><a class="header" href="#432-sources">4.3.2. Sources</a></h3>
+<p>Sous l'onglet Sources, il est possible de positionner précisément les
+sources en utilisant l'interface graphique ou les zones de texte. Grâce
+à l'option Sources Placement, il est possible de positionner les sources
+à équidistance, dans le sens des aiguilles d'une montre ou dans un ordre
+alternatif. Pour ce faire, il suffit de sélectionner la répartition
+souhaitée dans le menu déroulant.</p>
+<p><img src="/media-fr/media/image19.jpg"
+style="width:1.64542in;height:1.2in" /></p>
+<p>De plus, il est possible d'ajuster manuellement la position de chaque
+source en entrant ses coordonnées polaires (DOME) ou cartésiennes
+(CUBE). Dans le menu déroulant Source Number, sélectionnez d'abord le
+numéro de la source à déplacer. Ensuite, entrez ses nouvelles
+coordonnées.</p>
+<p>Dans DOME, Elevation et Azimuth correspondent aux coordonnées polaires
+courantes de la source sélectionnée :</p>
+<p><img src="/media-fr/media/image20.jpg"
+style="width:4.13386in;height:1.1811in" /></p>
+<p>Dans CUBE, X, Y et Z correspondent aux coordonnées cartésiennes
+courantes de la source sélectionnée :</p>
+<p><img src="/media-fr/media/image21.jpg"
+style="width:4.13386in;height:1.1811in" /></p>
+<p>NOTE : Le positionnement manuel des sources individuelles ne fonctionne
+que lorsque le mode Independent est sélectionné dans le menu Sources
+Link.</p>
+<h3 id="433-contrôleurs"><a class="header" href="#433-contrôleurs">4.3.3. Contrôleurs</a></h3>
+<p><img src="/media-fr/media/image22.png"
+style="width:4.16in;height:1.28213in" /></p>
+<p><em>ControlGRIS2</em> peut être manipulé par un contrôleur Open Sound
+Control[^osc-footnote] (OSC) externe. Il existe une interface réalisée pour Open
+Stage Control et une autre pour Lemur qui permettent de manipuler les
+paramètres de <em>ControlGRIS2</em> depuis un <em>iPad</em><sup class="footnote-reference" id="fr-ipad-footnote-1"><a href="#footnote-ipad-footnote">2</a></sup>.</p>
+<p>• OSC output plugin ID : pour contrôler différentes instances de
+<em>ControlGRIS2</em>, chacune doit avoir un ID différent.</p>
+<p>• Receive et Send doivent être réglés en fonction des canaux OSC
+appropriés (par défaut : 9000 et 8000).</p>
+<p>• Les adresses de port IP doivent être définies en fonction de votre
+réseau Wi-Fi, qu'il soit public ou local. L'ordinateur et le contrôleur
+doivent être sur le même réseau. <em>ControlGRIS2</em> reçoit automatiquement
+l'adresse d'entrée de votre réseau.</p>
+<h2 id="44-vues-de-la-spatialisation"><a class="header" href="#44-vues-de-la-spatialisation">4.4. Vues de la spatialisation</a></h2>
+<p><em>ControlGRIS2</em> fonctionne en deux modes différents pour la
+spatialisation du son : DOME et CUBE.</p>
+<h3 id="441-vue-en-mode-dome"><a class="header" href="#441-vue-en-mode-dome">4.4.1 Vue en mode DOME</a></h3>
+<p>En mode DOME, l'interface graphique est limitée à Azimuth-Elevation.
+Dans ce mode, le son est spatialisé sur la surface du dôme. Alors qu'une
+source placée au centre se trouve en haut du dôme, une source placée à
+la périphérie se trouve en bas du dôme.</p>
+<p>Le dôme est représenté ici de haut en bas, avec des exemples d'une
+source stéréo à gauche et d'une source octophonique à droite :</p>
+<p><img src="/media-fr/media/image23.jpg"
+style="width:2.5in;height:1.51736in" /><img src="/media-fr/media/image24.jpg"
+style="width:2.5in;height:1.5211in" /></p>
+<h3 id="442-spans-en-mode-dome"><a class="header" href="#442-spans-en-mode-dome">4.4.2. Spans en mode DOME</a></h3>
+<p>Dans les deux modes, les paramètres de Span sont disponibles pour
+l'azimut et l'élévation. Le Span permet d'étendre le signal à une zone
+plus large que la source elle-même. En mode DOME, les Spans ressemblent
+à un arc de cercle de chaque côté de la source :</p>
+<p><img src="/media-fr/media/image25.jpg"
+style="width:2.5in;height:1.51969in" /><img src="/media-fr/media/image26.jpg"
+style="width:2.02551in;height:1.52in" /></p>
+<h3 id="443-vue-en-mode-cube"><a class="header" href="#443-vue-en-mode-cube">4.4.3. Vue en mode CUBE</a></h3>
+<p>En mode CUBE, l'interface graphique est divisée en deux écrans :
+Azimuth-Distance et Elevation. Le mode CUBE ajoute la distance et permet
+de déplacer un son à l'intérieur ou à l'extérieur de la configuration
+des haut-parleurs (représentée par le carré blanc interne). Le CUBE est
+représenté du haut à gauche et de profil à droite (la vue 3D n'apparaît
+que dans <em>SpatGRIS</em>). Exemples de sources stéréo et octophonique :</p>
+<p><img src="/media-fr/media/image27.jpg"
+style="width:2.53063in;height:1.52in" />
+<img src="/media-fr/media/image28.jpg"
+style="width:2.50435in;height:1.52in" /></p>
+<h3 id="444-spans-en-mode-cube"><a class="header" href="#444-spans-en-mode-cube">4.4.4. Spans en mode CUBE</a></h3>
+<p>En mode CUBE, les Spans ressemblent à un cylindre entourant la source :</p>
+<p><img src="/media-fr/media/image29.jpg"
+style="width:2.46662in;height:1.5in" /><img src="/media-fr/media/image30.jpg"
+style="width:1.75084in;height:1.5in" /></p>
+<p>Dans certaines configurations CUBE, où la plupart des enceintes sont
+réparties sur les murs et le plafond, une source peut être perdue au
+centre de la salle. Si vous souhaitez créer un disque sonore plat qui
+n'active que les enceintes situées à la même hauteur que la source, vous
+pouvez ajouter un peu d'Azimuth Span :</p>
+<p><img src="/media-fr/media/image31.jpg"
+style="width:6.15in;height:1.95144in" /></p>
+<h3 id="445-Élévation-en-mode-cube-en-mode-normal-ou-extended-top"><a class="header" href="#445-Élévation-en-mode-cube-en-mode-normal-ou-extended-top">4.4.5. Élévation en mode CUBE en mode Normal ou Extended Top</a></h3>
+<p>Depuis la version 1.4.1, <em>ControlGRIS2</em> offre la possibilité de placer
+une source en dehors du CUBE en élévation. Cela était déjà possible sur
+les axes x et y, et c'est maintenant possible sur l'axe z également.
+Lors de l'utilisation du mode Extended Top, une ligne horizontale
+blanche apparaît dans l'affichage de l'élévation. Cette ligne représente
+la valeur 1,0 utilisée dans le mode Normal. C'est à partir de ce point
+que les paramètres d'atténuation de <em>SpatGRIS</em> commencent à prendre
+effet en élévation. Les sources seront filtrées en volume et/ou en
+fréquences à mesure qu'elles s'éloignent du sommet du CUBE :</p>
+<p><img src="/media-fr/media/image32.jpg"
+style="width:6.15in;height:1.91268in" /></p>
+<h3 id="446-Élévation-en-mode-cube-dans-les-modes-extended-top-et-bottom"><a class="header" href="#446-Élévation-en-mode-cube-dans-les-modes-extended-top-et-bottom">4.4.6. Élévation en mode CUBE dans les modes Extended Top et Bottom</a></h3>
+<p>Une deuxième ligne apparaît en mode Extended Top et Bottom pour atténuer
+les sons envoyés sous le plancher (pour les chanceux qui ont accès à un
+cube complet !) La ligne du haut représente la valeur 1.0 du mode
+normal. La ligne du bas représente la valeur 0.0 du mode normal :</p>
+<p><img src="/media-fr/media/image33.jpg"
+style="width:6.15in;height:1.90611in" /></p>
+<p>NOTE 1 : Les anciens projets peuvent toujours être utilisés en mode
+Normal où la gamme complète de 0.00 à 1.00 est toujours disponible.</p>
+<p>NOTE 2 : Il n'est pas encore possible de descendre sous le sol dans une
+sphère complète avec <em>ControlGRIS2</em> en mode DOME. Nous y travaillons.
+Mais il est possible de le faire en utilisant n'importe quel logiciel
+qui envoie des données OSC directement à <em>SpatGRIS</em>.</p>
+<h2 id="45-comment-utiliser-controlgris2"><a class="header" href="#45-comment-utiliser-controlgris2">4.5. Comment utiliser ControlGRIS2</a></h2>
+<p><em>ControlGRIS2</em> est un plugiciel qui peut être inséré sur n'importe
+quelle piste nécessitant une spatialisation. <em>ControlGRIS2</em> comprend un
+système de trajectoire qui peut écrire des mouvements prédéfinis
+rapidement et efficacement. La fonction d'automation du logiciel hôte
+permet d'enregistrer et de reproduire les mouvements des sources. Il est
+donc essentiel de comprendre les différents modes d'automation de votre
+logiciel hôte préféré.</p>
+<h3 id="451-charger-le-plugiciel-sur-une-piste"><a class="header" href="#451-charger-le-plugiciel-sur-une-piste">4.5.1. Charger le plugiciel sur une piste</a></h3>
+<p><em>ControlGRIS2</em> se charge de la même manière que n'importe quel autre
+plugiciel AU ou VST. Le plus souvent, <em>ControlGRIS2</em> est chargé à la fin
+de la chaîne des effets de la piste.</p>
+<p>NOTE : Dans chaque piste du SAN, il est obligatoire que les numéros des
+canaux de sortie audio correspondent aux numéros des sources OSC
+(définis par le paramètre First Source ID) dans l'instance de
+<em>ControlGRIS2</em> correspondante pour que le son soit spatialisé dans
+<em>SpatGRIS</em>. Si ce n'est pas le cas, la spatialisation sera silencieuse
+ou ne fonctionnera pas correctement.</p>
+<h3 id="452-sauvegarde-des-mémoires-et-enregistrement-des-automations"><a class="header" href="#452-sauvegarde-des-mémoires-et-enregistrement-des-automations">4.5.2. Sauvegarde des mémoires et enregistrement des automations</a></h3>
+<p>Il est possible de sauvegarder certains des paramètres du plugiciel
+<em>ControlGRIS2</em> dans les 50 plages de mémoire fournies. Les raccourcis
+sont les suivants :</p>
+<p>• Shift-Click Numéro de mémoire : Save.</p>
+<p>• Click Numéro de mémoire : Load.</p>
+<p>• Opt<sup class="footnote-reference" id="fr-opt-alt-footnote-1"><a href="#footnote-opt-alt-footnote">3</a></sup>-Click Numéro de mémoire : Delete.</p>
+<p>Ces fonctions apparaissent sous la ligne 49-50 :</p>
+<p><img src="/media-fr/media/image34.jpg"
+style="width:0.68056in;height:0.65278in" /></p>
+<p>Ces mémoires vous permettent d'enregistrer et de rappeler les paramètres
+suivants uniquement :</p>
+<p>• Source positions (Azimuth-Distance-Elevation). Ceux-ci peuvent
+également être automatisés.</p>
+<p>Les paramètres qui ne sont pas enregistrés, mais qui peuvent être
+automatisés :</p>
+<p>• Spans.</p>
+<p>• Sources Link et Sources Link Alt.</p>
+<p>• Presets.</p>
+<p>• Bypass.</p>
+<p>Les paramètres qui ne sont pas sauvegardés et non automatisés, car ils
+sont utilisés pour générer automatiquement une trajectoire qui sera
+écrite par la SAN lui-même :</p>
+<p>• Spans link.</p>
+<p>• Trajectory Type.</p>
+<p>• Dur per cycle.</p>
+<p>• Sec(s)/Beat(s).</p>
+<p>• Number of cycles dampening.</p>
+<p>• Deviation degrees per cycle.</p>
+<p>• Back &amp; Forth.</p>
+<p>• Activate.</p>
+<p>Configuration tab</p>
+<p>• L'ensemble de l'onglet Configuration n'est pas sauvegardé dans la
+mémoire (celui-ci est sauvegardé avec le projet SAN). Ce n'est pas une
+bonne idée de modifier ces paramètres à l'intérieur d'une piste.</p>
+<p>REMARQUE : Bien qu'il soit possible d'enregistrer la position de toutes
+les sources dans les préréglages, il n'est possible d'enregistrer que
+l'automation de la source n° 1 dans le séquenceur. La source n° 1 est le
+leader tandis que les autres sources sont des suiveurs.</p>
+<h3 id="453-rappeler-les-mémoires"><a class="header" href="#453-rappeler-les-mémoires">4.5.3. Rappeler les mémoires</a></h3>
+<p>Comme indiqué ci-dessus, les mémoires ne mémorisent que la position des
+sources. Lorsqu'une mémoire est chargée, les sources sont positionnées
+en fonction des données stockées. Gardez cependant à l'esprit que le
+séquenceur possède également une mémoire de la position précédente des
+sources, et que les deux peuvent interagir de manière étrange. Très
+souvent, ce n'est que lorsque vous démarrez le séquenceur que les
+sources prennent leur position réelle. Pour éviter toute ambiguïté, la
+sélection des mémoires peut être automatisée.</p>
+<h2 id="46-trajectoires-abstraites"><a class="header" href="#46-trajectoires-abstraites">4.6. Trajectoires abstraites</a></h2>
+<p><img src="/media-fr/media/image35.jpg"
+style="width:4.13386in;height:1.1811in" /></p>
+<p>Il est possible d'automatiser le déplacement des sources sonores à
+l'aide de trajectoires prédéfinies. Dans le panneau de contrôle
+Trajectories, vous pouvez définir et ajuster ces mouvements au contexte
+musical. Le concept derrière les trajectoires est qu'il y a une source
+leader tandis que les autres sont des suiveurs. Seule la source n° 1
+peut être le leader.</p>
+<p>Si vous essayez d'enregistrer l'automation d'une autre source que la
+source n° 1, vous obtiendrez cet avertissement :</p>
+<p><img src="/media-fr/media/image36.jpg"
+style="width:4.13386in;height:1.1059in" /></p>
+<h3 id="461-sources-link"><a class="header" href="#461-sources-link">4.6.1. Sources Link</a></h3>
+<p>Le mode Independent n'est disponible que pour placer initialement les
+sources de manière indépendante dans une piste multicanal. Mais la
+position des sources ne peut pas être automatisée indépendamment. Seule
+l'automatisation de la source no. 1 peut être enregistrée. Par
+conséquent, une fois les sources placées, il est nécessaire de choisir
+une autre Sources Link avant d'enregistrer l'automation.</p>
+<h4 id="azimuth-elevation-dome-et-azimuth-distance-cube-links"><a class="header" href="#azimuth-elevation-dome-et-azimuth-distance-cube-links">Azimuth-Elevation (DOME) et Azimuth-Distance (CUBE) Links</a></h4>
+<p>Dans la section Trajectories, sous le menu déroulant Sources Link, il
+est possible de choisir différentes façons de relier les sources entre
+elles. En fonction du nombre de canaux, certains liens peuvent ne pas
+être disponibles :</p>
+<p>• Mono: seulement Independent.</p>
+<p>• Stereo: tous les liens</p>
+<p>• Multichannel: tous sauf Symmetric X et Y.</p>
+<p>• Des représentations détaillées des liens Azimuth-Elevation et
+Azimuth-Distance sont présentées dans l'Addendum 8.1.1.</p>
+<p><img src="/media-fr/media/image37.jpg"
+style="width:4.13386in;height:1.1811in" /></p>
+<h4 id="elevation-links-cube-mode-seulement"><a class="header" href="#elevation-links-cube-mode-seulement">Elevation Links (CUBE mode seulement)</a></h4>
+<p>En mode CUBE, les Elevation Links entre les sources sont indépendants
+des paramètres d'azimut et de distance.</p>
+<p>• Des représentations détaillées des Elevation Links sont présentées
+dans l'Addendum 8.1.2.</p>
+<p><img src="/media-fr/media/image38.jpg"
+style="width:4.13386in;height:1.1811in" /></p>
+<h3 id="462-types-de-trajectoires"><a class="header" href="#462-types-de-trajectoires">4.6.2. Types de trajectoires</a></h3>
+<p>Automatiser le déplacement d'une source est très simple grâce aux
+différents types de trajectoires disponibles.</p>
+<p>• Des représentations détaillées des Trajectories sont présentées dans
+l’Addendum 8.2.</p>
+<h4 id="azimuth-elevation-dome-et-azimuth-distance-cube-trajectory-type"><a class="header" href="#azimuth-elevation-dome-et-azimuth-distance-cube-trajectory-type">Azimuth-Elevation (DOME) et Azimuth-Distance (CUBE) Trajectory Type</a></h4>
+<p>Un menu déroulant vous permet de sélectionner différents types de
+trajectoires tels que le cercle, l'ellipse, la spirale, le carré et le
+triangle, dans le sens des aiguilles d'une montre ou dans le sens
+inverse.</p>
+<p><img src="/media-fr/media/image39.jpg"
+style="width:4.1378in;height:2.33326in" /></p>
+<h4 id="elevation-cube-seulement-trajectory-type"><a class="header" href="#elevation-cube-seulement-trajectory-type">Elevation (CUBE seulement) Trajectory Type</a></h4>
+<p>Un menu déroulant avec différents types de trajectoires vous permet de
+choisir parmi une variété de trajectoires telles que Haut-Bas, Bas-Haut.</p>
+<p><img src="/media-fr/media/image40.jpg"
+style="width:4.13in;height:1.24915in" /></p>
+<p>Autres paramètres</p>
+<p>• La durée de la trajectoire en seconde(s) ou en mesure(s) (beats) (liée
+au tempo MIDI du séquenceur hôte).</p>
+<p>• Le nombre de cycles d'amortissement (Number of cycles dampening): la
+durée totale = Durée par cycle x Nombre de cycles x 1,5. Le Dampening ne
+fonctionne qu'avec le Back &amp; Forth.</p>
+<p>• L’option Back &amp; Forth (aller-retour).</p>
+<p>• La déviation en degrés par cycle (The Deviation degrees per cycle.)</p>
+<h4 id="realtime"><a class="header" href="#realtime">Realtime</a></h4>
+<p>Il s'agit de l'enregistrement habituel des automations : vous déplacez
+un paramètre (ou plusieurs paramètres) et cela est enregistré dans la
+SAN.</p>
+<h4 id="drawing"><a class="header" href="#drawing">Drawing</a></h4>
+<p>Le mode Drawing vous permet de dessiner une trajectoire directement dans
+le plugiciel lui-même. Cette trajectoire peut ensuite être modifiée en
+éditant la durée, l'amortissement et la déviation. Lorsque les
+paramètres souhaités sont trouvés, ils peuvent être enregistrés dans la
+station de travail audio elle-même.</p>
+<p><img src="/media-fr/media/image41.png"
+style="width:5.27778in;height:3.5in" /></p>
+<p>Le mode Drawing est un mode à main levée. Lorsque vous le sélectionnez,
+une croix gris pâle apparaît, avec laquelle vous dessinez une
+trajectoire. La durée de la trajectoire et le dessin sont temporairement
+stockés dans le plugiciel. Dans Azimuth-Elevation (DOME) ou
+Azimuth-Distance (CUBE), c'est la position qui est enregistrée. En
+élévation (CUBE uniquement), c'est la position dans le temps qui est
+enregistrée. Les deux fenêtres partagent un cycle qui peut être modifié
+à l'aide des paramètres habituels. Pour voir la trajectoire en action,
+vous pouvez activer les boutons Activate et jouer la séquence. Lorsque
+le séquenceur s'arrête, les boutons d'activation redeviennent éteints.
+Des modifications peuvent être apportées, puis il est possible d'activer
+à nouveau Activate. Une fois satisfait du résultat, il est possible
+d'enregistrer la trajectoire dans la SAN.</p>
+<h4 id="maj-clic-en-mode-drawing"><a class="header" href="#maj-clic-en-mode-drawing">Maj-Clic en mode Drawing</a></h4>
+<p>En appuyant sur la touche Maj en mode Drawing, il est possible de
+dessiner des lignes droites ou des figures géométriques irrégulières
+dans la fenêtre Azimuth-Elevation (DOME) ou Azimuth-Distance (CUBE).
+Chaque fois que vous cliquez, un nouvel angle est créé. N'oubliez pas de
+cliquer une dernière fois lorsque vous avez terminé !</p>
+<p><img src="/media-fr/media/image42.jpg"
+style="width:1.31862in;height:1.40157in" /><img src="/media-fr/media/image43.jpg"
+style="width:1.31304in;height:1.4in" /></p>
+<p>NOTE: Attention à la trajectoire à main levée, car elle est temporaire.
+Si vous cliquez n'importe où dans la fenêtre après avoir dessiné une
+trajectoire, ou si vous fermez le plugiciel ou la session, elle sera
+automatiquement effacée. Un seul geste peut être enregistré
+temporairement à la fois. La croix X pourrait être cachée derrière l'une
+des sources. Il suffit de déplacer l'une d'entre elles pour la
+retrouver.</p>
+<h4 id="activate"><a class="header" href="#activate">Activate</a></h4>
+<p><img src="/media-fr/media/image44.jpg"
+style="width:4.12043in;height:1.1811in" /></p>
+<p>En appuyant sur le bouton Activate, <em>ControlGRIS2</em> attend le démarrage
+du séquenceur. Lorsque la séquence est lancée, le plugiciel démarre la
+trajectoire selon les paramètres spécifiés. Le mouvement produit peut
+être enregistré — coordonnées X, Y et Z de la source n° 1 — comme toute
+autre automatisation. Lorsque le séquenceur s'arrête, les boutons
+d'activation reviennent à l'état OFF. Il est important de placer la tête
+de lecture dans la bonne position avant d'appuyer sur le bouton Activate
+et de lancer la séquence.</p>
+<h4 id="enregistrement-de-la-trajectoire-dans-la-san"><a class="header" href="#enregistrement-de-la-trajectoire-dans-la-san">Enregistrement de la trajectoire dans la SAN</a></h4>
+<p>Comme expliqué ci-dessus, <em>ControlGRIS2</em> attend que le séquenceur hôte
+démarre avant de commencer une trajectoire. Les pistes qui contiennent
+<em>ControlGRIS2</em> peuvent être configurées en mode d'écriture (Touch, Latch
+ou Write — selon les options de votre SAN) pour enregistrer les
+mouvements des sources comme automations. Ces automations sont alors
+disponibles pour la lecture et l'édition.</p>
+<p>NOTE: Seule la source n°1 (leader) est enregistrée, les autres sources
+étant des suiveurs. Il est toujours préférable d'enregistrer les
+automations de trajectoires dans la SAN après avoir trouvé les bons
+réglages, car cela libère le CPU utilisé par <em>ControlGRIS2</em>.</p>
+<h3 id="463-un-cas-particulier--le-pendule"><a class="header" href="#463-un-cas-particulier--le-pendule">4.6.3. Un cas particulier : le pendule</a></h3>
+<p>Une utilisation spécifique du Shift-Click en mode Drawing peut être
+utilisée pour concevoir un pendule. Si une simple ligne est tracée avec
+Shift-Click, elle constitue l'élément de base d'un pendule. Ensuite, les
+fonctions Dur per cycle, Dampening, Deviation et Back &amp; Forth peuvent
+être utilisées pour rendre ce pendule très intéressant. Il peut être
+placé n'importe où dans l'espace.</p>
+<p><img src="/media-fr/media/image45.jpg"
+style="width:1.29042in;height:2.3622in" /></p>
+<h3 id="464-mémoires-et-trajectoires-automatisées"><a class="header" href="#464-mémoires-et-trajectoires-automatisées">4.6.4. Mémoires et trajectoires automatisées</a></h3>
+<p>Il est possible d'enregistrer la sélection des mémoires dans le
+séquenceur. Mais pour éviter des informations contradictoires entre les
+trajectoires automatisées et les presets automatisés (qui mémorisent la
+position x-y des sources), dans l'enregistrement de l'automation, les
+coordonnées x et y, enregistrées dans la mémoire, seront automatiquement
+inscrites dans les courbes x-y de l'automation. Les mémoires
+automatisées sont conçues essentiellement pour offrir la possibilité
+d'appliquer des changements soudains dans la position des sources.</p>
+<p><img src="/media-fr/media/image46.png"
+style="width:5.67213in;height:3.46in" /></p>
+<p>NOTE: Soyez prudent. Si vous écrasez les automations X et Y existantes,
+elles risquent d'entrer en conflit avec les informations enregistrées
+dans les mémoires. Vous obtiendrez alors certainement des anomalies
+audios.</p>
+<h2 id="47-trajectoires-concrètes"><a class="header" href="#47-trajectoires-concrètes">4.7. Trajectoires concrètes</a></h2>
+<p>La grande nouveauté de ControlGRIS2 est la possibilité de générer des
+trajectoires à partir de l'analyse du signal audio qu'on veut
+spatialiser.</p>
+<hr>
+<ol class="footnote-definition"><li id="footnote-lbap-footnote">
+<p>Depuis la version 3.2.0, le LBAP, Layer Base Amplitude Panning, conçu par Olivier Bélanger, n'est plus utilisé. <a href="#fr-lbap-footnote-1">↩</a></p>
+</li>
+<li id="footnote-ipad-footnote">
+<p>Voir l'addendum pour plus d'informations. <a href="#fr-ipad-footnote-1">↩</a></p>
+</li>
+<li id="footnote-opt-alt-footnote">
+<p>Sur Mac, la plupart des claviers utilisent Option (Opt), tandis que d'autres utilisent Alt. Dans ce manuel, c'est la touche Opt qui sera utilisée. <a href="#fr-opt-alt-footnote-1">↩</a></p>
+</li>
+</ol><div style="break-before: page; page-break-before: always;"></div><h1 id="5-spatgris"><a class="header" href="#5-spatgris">5. SpatGRIS</a></h1>
+<p>• <em>SpatGRIS</em> fait de la spatialisation et de la localisation.</p>
+<p>• <em>SpatGRIS</em> est un enregistreur et un lecteur.</p>
+<p>• <em>SpatGRIS</em> fabrique des dispositifs de haut-parleurs.</p>
+<h2 id="51-introduction"><a class="header" href="#51-introduction">5.1. Introduction</a></h2>
+<p><em>SpatGRIS</em> comporte trois composantes qui sont sauvegardées de manière
+indépendante : Project, Speaker Setup et Settings.</p>
+<p>• <strong>Save Project</strong>. Un projet est couplé à une œuvre qui contient un
+certain nombre de sources (sorties du SAN) et le Mode utilisé. C'est le
+composant en haut à droite de <em>SpatGRIS</em>.</p>
+<p>• <strong>Save Speaker Setup</strong>. Un speaker setup est couplé à une installation
+placée dans un espace et à l'algorithme utilisé. C'est la section qui
+est montrée dans <em>SpeakerView</em>.</p>
+<p>• <strong>Save Settings</strong>. Les réglages de l'utilisateur sont liés à une
+station de travail — ordinateur et interface audio — y compris les
+sorties stéréo utilisées pour la réduction stéréo (même sans les
+afficher). La plupart des paramètres sont affichés dans la barre
+d'information. Cliquez sur la barre d'information ou sur Settings dans
+le menu File (Cmd-,).</p>
+<p>NOTE: Les modes DOME et CUBE sont sauvegardés dans les Speaker Setup et
+les Projects, mais le mode HYBRID n'est sauvegardé que dans les projets.
+Le dernier document ouvert — qu'il s'agisse d'un Speaker Setup ou d'un
+Project — détermine le Mode.</p>
+<p>La fenêtre de <em>SpatGRIS</em> est divisée en différentes zones :</p>
+<p>• Sources</p>
+<p>• VU Meters.</p>
+<p>• Settings et Info.</p>
+<p>• Controls.</p>
+<p>• Recording.</p>
+<p><em>SpeakerView</em> affiche les haut-parleurs dans la vue 3D.</p>
+<p><img src="/media-fr/media/image47.png"
+style="width:6.5in;height:3.76524in" /></p>
+<h2 id="52-speakerview"><a class="header" href="#52-speakerview">5.2. SpeakerView</a></h2>
+<p>À partir de la version 3.3.3 de <em>SpatGRIS</em>, la représentation 3D des
+haut-parleurs est prise en charge par une application indépendant qui se
+nomme <em>SpeakerView</em> Ce changement a été nécessaire afin de satisfaire
+aux exigences des processeurs Apple Silicon pour Mac. Tout est mieux
+ici: la transparence des haut-parleurs, la lisibilité des chiffres et la
+fluidité des mouvements ont été améliorés de manière spectaculaire.</p>
+<p><em>SpeakerView</em> est montré ici avec la nouvelle fonction Show Hall:</p>
+<p><img src="/media-fr/media/image48.png"
+style="width:3.32466in;height:3in" /></p>
+<h3 id="521-visibilité-et-raccourcis-clavier"><a class="header" href="#521-visibilité-et-raccourcis-clavier">5.2.1. Visibilité et raccourcis-clavier</a></h3>
+<p><em>SpeakerView</em> s'affiche indépendamment de <em>SpatGRIS</em>. Par défaut, il
+s'affiche en même temps que ce dernier. Mais il peut être ouvert ou
+fermé de manière indépendante (Mac: Opt-V; Windows: Alt-V).</p>
+<p>Les raccourcis claviers présents dans le menu View de <em>SpatGRIS</em>
+contrôlent les options d'affichage dans <em>SpeakerView</em>:</p>
+<p><img src="/media-fr/media/image49.jpg"
+style="width:1.6in;height:2.38881in" /></p>
+<h3 id="522-deux-applications-distinctes"><a class="header" href="#522-deux-applications-distinctes">5.2.2. Deux applications distinctes</a></h3>
+<p>Bien que <em>SpeakerView</em> ressemble à la représentation 3D qui existait
+dans les versions de SpatGRIS antérieures à 3.3.0, il s'agit d'une
+application distincte. On peut la déplacer et la dimensionner de manière
+indépendante. On peut aussi décider de la forcer à rester au premier
+plan par rapport à <em>SpatGRIS</em> (Keep SpeakerView On Top).</p>
+<p>NOTE : <em>SpeakerView</em> est une application autonome, mais l'utilisateur
+n'a pas à s'en préoccuper, <em>SpatGRIS</em> s'occupera de tout. Nous
+recommandons même fortement de ne pas lancer <em>SpeakerView</em> à partir du
+Finder ou du Dock. S'il est ouvert de cette manière, voici le message
+d'avertissement qui s'affichera :</p>
+<p><img src="/media-fr/media/image50.jpg"
+style="width:1.22256in;height:1in" /></p>
+<h2 id="53-modifier-la-configuration-de-haut-parleurs-et-non-la-spatialisation"><a class="header" href="#53-modifier-la-configuration-de-haut-parleurs-et-non-la-spatialisation">5.3. Modifier la configuration de haut-parleurs et non la spatialisation</a></h2>
+<p>La caractéristique la plus intéressante de <em>SpatGRIS</em> est que les
+Sources, qui proviennent du SAN et représentent l'audio et la
+spatialisation de votre travail, sont indépendantes des haut-parleurs.
+Ainsi, si vous avez initialement défini une structure de spatialisation
+très complexe pour une configuration de haut-parleurs spécifique, vous
+pouvez la jouer sur n'importe quelle autre configuration de
+haut-parleurs par la suite, en particulier en mode DOME. Il vous suffit
+de changer la configuration des enceintes d'un endroit à l'autre.</p>
+<p>Voici un exemple d'une pièce conçue pour un système de 16 enceintes (à
+gauche), présentée sur un système de 24 enceintes totalement différent
+(à droite), en passant simplement d'un système à l'autre.</p>
+<p>Comme vous pouvez le voir, toutes les sources restent exactement aux
+mêmes coordonnées. Elles seront jouées par des enceintes différentes,
+mais entendues au même endroit dans la salle de concert.</p>
+<p><img src="/media-fr/media/image51.jpg"
+style="width:2.52231in;height:3.14961in" /><img src="/media-fr/media/image52.jpg"
+style="width:2.52292in;height:3.14931in" /></p>
+<h2 id="54-réglages-settings"><a class="header" href="#54-réglages-settings">5.4. Réglages (Settings)</a></h2>
+<p><img src="/media-fr/media/image9.jpg"
+style="width:1.95241in;height:1.9685in" /></p>
+<p>Audio Settings</p>
+<p>• Audio device type: Core Audio (default).</p>
+<p>• Audio input device: <em>BlackHole</em> (idéalement).</p>
+<p>• Audio output device: votre interface audio.</p>
+<p>• Sampling Rate (Hz): de 44100 à 192000, selon votre interface audio.</p>
+<p>• Buffer Size (spls): from 16 to 2048. Ajustez la taille de la mémoire
+tampon à la même valeur dans votre SAN et dans <em>SpatGRIS</em>.</p>
+<p>General Settings:</p>
+<p>• OSC Input Port: la valeur par défaut est 18032, ce qui correspond à
+celle de <em>ControlGRIS2</em>. Si vous souhaitez utiliser un autre dispositif
+OSC entrant, utilisez ce numéro de port comme port de sortie de ce
+dispositif, sinon vous devez modifier ce numéro en conséquence.</p>
+<p><strong>Close</strong></p>
+<p>Vos paramètres sont automatiquement sauvegardés. Sous le nom de la
+version de <em>SpatGRIS</em>, le document se trouve ici (Mac) :</p>
+<p>• ~/Bibliothèque/Application Support/GRIS/SpatGRIS.0.0 (par exemple).</p>
+<h2 id="55-contrôles"><a class="header" href="#55-contrôles">5.5. Contrôles</a></h2>
+<p><img src="/media-fr/media/image53.png"
+style="width:6.41509in;height:3in" /></p>
+<h2 id="56-le-dome-et-le-cube"><a class="header" href="#56-le-dome-et-le-cube">5.6. Le DOME et le CUBE</a></h2>
+<p>En mode DOME, il est possible de placer les sources sur la surface du
+dôme formé par les enceintes, tandis qu'en mode CUBE, il est possible de
+déplacer et de placer les sources à l'intérieur et à l'extérieur du
+speaker setup.</p>
+<h3 id="561-dome"><a class="header" href="#561-dome">5.6.1. DOME</a></h3>
+<p>Le DOME, basé sur le VBAP (Vector Base Amplitude Panning), permet à
+l'utilisateur de spatialiser le son sur un dôme de haut-parleurs en
+fonction de l'amplitude relative de trois haut-parleurs (par opposition
+à deux dans le panoramique stéréo). Le dôme est donc constitué de
+triangles de haut-parleurs. De cette manière, le son peut se propager de
+manière fluide sur la surface du dôme, sans bosses ni trous.</p>
+<p>Il est possible de voir les triangles en choisissant Show Speaker
+Triplets (Opt-T) dans le menu View. Si vous avez la chance d'utiliser
+une sphère complète, il est possible de l'afficher (Opt-O) !</p>
+<p><img src="/media-fr/media/image54.jpg"
+style="width:2.98251in;height:2.35in" /><img src="/media-fr/media/image55.jpg"
+style="width:2.48066in;height:2.35in" /></p>
+<h3 id="562-cube"><a class="header" href="#562-cube">5.6.2. CUBE</a></h3>
+<p>Depuis la version 3.2.0, le mode CUBE est basé sur l'algorithme MBAP
+(Matrix Base Amplitude Panning) et permet de placer une source n'importe
+où dans un espace représenté par un cube. Mais il n'est pas limité à la
+forme d'un cube. Toute configuration de haut-parleurs peut être placée
+dans un cube (y compris un dôme !). Par conséquent, toute installation
+sonore ou situation de concert peut être simulée ici. En mode CUBE, la
+distance d'une source sortant du speaker setup est prise en compte pour
+simuler le comportement naturel du son qui s'éloigne.</p>
+<p>Comme son nom l'indique, l'algorithme est basé sur une matrice
+tridimensionnelle précalculée de plusieurs points par haut-parleur qui
+détermine l'amplitude d'une source à une position spécifique.</p>
+<p><img src="/media-fr/media/image56.jpg"
+style="width:3.03429in;height:2.36in" /><img src="/media-fr/media/image57.jpg"
+style="width:2.13694in;height:2.36in" /></p>
+<h2 id="57-le-mode-hybrid-dome-et-cube-dans-le-même-projet"><a class="header" href="#57-le-mode-hybrid-dome-et-cube-dans-le-même-projet">5.7. Le mode HYBRID: DOME et CUBE dans le même projet</a></h2>
+<p>Le mode HYBRID n'est pas vraiment un nouvel algorithme, mais une
+combinaison des algorithmes DOME et CUBE. Le mode HYBRID peut être
+sélectionné dans la section Algorithm :</p>
+<p><img src="/media-fr/media/image58.jpg"
+style="width:1.60417in;height:0.5in" /></p>
+<p>Le menu Sources est alors modifié pour offrir la possibilité de choisir
+entre le comportement dôme ou cube indépendamment pour chaque source :</p>
+<p><img src="/media-fr/media/image59.jpg"
+style="width:2.48684in;height:0.9in" /></p>
+<p>Le mode HYBRID utilise l'algorithme DOME, ce qui signifie que la
+configuration des enceintes doit être un dôme (si ce n'est pas le cas,
+il vous sera demandé de le convertir) à l'intérieur duquel les sources
+peuvent être déplacées selon les comportements CUBE où il est possible
+de déplacer le son à l'intérieur ou à l'extérieur du dôme de
+haut-parleurs. En mode HYBRID, les spans conservent leur comportement
+habituel du mode dôme ou du mode cube.</p>
+<h3 id="571-quest-ce-qui-est-sauvegardé-en-mode-hybrid-"><a class="header" href="#571-quest-ce-qui-est-sauvegardé-en-mode-hybrid-">5.7.1. Qu'est-ce qui est sauvegardé en mode HYBRID ?</a></h3>
+<p>Deux types d'informations sont enregistrés avec un projet en mode HYBRID
+:</p>
+<p>• Le mode HYBRID lui-même est sauvegardé exclusivement avec le projet.</p>
+<p>• La sélection de l'algorithme DOME ou CUBE pour chaque source est
+également sauvegardée avec le projet.</p>
+<p>Si un ancien projet HYBRID (antérieur à la version 3.1.8) est ouvert en
+mode DOME ou CUBE, les sélections concernant les sources n'apparaîtront
+pas. Il faudra choisir manuellement le mode HYBRID pour les voir
+apparaître. Mais si vous avez déjà ouvert un speaker setup HYBRID, elles
+s'afficheront automatiquement.</p>
+<h3 id="572-quel-mode-est-chargé-en-fonction-de-lordre-douverture-du-speaker-setup-et-du-project"><a class="header" href="#572-quel-mode-est-chargé-en-fonction-de-lordre-douverture-du-speaker-setup-et-du-project">5.7.2. Quel mode est chargé en fonction de l'ordre d'ouverture du Speaker Setup et du Project?</a></h3>
+<p>En règle générale, c'est toujours le dernier document ouvert — Speaker
+Setup ou Project — qui détermine l'algorithme utilisé par <em>SpatGRIS</em>.</p>
+<p>Un Speaker Setup (SS) suivi d'un Project (P) :</p>
+<p>1.1. SS Dome + P Dome = Dome.</p>
+<p>2.1. SS Cube + P Cube = Cube.</p>
+<p>3.1. SS Dome + P Cube = Cube. Le dôme SS est converti dans un SS cube.
+La forme du SS ne change pas, puisque l'algorithme du Cube accepte tous
+les dômes (ceci peut être confirmé en ouvrant la fenêtre Speaker Setup
+Edition). Avant de fermer le SS, il vous sera demandé de sauvegarder les
+modifications.</p>
+<p>4.1. SS Cube + P Dome = Dome. Le SS cube est converti en dôme après
+l'approbation du message de conversion.</p>
+<p>5.1. SS Dome + P Hybrid = Hybrid.</p>
+<p>6.1. SS Cube + P Hybrid = Hybrid. Le SS Cube est converti en Dôme après
+approbation du message de conversion.</p>
+<p>Dans l'ordre inverse :</p>
+<p>1.2. P Dome + SS Dome = Dome.</p>
+<p>2.2. P Cube + SS Cube = Cube.</p>
+<p>3.2. P Cube + SS Dome = Dome. Le projet Cube a été transformé en Dome.</p>
+<p>4.2. P Dome + SS Cube = Cube. Le projet Dome a été transformé en Cube.</p>
+<p>5.2. P Hybrid + SS Dome = Hybrid. C'est la seule exception où Hybrid est
+prioritaire, bien qu'il ait été chargé en premier. C'est parce que les
+projets hybrides ne fonctionnent que sur les SS Dome.</p>
+<p>6.2. P Hybrid + SS Cube = Cube. Hybrid disparaît de la vue puisque nous
+venons de passer à Cube. C'est normal. En sélectionnant ensuite
+manuellement Hybrid, le SS Cube est converti en Dôme après l'approbation
+du message de conversion. Les informations sauvegardées du P Hybrid sont
+alors récupérées.</p>
+<h3 id="573-attenuation-settings-dans-le-mode-cube-ou-hybrid"><a class="header" href="#573-attenuation-settings-dans-le-mode-cube-ou-hybrid">5.7.3. Attenuation settings dans le mode CUBE ou HYBRID</a></h3>
+<p>Dans les modes CUBE et HYBRID, il y a un cercle intérieur et un cercle
+extérieur au milieu du Speaker Setup. Dans le cercle intérieur,
+l'atténuation et/ou le filtrage ne sont pas appliqués. En dehors du
+cercle intérieur, l'atténuation et/ou le filtrage peuvent être appliqués
+pour simuler la disparition d'un son qui s'éloigne. Au cercle extérieur,
+l'atténuation et le filtrage atteignent leurs valeurs maximales. Vous
+pouvez indiquer ces valeurs maximales dans les menus Attenuation
+settings. En mode HYBRID, les Attenuation settings ne fonctionnent que
+pour les sources CUBE.</p>
+<p><img src="/media-fr/media/image60.png"
+style="width:2.68947in;height:3.5in" /></p>
+<p>En fait, le cercle intérieur est une sphère à l'intérieur de laquelle
+les paramètres d'atténuation commencent à être calculés à partir du
+"plancher", c'est-à-dire à partir des coordonnées (0,0, 0,0) :</p>
+<p><img src="/media-fr/media/image61.jpg"
+style="width:2.7in;height:2.55894in" /></p>
+<p>Les paramètres Attenuation settings :</p>
+<p><img src="/media-fr/media/image62.jpg"
+style="width:3in;height:0.79808in" /><img src="/media-fr/media/image63.jpg"
+style="width:3in;height:0.8in" /></p>
+<p><img src="/media-fr/media/image64.jpg"
+style="width:3in;height:1.19167in" /><img src="/media-fr/media/image65.jpg"
+style="width:3in;height:1.19in" /></p>
+<p>• On/Off</p>
+<p>• Volume (dB): de 0 à -72, par paliers de -12 dB.</p>
+<p>• Filtrage (Hz): de 125 à 16000, par paliers d’octaves.</p>
+<p>• Le volume et le filtrage sont indépendants.</p>
+<p>• En élévation, l'atténuation commence en haut (Extended Top) et en bas
+(Extended Top and Bottom) du cube.</p>
+<p>• Les Attenuation settings fonctionnent également en mode STEREO et
+BINAURAL.</p>
+<p>NOTE : les Attenuation Settings sont enregistrés dans le projet.</p>
+<h3 id="574-conversion-de-dome-en-cube-et-vice-versa"><a class="header" href="#574-conversion-de-dome-en-cube-et-vice-versa">5.7.4. Conversion de DOME en CUBE et vice versa</a></h3>
+<p>Dans le cas du passage de DOME à CUBE, <em>SpatGRIS</em> utilise les
+coordonnées XYZ du Speaker Setup pour garder l'intégrité du Speaker
+Setup. Cela ne s'applique pas au passage de CUBE à DOME, puisque dans
+l'algorithme VBAP, la distance est toujours ajustée à 1,00. L'élévation
+et la distance n'ont pas le même comportement dans les algorithmes DOME
+et CUBE. Un Speaker Setup conserve son apparence et ses coordonnées XYZ
+lors de la transition de l'algorithme DOME à l'algorithme CUBE, mais pas
+l'inverse.</p>
+<h3 id="575-spatialisation-en-2d-et-3d"><a class="header" href="#575-spatialisation-en-2d-et-3d">5.7.5. Spatialisation en 2D et 3D</a></h3>
+<p><em>SpatGRIS</em> est capable de spatialiser en 2D et 3D en mode DOME ou CUBE.
+Il peut être utile d'utiliser <em>SpatGRIS</em> en 2D avec des SANs qui sont
+uniquement stéréo comme Ableton Live et Pro Tools native. Cela donne à
+ces SANs stéréo la possibilité de gérer des environnements
+multienceintes comme les standards du cinéma. Mais bien sûr, la vraie
+puissance de <em>SpatGRIS</em> réside dans ses capacités 3D.</p>
+<p>Les images suivantes présentent un exemple de configuration de
+haut-parleurs en 2D — une octophonie — et une configuration en 3D — un
+cube de 24 (3x8) haut-parleurs.</p>
+<p><img src="/media-fr/media/image66.jpg"
+style="width:2.73896in;height:2.3622in" /><img src="/media-fr/media/image67.jpg"
+style="width:2.59476in;height:2.3622in" /></p>
+<h2 id="58-dispositif-de-haut-parleurs"><a class="header" href="#58-dispositif-de-haut-parleurs">5.8. Dispositif de haut-parleurs</a></h2>
+<p>La conception d'un dispositif de haut-parleurs est la première étape du
+processus. Elle s'effectue dans la fenêtre <em>Speaker Setup Edition</em> (menu
+View, Opt-W).</p>
+<p>Un menu Templates est fourni avec différents Speaker Setup au format
+DOME ou CUBE. Les Speaker Setup dans les Templates ne peuvent pas être
+modifiés. Vous pouvez les utiliser, les éditer et les sauvegarder sous
+le nom de votre choix en utilisant Save Speaker Setup As dans le menu
+File.</p>
+<p><img src="/media-fr/media/image68.jpg"
+style="width:2.06464in;height:1.5in" /></p>
+<h3 id="581-speaker-setup-edition"><a class="header" href="#581-speaker-setup-edition">5.8.1. Speaker Setup Edition</a></h3>
+<p><img src="/media-fr/media/image69.png"
+style="width:5.9in;height:3.54747in" /></p>
+<p>Depuis l'introduction du MBAP (à partir de la version 3.20) en mode
+CUBE, le paramètre Global Sound Diffusion permet de modifier la
+diffusion du son de manière globale pour l'ensemble des haut-parleurs.
+Une localisation précise est obtenue avec une petite valeur, des valeurs
+plus élevées donneront une image spatiale floue. Ce paramètre peut
+également influencer la fluidité des trajectoires.</p>
+<p>À l'exception de la distance, qui est fixée à 1,00 en mode DOME (par
+définition), les paramètres de speaker setup peuvent être définis par
+des valeurs polaires dans DOME (Azimuth, Elevation) ou par des valeurs
+cartésiennes dans CUBE (X, Y, Z). En mode DOME, les valeurs cartésiennes
+sont grisées. En mode CUBE, les valeurs polaires sont grisées.</p>
+<h3 id="582-ordre-des-haut-parleurs-et-représentation-visuelle"><a class="header" href="#582-ordre-des-haut-parleurs-et-représentation-visuelle">5.8.2. Ordre des haut-parleurs et représentation visuelle</a></h3>
+<p>En cliquant en haut de chaque colonne (sauf pour Gain et Highpass) dans
+la fenêtre Speaker Setup Edition, l'ordre des haut-parleurs peut être
+organisé. La colonne la plus importante est celle de la sortie, dans
+laquelle vous pouvez déplacer manuellement ou automatiquement chaque
+haut-parleur. Cet ordre sera reflété dans l'ordre des VU-mètres des
+haut-parleurs.</p>
+<p>Ordre consécutif :</p>
+<p><img src="/media-fr/media/image70.jpg"
+style="width:4.72441in;height:1.41732in" /></p>
+<p>Ordre pair et impair suivi de sorties directes :</p>
+<p><img src="/media-fr/media/image71.jpg"
+style="width:4.72441in;height:1.35373in" /></p>
+<p>Voici un exemple d'ordre des haut-parleurs qui représente la position
+réelle des haut-parleurs dans un studio par rapport à l'axe Y (voir
+5.9.1 pour plus d'informations). On peut voir sur la section VU-mètre
+des haut-parleurs comment l'énergie est distribuée de la gauche vers la
+droite dans le dôme. Les enceintes 11 et 20 sont au centre, et les subs
+à l'extrême gauche et droite, comme dans un studio. Toutes les autres
+enceintes sont également réparties le long de l'axe Y :</p>
+<p><img src="/media-fr/media/image72.jpg"
+style="width:6.25in;height:2.02457in" /></p>
+<h3 id="583-exigences-minimales"><a class="header" href="#583-exigences-minimales">5.8.3. Exigences minimales</a></h3>
+<p>Le DOME, en particulier, a besoin de conditions minimales pour effectuer
+les calculs VBAP. Si la configuration du haut-parleur ne répond pas à
+ces exigences, vous serez averti par un ou deux de ces messages :</p>
+<p><img src="/media-fr/media/image73.jpg"
+style="width:3in;height:1in" /><img src="/media-fr/media/image74.jpg"
+style="width:3in;height:1in" /></p>
+<h3 id="584-sorties-directes"><a class="header" href="#584-sorties-directes">5.8.4. Sorties directes</a></h3>
+<p>Une source sonore peut être envoyée directement à un haut-parleur via
+une sortie directe. Il existe deux types de sorties directes dans
+<em>SpatGRIS</em>, ce qui n'était pas le cas auparavant.</p>
+<h4 id="sorties-directes-indépendantes"><a class="header" href="#sorties-directes-indépendantes">Sorties directes indépendantes</a></h4>
+<p><img src="/media-fr/media/image75.jpg"
+style="width:0.38819in;height:1.96806in" />Il existe des sorties
+directes indépendantes destinées à des utilisations spéciales comme les
+subwoofers. Ces enceintes sont identifiées par un rectangle orange dans
+la fenêtre Speaker Setup Edition.</p>
+<p><img src="/media-fr/media/image76.jpg"
+style="width:5.9in;height:0.53327in" /></p>
+<p>Leur placement dans la configuration n'est pas très important,
+puisqu'elles sont indépendantes de la spatialisation, mais si vous avez
+l'intention de mixer votre projet dans un format à deux canaux, leur son
+sera placé dans l'image stéréo en fonction de leur position
+gauche-droite. Ils sont représentés en noir dans la vue 3D des
+enceintes.</p>
+<p><img src="/media-fr/media/image77.jpg"
+style="width:6.18056in;height:1.38889in" /></p>
+<h4 id="sorties-directes-spatialisées"><a class="header" href="#sorties-directes-spatialisées">Sorties directes spatialisées</a></h4>
+<p>Il s'agit d'une nouvelle fonctionnalité de <em>SpatGRIS</em>. Tout haut-parleur
+de la configuration peut être utilisé comme sortie directe et continuer
+à être utilisé par les algorithmes de spatialisation. Chaque source a
+une zone de texte de sortie directe qui est vide par défaut. N'importe
+quel numéro de haut-parleur peut y être placé. La différence entre les
+types de sortie directe est que les sorties indépendantes ne sont
+utilisées qu'à cette fin. Il n'y a pas de distinction dans la vue 3D du
+haut-parleur pour les sorties directes spatialisées.</p>
+<p>Les sorties directes spatialisées ont été créées par Samuel Béland, une
+amélioration majeure de <em>SpatGRIS</em>.</p>
+<p>On peut voir la distinction lors de la sélection d'une sortie directe.
+Les premiers chiffres, en haut de la colonne (17-18) sont des sorties
+directes indépendantes. Les autres numéros (1-16) peuvent être utilisés
+comme sorties directes spatialisées.</p>
+<p>Dans l'exemple suivant, la source 5 est envoyée directement au
+haut-parleur 9 et la source 8 au haut-parleur 14. Les deux enceintes 9
+et 14 restent dans la configuration DOME. Enfin, les sources 15-16 sont
+envoyées aux sorties directes indépendantes 17-18 :</p>
+<p><img src="/media-fr/media/image78.png"
+style="width:4.57in;height:5.7413in" /></p>
+<p>NOTE: Comme les sorties directes sont affectées à des sorties
+spécifiques, si vous ouvrez un projet avec un nombre de sorties directes
+différent de celui du speaker setup que vous utilisez, certaines sorties
+risquent d'être coupées ! Il n'y a pas d'avertissement à ce sujet !</p>
+<h3 id="585-show-speaker-numbers"><a class="header" href="#585-show-speaker-numbers">5.8.5. Show Speaker Numbers</a></h3>
+<p>L'emplacement des haut-parleurs et leurs numéros peuvent être visualisés
+dans la fenêtre 3D en choisissant l'option Show Speaker Numbers (Opt-Z).
+Les sorties directes sont affichées en noir. Un clic sur un haut-parleur
+ou sur son numéro le sélectionne ; un clic droit le désélectionne. Dans
+l'image ci-dessus, le haut-parleur 3 est sélectionné et les sorties
+directes indépendantes 17-18 sont en noir. Show Speaker Numbers ne
+fonctionne que si l'option Show Speakers est activée dans le menu View.</p>
+<h2 id="59-sources-et-speakers"><a class="header" href="#59-sources-et-speakers">5.9. Sources et Speakers</a></h2>
+<p><em>SpatGRIS</em> reçoit les signaux audios du SAN et les envoie aux
+haut-parleurs. Les deux sections principales sont les Sources (provenant
+du SAN via <em>BlackHole</em>) et les Speakers. Il y a aussi les sorties
+directes qui sont envoyées directement des sources vers ces
+haut-parleurs (pour les subwoofers, par exemple).</p>
+<p><img src="/media-fr/media/image79.png"
+style="width:5.25in;height:4.88192in" /></p>
+<p>Dans cet exemple, les sources sont composées de 4 X sources
+octophoniques (1-32), plus 1 X source stéréo (33-34), 1 X sorties
+directes stéréo spatialisées (35-36 envoyées à 53-54) et 1 X sorties
+directes indépendantes (37-38, assigné à 5-6) pour un total de 38
+sources identifiées par différents groupes de couleurs, distribuées sur
+un dôme de 32 haut-parleurs avec 2 sorties directes indépendantes (5-6).</p>
+<h3 id="591-mute-et-solo"><a class="header" href="#591-mute-et-solo">5.9.1. Mute et Solo</a></h3>
+<p>Chaque source et chaque haut-parleur disposent d'une touche Mute et
+d'une touche Solo.</p>
+<p><img src="/media-fr/media/image80.png"
+style="width:4.37086in;height:3in" /></p>
+<h3 id="592-indicateurs-de-crête-et-réinitialisation"><a class="header" href="#592-indicateurs-de-crête-et-réinitialisation">5.9.2. Indicateurs de crête et réinitialisation</a></h3>
+<p>Un indicateur de crête est présent pour les Sources et les Speakers. Il
+existe une fonction générale de Reset Meter Clipping dans le menu View
+(Opt-M).</p>
+<h2 id="510-les-réductions-stéréo"><a class="header" href="#510-les-réductions-stéréo">5.10. Les réductions stéréo</a></h2>
+<h3 id="5101-stereo"><a class="header" href="#5101-stereo">5.10.1. STEREO</a></h3>
+<p>Il existe un mode STEREO pour écouter un projet complexe sur une paire
+de haut-parleurs. Tous les sons sont envoyés aux enceintes
+correspondantes en fonction de leur emplacement (gauche à gauche, droite
+à droite, pas d'axe avant-arrière, pas d'élévation). Lorsque STEREO est
+sélectionné, l'option de routage stéréo apparaît pour vous permettre de
+choisir les sorties de votre choix, en fonction de votre carte son.
+Seules les sorties de votre carte son sont disponibles pour la réduction
+stéréo. En cas d'utilisation de la carte de son interne de l'ordinateur,
+les sorties sont affectées aux numéros 1 et 2.</p>
+<p><img src="/media-fr/media/image81.jpg"
+style="width:2.38559in;height:0.8in" /></p>
+<p>Ce mode peut être utilisé pour réduire un projet multicanal en stéréo.
+Les sources sont simplement placées sur l'axe Y, de gauche à droite.
+Seul le Azimuth Span est utilisé en mode STEREO, et non pas le Elevation
+span. Gardez à l'esprit que les sources, à l'exception des sorties
+directes, ne sont jamais placées directement sur un haut-parleur, mais
+sur plusieurs haut-parleurs — au moins trois sur un DOME, beaucoup plus
+sur un CUBE. Ainsi, la projection des sources n'est probablement pas
+aussi précise qu'elle ne l'est sur cette représentation !</p>
+<p><img src="/media-fr/media/image82.png"
+style="width:5in;height:3.14338in" /></p>
+<h3 id="5102-binaural"><a class="header" href="#5102-binaural">5.10.2. BINAURAL</a></h3>
+<p>Cet algorithme a été mis en œuvre pour aider les utilisateurs à
+travailler sur la spatialisation 3D depuis leur maison lorsque l'accès à
+un dôme de haut-parleur est limité ou indisponible. Il est basé sur une
+fonction de transfert liée à la tête (Head Related Transfer Function,
+HRTF). La HRTF est une fonction qui reproduit la façon dont nous
+percevons la localisation des sons dans l'espace. Il s'agit d'un
+ensemble de calculs de phase et d'amplitude pour l'écoute au casque.
+Elle est principalement conçue pour les reproductions 5.1 ou l'écoute
+immersive au casque, situations que l'on retrouve dans les jeux vidéo et
+l'industrie de la réalité virtuelle. Pour minimiser le nombre de calculs
+(HRTF peut être très exigeant en termes de puissance de calcul),
+<em>SpatGRIS</em> calcule d'abord une spatialisation VBAP sur 16 haut-parleurs
+(avec le BINAURAL_SPEAKER_SETUP, rendu invisible dans cette version) et
+transfère ensuite le résultat à HRTF. Ne vous inquiétez pas, même si
+votre configuration de haut-parleurs contient plus de 16 haut-parleurs,
+aucune information n'est perdue au cours du processus. Les modes
+BINAURAL utilisent les sorties stéréo de votre choix. Les deux Spans
+sont disponibles en mode BINAURAL.</p>
+<p>Pour diverses raisons et à cause de considérations techniques, le niveau
+sonore de sortie du mode STEREO diffère considérablement de celui du
+mode BINAURAL, en fonction du nombre de sources. Veuillez ajuster votre
+niveau d'écoute en conséquence.</p>
+<p>NOTE: Les Attenuation Settings utilisés en mode CUBE ou HYBRID sont
+fonctionnels dans les réductions stéréo.</p>
+<h2 id="511-enregistrement"><a class="header" href="#511-enregistrement">5.11. Enregistrement</a></h2>
+<p>Lorsque la composition de la spatialisation est terminée, deux options
+s'offrent à vous :</p>
+<p>1. Jouer le morceau "en direct" avec votre SAN et <em>SpatGRIS</em>.</p>
+<p>2. Enregistrer la spatialisation sur autant de pistes audios que le
+nombre de haut-parleurs de la configuration.</p>
+<p><em>SpatGRIS</em> enregistre des fichiers mono (AIFF ou WAV selon vos
+préférences) ou un fichier entrelacé.</p>
+<p>Pour enregistrer : appuyez sur le gros bouton rouge en bas à droite de
+la fenêtre principale.</p>
+<p><img src="/media-fr/media/image83.jpg"
+style="width:0.79167in;height:0.79167in" /></p>
+<p>Une fenêtre pop-up s'ouvre alors, vous permettant de spécifier :</p>
+<p>• L'emplacement des fichiers enregistrés.</p>
+<p>• Leur nom</p>
+<p>• Le format : WAV ou AIFF.</p>
+<p>• Le nombre de fichiers : Fichiers mono ou entrelacés.</p>
+<p>• La possibilité d'exporter le Speaker Setup pour la fonction Player
+(chapitre 6).</p>
+<p>Le fait d'appuyer sur le bouton d'enregistrement démarre
+l'enregistrement et la minuterie, et le bouton d'enregistrement devient
+clignotant. Une fois l'enregistrement terminé, vous pouvez appuyer à
+nouveau sur le bouton d'enregistrement pour l'arrêter. Vous pouvez
+ensuite importer les fichiers monos séparés (ou un fichier entrelacé)
+dans n'importe quelle station de travail audionumérique pour jouer votre
+morceau en concert.</p>
+<p><img src="/media-fr/media/image84.jpg"
+style="width:4.5in;height:1.20288in" /></p>
+<p>Gardez à l'esprit qu'avec les fichiers entrelacés, il y a certaines
+limites, et que ces limites sont atteintes assez rapidement sur les
+grands projets :</p>
+<p>- AIFF est limité à 2 Go.</p>
+<p>- WAV est limité à 4 Go<sup class="footnote-reference" id="fr-4gb-footnote-1"><a href="#footnote-4gb-footnote">1</a></sup>.</p>
+<p>De plus, si vous enregistrez un fichier entrelacé avec de nombreux
+canaux, vous trouverez très peu de SAN capables de l'ouvrir. Il est donc
+préférable d'enregistrer des fichiers monos.</p>
+<hr>
+<ol class="footnote-definition"><li id="footnote-4gb-footnote">
+<p>Les formats CAF (Core Audio Format) et WAV RF64 seront éventuellement mis en œuvre, ce qui permettra de dépasser les 4 Go. <a href="#fr-4gb-footnote-1">↩</a></p>
+</li>
+</ol><div style="break-before: page; page-break-before: always;"></div><h1 id="6-player"><a class="header" href="#6-player">6. PLAYER</a></h1>
+<p><em>SpatGRIS,</em> à partir de la version 3.2, introduit un nouvel outil, le
+PLAYER, qui permet d'utiliser <em>SpatGRIS</em> comme logiciel autonome pour
+jouer n'importe quelle pièce enregistrée par <em>SpatGRIS</em> avec n'importe
+quelle configuration de haut-parleurs. L'idée principale du PLAYER est
+de faciliter la diffusion d'œuvres multicanaux parmi différent.e.s
+utilisateur.rice.s et sur différentes configurations de haut-parleurs.
+Les œuvres réalisées avec un Speaker Setup DOME peuvent être jouées sur
+un Speaker Setup CUBE et vice versa. Les sorties directes sont assignées
+automatiquement, mais peuvent être ajustées manuellement par la suite.</p>
+<h2 id="61-effectuer-un-enregistrement-pour-le-player"><a class="header" href="#61-effectuer-un-enregistrement-pour-le-player">6.1. Effectuer un enregistrement pour le PLAYER</a></h2>
+<p>La procédure d'enregistrement d'une pièce pour la reproduction avec le
+PLAYER est presque identique à celle d'un enregistrement normal. La
+principale différence est que, en plus de l'enregistrement des fichiers
+audio eux-mêmes, vous devez exporter les coordonnées du Speaker Setup
+utilisé en activant la fonction Export Speaker Setup. Les fichiers
+audios et le Speaker Setup seront placés dans le même dossier et doivent
+y rester pour que le PLAYER fonctionne correctement. Ces coordonnées
+seront utilisées par le PLAYER pour positionner correctement les sources
+dans n'importe quel Speaker Setup.</p>
+<p><img src="/media-fr/media/image85.jpg"
+style="width:4.5in;height:1.17019in" /></p>
+<p>NOTE: Seuls les fichiers monos fonctionnent avec le PLAYER. Vous
+obtiendrez un message d'erreur si vous essayez d'ouvrir un fichier
+entrelacé. La raison en est que le PLAYER utilise les numéros des
+sorties dans le nom des fichiers audio pour la spatialisation. Il n'y a
+aucun moyen d'encoder cette information dans un fichier audio entrelacé.</p>
+<p><img src="/media-fr/media/image86.jpg"
+style="width:1.47736in;height:1.5in" /></p>
+<h2 id="62-ouvrir-et-lire-un-projet-avec-le-player"><a class="header" href="#62-ouvrir-et-lire-un-projet-avec-le-player">6.2. Ouvrir et lire un projet avec le PLAYER</a></h2>
+<p>Une fois l'enregistrement terminé, vous pouvez envoyer le dossier
+contenant les fichiers sonores et le Speaker Setup à un.e auditeur.trice
+qui utiliserait un autre dispositif de haut-parleurs. Vous pouvez aussi
+l'utiliser vous-même pour écouter l'enregistrement sur un autre
+dispositif de haut-parleurs.</p>
+<h3 id="621-ouvrir-le-speaker-setup-pour-lécoute"><a class="header" href="#621-ouvrir-le-speaker-setup-pour-lécoute">6.2.1. Ouvrir le Speaker Setup pour l'écoute</a></h3>
+<p>Ouvrir le Speaker Setup dans <em>SpatGRIS</em> sur lequel vous avez l'intention
+d'écouter le travail spatialisé. Il peut s'agir d'une configuration
+personnalisée ou d'une configuration provenant des Templates.</p>
+<h3 id="622-ouvrir-la-fenêtre-player-et-charger-les-fichiers"><a class="header" href="#622-ouvrir-la-fenêtre-player-et-charger-les-fichiers">6.2.2. Ouvrir la fenêtre PLAYER et charger les fichiers</a></h3>
+<p>View Menu —&gt; Show Player View</p>
+<p>Load the audio files and Speaker Setup folder:</p>
+<p><img src="/media-fr/media/image87.jpg"
+style="width:5.5in;height:2.92804in" /></p>
+<p>Le PLAYER affiche maintenant la forme d'onde des fichiers audio :</p>
+<p><img src="/media-fr/media/image88.jpg"
+style="width:5.5in;height:2.92804in" /></p>
+<p>Le PLAYER affiche également le dispositif de haut-parleurs avec lequel
+l'œuvre a été enregistrée. L'emplacement des haut-parleurs d'origine est
+indiqué en rouge :</p>
+<p><img src="/media-fr/media/image89.jpg"
+style="width:4.71429in;height:3in" /></p>
+<p>Veuillez noter que le projet actuel chargé dans <em>SpatGRIS</em> est remplacé
+par le projet de l'enregistrement.</p>
+<h3 id="623-jouer-la-pièce"><a class="header" href="#623-jouer-la-pièce">6.2.3. Jouer la pièce</a></h3>
+<p>Le PLAYER est maintenant prêt à jouer la pièce. Il suffit d'utiliser les
+boutons Play et Stop. Il est également possible de cliquer n'importe où
+dans le fichier audio pour démarrer la lecture à partir de cet endroit.</p>
+<h3 id="624-dome-dans-cube-ou-cube-dans-dome"><a class="header" href="#624-dome-dans-cube-ou-cube-dans-dome">6.2.4. DOME dans CUBE ou CUBE dans DOME</a></h3>
+<p>Voici un exemple d'enregistrement réalisé avec un dôme
+(Dome20(8-6-4-2)Subs4) et joué dans un cube (Cube24(2X12)Subs2). Comme
+on peut le voir, la forme du dôme original est bien reproduite dans le
+cube d'écoute :</p>
+<p><img src="/media-fr/media/image90.jpg"
+style="width:5.5in;height:3in" /></p>
+<p>Voici un autre exemple montrant la situation inverse, un enregistrement
+de cube (Cube24(3X8)Subs2) joué dans un dôme (Dome20(8-6-4-2)Subs4).
+Comme on peut le voir, la forme du cube original est bien reproduite
+dans le dôme d'écoute :</p>
+<p><img src="/media-fr/media/image91.jpg"
+style="width:5.5in;height:3in" /></p>
+<h3 id="625-les-sorties-directes-dans-le-player"><a class="header" href="#625-les-sorties-directes-dans-le-player">6.2.5. Les sorties directes dans le PLAYER</a></h3>
+<p>Le PLAYER essaiera d'assigner les sorties directes originelles aux
+sorties directes du dispositif d'écoute.</p>
+<p>Dans le premier exemple, la configuration d'origine comportait quatre
+sorties directes (numéros <strong>6-12-18</strong> et <strong>24</strong>). Mais dans la
+configuration d'écoute, il n'y a que deux sorties directes (<strong>25</strong> et
+<strong>26</strong>). Le PLAYER a assigné alternativement les numéros de sorties
+directes originelles aux sorties directes disponibles dans la
+configuration d'écoute. Ces numéros de sortie peuvent être réglés
+manuellement par la suite :</p>
+<p><img src="/media-fr/media/image92.jpg"
+style="width:5.5in;height:2.87869in" /></p>
+<h2 id="63-sauvegarder-un-projet-player"><a class="header" href="#63-sauvegarder-un-projet-player">6.3. Sauvegarder un projet PLAYER</a></h2>
+<p>Si vous avez modifié un élément du projet PLAYER, vous pouvez le
+sauvegarder en utilisant le bouton Save Player Project. Ce document sera
+automatiquement placé dans le même dossier que les fichiers audios et la
+configuration des enceintes. Le bouton File Saved ! (Fichier sauvegardé)
+clignotera pendant un certain temps au cours du processus. Tous les
+fichiers doivent rester dans le même dossier. La prochaine fois que vous
+utiliserez le bouton Load audio files and Speaker Setup folder, tout
+sera placé correctement en fonction de la façon dont il a été
+sauvegardé.</p>
+<p><img src="/media-fr/media/image93.jpg"
+style="width:5.5in;height:2.94274in" /></p>
+<p>NOTE: Un projet du PLAYER reste actif tant que la fenêtre PLAYER est
+ouverte. Lorsque vous la fermez, <em>SpatGRIS</em> passe à son mode d'entrée
+normal, attendant que l'audio et l'OSC proviennent d'un séquenceur ou de
+tout autre logiciel.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="7-menus"><a class="header" href="#7-menus">7. Menus</a></h1>
+<h2 id="71-menu-file"><a class="header" href="#71-menu-file">7.1. Menu File</a></h2>
+<p>Dans le menu File (Fichier), vous trouverez toutes les fonctions liées
+au projet, où vous pourrez :</p>
+<p><img src="/media-fr/media/image94.jpg"
+style="width:1.6in;height:1.57569in" /></p>
+<p><img src="/media-fr/media/image95.png"
+style="width:1.6in;height:1.35903in" /><img src="/media-fr/media/image95.png"
+style="width:1.6in;height:1.35903in"
+alt="Immagine che contiene testo, schermata, Carattere, numero Descrizione generata automaticamente" />• Créer
+un New Project.</p>
+<p>• Ouvrir un projet existant.</p>
+<p>• Ouvrir un projet à partir du dossier Project Templates. Ces modèles ne
+peuvent pas être modifiés, mais ils peuvent être édités et enregistrés
+en tant que nouveau fichier.</p>
+<p>• Save Project or Save As — pour faire une copie.</p>
+<p>• Ouvrir un Speaker Setup.</p>
+<p>• Ouvrir un Speaker Setup à partir du dossier Speaker Setup Templates.
+Ces modèles ne peuvent pas être modifiés, mais ils peuvent être édités
+et sauvegardés dans un nouveau fichier.</p>
+<p>• Save Speaker Setup or Save As — faire une copie.</p>
+<p>• Ouvrir la fenêtre Settings.</p>
+<h2 id="72-menu-view"><a class="header" href="#72-menu-view">7.2. Menu View</a></h2>
+<p>Dans le menu View, vous pouvez choisir différentes perspectives pour
+visualiser les haut-parleurs et les sources en temps réel. La touche
+modificatrice de ce menu est Option (Opt) pour Mac et Alt pour Windows.</p>
+<p><img src="/media-fr/media/image49.jpg"
+style="width:1.8in;height:2.68681in" /><img src="/media-fr/media/image96.png"
+style="width:1.8in;height:2.06292in" />• Show 2D view : Une vue en 2D
+depuis le haut du dispositif est affichée, montrant uniquement les
+sources.</p>
+<p>• Speaker Setup Edition : Ouvre une fenêtre permettant d'accéder à tous
+les paramètres d'une configuration de haut-parleurs.</p>
+<p>•Show Player View: Ouvre la fenêtre du Player</p>
+<p>• Show OSC monitor : Pour les spécialistes ! Pour aider à dépanner les
+flux de messages OSC entrants.</p>
+<p>• Show SpeakerView: Ouvre la fenêtre 3D des haut-parleurs</p>
+<p>—</p>
+<p>Keep Seaker View On Top</p>
+<p>—</p>
+<p>• Show Hall: Affiche les murs de la salle</p>
+<p>• Show Numbers : Permet d'afficher ou de masquer les numéros des sources
+et/ou des enceintes affichées.</p>
+<p>• Show Speakers : Permet d'afficher ou de masquer les haut-parleurs dans
+la vue 3D.</p>
+<p>• Show Speakers Triplets : Affiche ou cache les triplets dans la vue 3D
+en mode DOME. Il n'y a pas de triplets en mode CUBE.</p>
+<p>• Show Source Activity: Cette option permet de voir la position et les
+trajectoires des sources (gros points) et leurs valeurs d'azimut et
+d'élévation (petits points), selon les données envoyées par le plugiciel
+<em>ControlGRIS2</em>. Notez qu'il n'y a rien à voir lorsque la SAN est
+arrêtée. Le seuil est fixé à -70 dB. Lorsque cette option n'est pas
+sélectionnée, toutes les sources faisant partie d'un projet sont
+affichées, même lorsque la SAN est arrêtée. Cette option peut être utile
+pour vérifier qu'il n'y a pas de canaux OSC en double envoyés par
+<em>ControlGRIS2</em> vers <em>SpatGRIS</em>.</p>
+<p><img src="/media-fr/media/image97.jpg"
+style="width:2.12321in;height:1.9685in" /><img src="/media-fr/media/image98.jpg"
+style="width:2.12321in;height:1.9685in" /></p>
+<table>
+<colgroup>
+<col style="width: 46%" />
+<col style="width: 53%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><em>Show Source Activity</em> Off: Affiche la position de toutes les
+sources</th>
+<th><em>Show Source Activity</em> On: Affiche uniquement l'activité
+réelle des sources en mode lecture</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>• Show Speaker Level : Indique la quantité d'énergie délivrée par chaque
+haut-parleur. Du gris (rien) au blanc (maximum).</p>
+<p>• Show Sphere/Cube : Si vous avez la possibilité de jouer dans une
+sphère ou un cube complet !</p>
+<p>—</p>
+<p>• Colorize Sources : Cette option vous permet de régler toutes les
+sources sur une couleur différente dans le spectre visible, du rouge au
+violet. Attention, cette option efface toutes les couleurs
+personnalisées déjà en place.</p>
+<p>• Reset Sources Position: Lorsque vous passez d'un projet à un autre,
+<em>SpatGRIS</em> peut parfois afficher les sources du projet précédent.
+Utilisez cette option pour effacer la vue 3D.</p>
+<p>• Reset Meter Clipping: Les indicateurs de crête peuvent être
+réinitialisés individuellement en cliquant dessus, ou globalement avec
+le raccourci Opt-M.</p>
+<h2 id="73-nommer-et-sauvegarder"><a class="header" href="#73-nommer-et-sauvegarder">7.3. Nommer et sauvegarder</a></h2>
+<p><em>SpatGRIS</em> comporte trois composantes qui sont sauvegardées
+indépendamment l'une de l'autre : Project, Speaker Setup and Settings.</p>
+<p>• Save Project. Un projet est couplé à une œuvre.</p>
+<p>• Save Speaker Setup. Un speaker setup est couplé à une installation
+physique placée dans un espace.</p>
+<p>• Save Settings. Ces paramètres sont liés à une station de travail
+(ordinateur et interface audio), y compris les sorties stéréo utilisées
+pour les réductions stéréo.</p>
+<p>Speaker setups and Project documents sont enregistrés au format .xml. Il
+n'y a pas de distinction entre les deux. Le document de projet n'inclut
+pas le Speaker setup et ils sont donc indépendants. Par conséquent, nous
+recommandons fortement deux choses :</p>
+<p>• Ajoutez le mot "Speaker Dome" ou "Speaker Cube" au nom de vos Speaker
+Setups et "Project Dome", "Project Cube" ou "Project Hybrid" au nom de
+vos fichiers de projet.</p>
+<p>• Enregistrez les Speaker Setup DOME ou CUBE dans deux dossiers
+distincts dans un dossier nommé Speakers.</p>
+<p>• Enregistrez les projets <em>SpatGRIS</em> dans trois dossiers distincts à
+l'intérieur d'un dossier nommé Projects.</p>
+<p>Les menus Templates que nous fournissons avec <em>SpatGRIS</em> sont un bon
+exemple de la bonne classification.</p>
+<p>• Avertissements concernant le format du document</p>
+<p><em>SpatGRIS</em> se souvient toujours du dernier speaker setup et du dernier
+projet ouverts.</p>
+<p>Si vous essayez d'ouvrir un projet <em>SpatGRIS</em> avec la commande Load
+Speaker Setup (ou l'inverse), vous serez averti :</p>
+<p><img src="/media-fr/media/image99.jpg"
+style="width:2.75265in;height:1.10236in" /><img src="/media-fr/media/image100.jpg"
+style="width:2.75in;height:1.10236in" /></p>
+<p>NOTE : Les documents <em>SpatGRIS</em> adoptent un nouveau format et ne sont
+pas rétrocompatibles avec les anciennes versions de <em>SpatGRIS</em>. En
+essayant d'ouvrir un projet <em>SpatGRIS</em> ou un dispositif de haut-parleurs
+de la version 2, vous obtiendrez l'un de ces messages effrayants ! Vos
+fichiers sont corrects, mais ils ne sont pas compatibles :</p>
+<p><img src="/media-fr/media/image101.jpg"
+style="width:2.75in;height:1.1in" /><img src="/media-fr/media/image102.jpg"
+style="width:2.75in;height:1.1in" /></p>
+<h2 id="74-représentations"><a class="header" href="#74-représentations">7.4. Représentations</a></h2>
+<p>Les vues 3D et 2D de <em>SpatGRIS</em> sont disponibles pour les modes DOME et
+CUBE. Dans le mode DOME, les sources se trouvent sur la surface et les
+Spans s'étendent le long de cette surface. En mode CUBE, les sources
+peuvent être placées n'importe où dans l'espace et les Spans s'étendent
+localement autour des sources.</p>
+<h3 id="741-représentation-3d"><a class="header" href="#741-représentation-3d">7.4.1. Représentation 3D</a></h3>
+<p>La fenêtre 3D en mode DOME (à gauche) ou en mode CUBE (à droite) de la
+même session. Les haut-parleurs et les sources sont représentés :</p>
+<p><img src="/media-fr/media/image103.jpg"
+style="width:2.75in;height:2.2999in" /><img src="/media-fr/media/image104.jpg"
+style="width:2.75in;height:2.30283in" /></p>
+<h3 id="742-représentation-2d"><a class="header" href="#742-représentation-2d">7.4.2. Représentation 2D</a></h3>
+<p>La vue 2D en mode DOME (à gauche) ou en mode CUBE (à droite) de la même
+session. Seules les sources sont représentées :</p>
+<p><img src="/media-fr/media/image105.jpg"
+style="width:2.3in;height:2.39632in" /><img src="/media-fr/media/image106.jpg"
+style="width:2.3in;height:2.39608in" /></p>
+<h2 id="75-performance-et-charge-de-travail-du-cpu"><a class="header" href="#75-performance-et-charge-de-travail-du-cpu">7.5. Performance et charge de travail du CPU</a></h2>
+<p>Les performances de la combinaison <em>ControlGRIS2/SpatGRIS</em> dépendent
+largement des différents paramètres de votre projet. En règle générale,
+un projet avec 64 canaux audios envoyés à 64 haut-parleurs fonctionnera
+parfaitement bien sur des ordinateurs récents. Nous avons testé des
+projets avec plus de 100 canaux audios sur une configuration de 128
+haut-parleurs et cela fonctionnait toujours bien !</p>
+<p>Les facteurs qui augmenteront de manière significative l'utilisation du
+CPU par nos outils sont, par ordre d'importance:</p>
+<p>• Le mode : CUBE est plus exigeant que DOME, car le premier utilise plus
+de haut-parleurs que le second.</p>
+<p>• Les Spans: Ils distribuent le signal à un plus grand nombre de
+haut-parleurs que lorsqu'ils ne sont pas utilisés, et la demande de CPU
+augmente donc très rapidement à mesure que leurs valeurs augmentent.</p>
+<p>• The Interpolation: le facteur d'interpolation permet à certains sons
+d'obtenir une transition plus fluide lorsqu'ils se déplacent d'un
+endroit à l'autre. Par conséquent, plus ce paramètre est élevé, plus le
+nombre de haut-parleurs impliqués dans le processus est important,
+puisqu'un son atteindra un haut-parleur donné plus tôt et mettra plus de
+temps à le quitter (sans parler du fait que cela rend la localisation
+plus floue).</p>
+<p>• Le nombre de haut-parleurs utilisés dans <em>SpatGRIS</em>. Nous avons mesuré
+des performances confortables avec une configuration de 96
+haut-parleurs, ce qui est largement suffisant dans la plupart des
+situations réalistes !</p>
+<p>• Le nombre de pistes multiplié par le nombre de haut-parleurs détermine
+la fiabilité de l'installation. Peu de pistes sur un grand dispositif
+donneront le même résultat que beaucoup de pistes sur un petit
+dispositif.</p>
+<p>Si le CPU dépasse les 100%, vous recevrez cette alerte :</p>
+<p><img src="/media-fr/media/image107.jpg"
+style="width:1.60048in;height:0.3937in" /></p>
+<p>Vous voulez savoir à quoi vous attendre? Essayez vous-même !</p>
+<h2 id="76-menu-daide"><a class="header" href="#76-menu-daide">7.6. Menu d'aide</a></h2>
+<p>Le menu Aide comprend des informations sur le GRIS et sur ce manuel,
+sous l'option Open Documentation.</p>
+<p><img src="/media-fr/media/image12.jpg"
+style="width:1.81222in;height:0.7in" /></p>
+<p><strong>Sautez dans le vide et amusez-vous !</strong></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="9-problèmes-connus-et-avertissements"><a class="header" href="#9-problèmes-connus-et-avertissements">9. Problèmes connus et avertissements</a></h1>
+<p>Il y a tellement de situations et de configurations différentes qu'il
+nous serait impossible de les couvrir toutes. Jusqu'à présent, nous
+n'avons trouvé aucune situation où le système ne fonctionne pas du tout.
+Mais nous avons trouvé des situations où certains paramètres doivent
+être ajustés avant que le système puisse fonctionner correctement. En
+voici quelques-unes.</p>
+<h2 id="91-problèmes-connus"><a class="header" href="#91-problèmes-connus">9.1. Problèmes connus</a></h2>
+<h3 id="911-spatgris-le-plugiciel-et-spatgris-le-logiciel"><a class="header" href="#911-spatgris-le-plugiciel-et-spatgris-le-logiciel">9.1.1. SpatGRIS, le plugiciel et SpatGRIS, le logiciel</a></h3>
+<p>Pour ceux qui ont utilisé le plugiciel <em>SpatGRIS</em>, vous remarquerez
+qu'il ne fonctionne plus sur les plus récents systèmes macOS et sur les
+ordinateurs Apple Silicon. Nous recommandons de passer à <em>ControlGRIS2</em>.
+Le développement de <em>SpatGRIS1</em> s'est terminé en 2018.</p>
+<h3 id="912"><a class="header" href="#912">9.1.2.</a></h3>
+<h3 id="913"><a class="header" href="#913">9.1.3.</a></h3>
+<h2 id="92-reaper"><a class="header" href="#92-reaper">9.2. Reaper</a></h2>
+<h3 id="921-pistes-mono"><a class="header" href="#921-pistes-mono">9.2.1. Pistes mono</a></h3>
+<p>• Créez une piste et insérez-y une instance de <em>ControlGRIS2</em> et un
+fichier audio mono.</p>
+<p>• Cliquez sur le bouton Route situé à droite du bouton de réglage du
+gain de la piste.</p>
+<p>• Dans la fenêtre qui s'ouvre, décochez Master send.</p>
+<p>• En bas à gauche de cette même fenêtre, cliquez sur le bouton Add new
+hardware sortie... (Ajouter une nouvelle sortie matérielle).</p>
+<p>• Tout en bas de la liste des sorties de l'interface de sortie se
+trouvent les sorties individuelles mono.</p>
+<p>• Sélectionnez la sortie qui correspond au numéro attribué à la source
+dans <em>ControlGRIS2</em>.</p>
+<p>Il n'est pas nécessaire de panoramiser les sources monos vers la gauche
+pour les pistes impaires et vers la droite pour les pistes paires,
+puisque les sorties matérielles monos de Reaper sont utilisées. De plus,
+la piste Master de Reaper est actuellement limitée à 128 canaux, il est
+donc pratique d'utiliser les sorties matérielles de Reaper directement
+comme décrit.</p>
+<h3 id="922-préférences-avec-jack"><a class="header" href="#922-préférences-avec-jack">9.2.2. Préférences avec Jack</a></h3>
+<p>Dans les Préférences de Reaper, sous l'onglet Audio : décocher "Close
+audio device when stopped and application is inactive". Sinon, <em>Jack</em>
+perdra le contact avec Reaper lorsqu'il est inactif, et le système ne
+fonctionnera jamais.</p>
+<p><img src="/media-fr/media/image136.jpg"
+style="width:3in;height:1.98883in" /></p>
+<h2 id="93-logic-pro"><a class="header" href="#93-logic-pro">9.3. Logic Pro</a></h2>
+<h3 id="931-une-seule-sortie-surround"><a class="header" href="#931-une-seule-sortie-surround">9.3.1. Une seule sortie Surround</a></h3>
+<p>Dans Logic Pro, il n'y a qu'une seule instance Surround possible. Cela
+signifie qu'il n'est pas possible d'avoir plusieurs pistes multicanaux
+dans Logic tout en utilisant <em>SpatGRIS</em>. Pour éviter cette restriction,
+n'utilisez que des pistes mono et stéréo dans Logic.</p>
+<h3 id="932-bouton-activate"><a class="header" href="#932-bouton-activate">9.3.2. Bouton Activate</a></h3>
+<p>Lorsque vous utilisez les trajectoires prédéfinies de <em>ControlGRIS2</em>, il
+y a une exception concernant le bouton Activate dans Logic Pro. S'il n'y
+a plus d'audio dans la piste à la position d'arrêt, le bouton Activate
+ne s'éteindra pas. Il devra être désactivé manuellement.</p>
+<h2 id="94-digital-performer-11-et-automatisation-des-mémoires"><a class="header" href="#94-digital-performer-11-et-automatisation-des-mémoires">9.4. Digital Performer 11 et automatisation des mémoires</a></h2>
+<p>L'automatisation des mémoires enregistrées dans DP présentent des
+courbes lisses au lieu des courbes carrées attendues. Cela signifie que
+le passage d'une mémoire automatisée à une autre est progressif, alors
+qu'on s'attend à ce qu'il soit discret. Nous y travaillons.</p>
+<h2 id="95-utilisation-de-spatgris-avec-des-entrées-en-direct"><a class="header" href="#95-utilisation-de-spatgris-avec-des-entrées-en-direct">9.5. Utilisation de SpatGRIS avec des entrées en direct</a></h2>
+<p>Dans le cas de l'utilisation d'entrées en direct, nous recommandons
+l'utilisation du périphérique agrégé sur un Mac. D'après nos tests, le
+système est stable lorsqu'on crée un périphérique agrégé comprenant
+<em>BlackHole</em> et la carte son que vous utilisez. Ce périphérique agrégé
+doit être désigné comme périphérique d'entrée et de sortie audio dans
+votre SAN et comme périphérique d'entrée et de sortie audio dans
+SpatGRIS.</p>
+<p>Pour la numérotation des canaux, veuillez vous référer à l'application
+Audio / Midi Configuration sur votre Mac une fois que vous avez créé
+votre périphérique agrégé. En plaçant votre carte son physique comme
+premier élément de périphérique, vous n'aurez pas besoin de modifier la
+numérotation des configurations de haut-parleurs. Ce flux de travail a
+été testé avec Ableton Live.</p>
+<p>Pour une utilisation sous Windows, l'utilisation de Jack semble
+suffisante, mais nous ne l'avons pas testé de manière approfondie.</p>
+<p>NOTE : Ajustez la taille de la mémoire tampon à la même valeur dans
+votre SAN et dans <em>SpatGRIS</em>. Une valeur de 256 et plus est recommandée.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="10-conseil-et-astuces"><a class="header" href="#10-conseil-et-astuces">10. Conseil et astuces</a></h1>
+<p>Outre l'usage normal de SpatGRIS qui permet de programmer la
+spatialisation sonore de sources diverses et variées, voici quelques
+exemples d'usages différents, qui ne viennent pas à l'esprit dans un
+premier temps. C'est avec les années que ces usages sont apparus à
+travers les pratiques inventives de nos utilisateurs.</p>
+<h2 id="101-spatialisation-acousmatique"><a class="header" href="#101-spatialisation-acousmatique">10.1. Spatialisation acousmatique</a></h2>
+<p>Il est tout à fait possible d'utiliser SpatGRIS dans le cadre d'une
+spatialisation acousmatique traditionnelle, où une source stéréophonique
+est multipliée sur autant de paires d'enceintes dans la salle de
+concert. Nous l'avons utilisé de cette manière pendant des années lors
+des concerts hebdomadaires du cours d'Histoire de la musique électro.</p>
+<h3 id="1011-console-de-mixage"><a class="header" href="#1011-console-de-mixage">10.1.1. Console de mixage</a></h3>
+<p>Pour arriver à faire de la spatialisation dans un contexte acousmatique,
+il faut disposer d'une console de mixage avec transmission Ethernet
+(idéale, comme une AVID S1 ou une Euphonix) ou MIDI (plus lente, comme
+une Mackie Control ou une Behringer).</p>
+<h3 id="1012-station-audio-numérique"><a class="header" href="#1012-station-audio-numérique">10.1.2. Station Audio Numérique</a></h3>
+<p>Dans le SAN de votre choix (DP, Logic, Live, Nuendo, Reaper, etc.), vous
+placez le fichier audio stéréo sur la première piste stéréo sur laquelle
+vous placez également un plugiciel ControlGRIS2. Ensuite, vous
+multipliez des copies de cette première piste stéréo sur autant
+d'exemplaires supplémentaires que comporte votre scénario de
+spatialisation. Il est également possible de n'avoir qu'une seule piste
+audio et autant de sorties auxiliaires que nécessaires, si votre SAN le
+permet. Chaque piste et chaque instance de ControlGRIS2 seront assignées
+à des numéros consécutifs. Il est important de mentionner ici que l'on
+n'est pas dans une logique de correspondance un potentiomètre = un
+haut-parleur. Chaque haut-parleur peut servir à plusieurs scénarios de
+spatialisation.</p>
+<h3 id="1013-dispositif-acousmatique"><a class="header" href="#1013-dispositif-acousmatique">10.1.3. Dispositif acousmatique</a></h3>
+<p>Utilisons le dispositif suivant Dome24(8-5x2-6)Subs2 Acousmonium présent
+dans les Templates de SpatGRIS. Celui-ci est constitué de:</p>
+<p>• 1 octophonie, de 1 à 8</p>
+<p>• 1 paire asymétrique à gauche 9-10 (sorties directes)</p>
+<p>• 1 paire solo centrale 11-12 (sorties directes)</p>
+<p>• 1 paire stéréo principale 13-14 (sorties directes)</p>
+<p>• 1 paire asymétrique à centre droit 15-16(sorties directes)</p>
+<p>• 1 paire asymétrique à gauche 17-18(sorties directes)</p>
+<p>• 1 groupe hexaphonique 19 à 24</p>
+<p>• 1 paire de subwoofers 25-26 (sorties directes)</p>
+<p><img src="/media-fr/media/image137.jpg"
+style="width:3.13643in;height:2.8in" /></p>
+<h3 id="1014-scénario"><a class="header" href="#1014-scénario">10.1.4. Scénario</a></h3>
+<p>Le premier scénario consisterait à assigner à chaque potentiomètre un
+groupe de haut-parleurs dans l'ordre mentionné ci-haut. Cela nécessite 8
+potentiomètres, puisqu’il y a 8 groupes de haut-parleurs. Les sorties
+directes n'ont pas besoin de ControlGRIS2.</p>
+<p>• Potentiomètre 1: ControlGRIS2 1-2, BlackHole sorties audio 1-2,
+Position gauche-droite, Azimuth Span à 50%.</p>
+<p><img src="/media-fr/media/image138.jpg"
+style="width:1.63309in;height:2in" /></p>
+<p>Ainsi, la source stéréo est entièrement répartie sur les 8 hp du groupe
+octophonique.</p>
+<p>Le canal gauche sur les hp impairs (en turquoise pâle) et le canal droit
+sur les hp pairs (en turquoise plus foncé):</p>
+<p><img src="/media-fr/media/image139.jpg"
+style="width:3.80385in;height:3in" /></p>
+<p>• Potentiomètre 2: pas de ControlGRIS2, BlackHole sorties 3-4, H-P 9-10
+sorties directes dans SpatGRIS (en noir):</p>
+<p><img src="/media-fr/media/image140.jpg"
+style="width:0.92099in;height:2in" /><img src="/media-fr/media/image141.jpg"
+style="width:2.95918in;height:2in" /></p>
+<p>• Potentiomètre 3: pas de ControlGRIS2, BlackHole sorties 5-6, H-P 11-12
+sorties directes dans SpatGRIS (en noir):</p>
+<p><img src="/media-fr/media/image142.jpg"
+style="width:0.89686in;height:2in" /><img src="/media-fr/media/image143.jpg"
+style="width:2.72247in;height:2in" /></p>
+<p>• Potentiomètre 4: pas de ControlGRIS2, BlackHole sorties 7-8, H-P 13-14
+sorties directes dans SpatGRIS (en noir):</p>
+<p>Même scénario</p>
+<p>• Potentiomètre 5: pas de ControlGRIS2, BlackHole sorties 9-10, H-P
+15-16 sorties directes dans SpatGRIS (en noir):</p>
+<p>Même scénario</p>
+<p>• Potentiomètre 6: pas de ControlGRIS2, BlackHole sorties 11-12, H-P
+17-18 sorties directes dans SpatGRIS (en noir):</p>
+<p>Même scénario</p>
+<p>• Potentiomètre 7: ControlGRIS2 13-14, BlackHole sorties 13-14, H-P
+19-24 Position gauche-droite, Azimuth Span à 50%, Élévation dans le haut
+du dôme:</p>
+<p><img src="/media-fr/media/image144.jpg"
+style="width:1.94032in;height:1.8in" /><img src="/media-fr/media/image145.jpg"
+style="width:1.23699in;height:1.8in" /></p>
+<p>Le canal gauche sur les hp impairs (en orange pâle) et le canal droit
+sur les hp pairs (en orange plus foncé):</p>
+<p><img src="/media-fr/media/image146.jpg"
+style="width:3.65482in;height:2in" /></p>
+<h2 id="102-utilisation-du-player-en-votre-absence"><a class="header" href="#102-utilisation-du-player-en-votre-absence">10.2. Utilisation du PLAYER en votre absence</a></h2>
+<p>Le PLAYER (voir le chapitre 6. PLAYER) est un outil très puissant dans
+<em>SpatGRIS</em> qui permet d'enregistrer un projet dans le dispositif
+originel et ensuite de le jouer dans un autre dispositif, celui d'une
+salle de concert par exemple. La situation typique est celle où une de
+vos œuvres est jouée ailleurs en votre absence. Vous pouvez alors
+enregistrer votre projet grâce à la fonction Record (voir le chapitre
+5.11. Enregistrement) en cochant la case Export Speaker Setup:</p>
+<p><img src="/media-fr/media/image85.jpg"
+style="width:4.5in;height:1.17019in" /></p>
+<p>Les fichiers audios et le dispositif de haut-parleurs originel seront
+sauvegardés dans le même dossier. Vous pouvez faire parvenir celui-ci à
+votre destinataire qui pourrait jouer votre pièce dans son propre
+dispositif. Cette fonction est très utile pour contribuer à la diffusion
+des musiques multicanales.</p>
+<h2 id="103-le-mode-hybrid-pour-varier-les-trajectoires"><a class="header" href="#103-le-mode-hybrid-pour-varier-les-trajectoires">10.3. Le mode HYBRID pour varier les trajectoires</a></h2>
+<p>Le mode HYBRID (voir le chapitre 5.7. Le mode HYBRID) est en réalité un
+DOME dans lequel il est possible de déplacer des sources en mode CUBE.
+En mode DOME exclusif, les sources sont obligatoirement placées sur la
+surface du dôme. C'est l'algorithme VBAP qui impose cela. Il n'est donc
+pas possible de placer un son à l'intérieur du dôme ou à l'extérieur de
+celui-ci. En adoptant le mode HYBRID, les sources peuvent soit se
+comporter en mode DOME, soit en mode CUBE:</p>
+<p><img src="/media-fr/media/image147.jpg"
+style="width:4.40323in;height:0.9in" /></p>
+<p>Comme on peut le voir ici, certaines sources (en bourgogne) sont situées
+à l'extérieur du dôme alors que d'autre (en bleu clair) sont à
+l'intérieur de celui-ci.</p>
+<p>Le mode HYBRID permet ainsi de varier les trajectoires en mode DOME:</p>
+<p><img src="/media-fr/media/image148.jpg"
+style="width:6.5in;height:4.23542in" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="8-addendum"><a class="header" href="#8-addendum">8. Addendum</a></h1>
+<h2 id="81-descriptions-des-sources-link"><a class="header" href="#81-descriptions-des-sources-link">8.1. Descriptions des Sources Link</a></h2>
+<h3 id="811-azimuth-elevation-et-azimuth-distance"><a class="header" href="#811-azimuth-elevation-et-azimuth-distance">8.1.1. Azimuth-Elevation et Azimuth-Distance</a></h3>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>1) Independent</strong> MONO + STEREO + MULTIPHONIQUE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ce mode est sélectionné par défaut. Les sources peuvent être
+déplacées indépendamment les unes des autres.<img
+src="/media-fr/media/image108.jpeg"
+style="width:1.33333in;height:1in" /><img
+src="/media-fr/media/image109.jpeg"
+style="width:1in;height:1in" /></td>
+</tr>
+<tr class="even">
+<td><strong>2) Circular</strong> STEREO + MULTIPHONIQUE</td>
+</tr>
+<tr class="odd">
+<td><img src="/media-fr/media/image110.jpeg"
+style="width:0.95288in;height:1in" />Ce mode permet le mouvement
+circulaire groupé. Les angles entre les sources restent constants tandis
+que le rayon s'ajuste proportionnellement.<img
+src="/media-fr/media/image111.jpeg"
+style="width:0.99788in;height:1in" /></td>
+</tr>
+<tr class="even">
+<td><strong>3) Circular Fixed Radius</strong> STEREO +
+MULTIPHONIQUE</td>
+</tr>
+<tr class="odd">
+<td><img src="/media-fr/media/image112.jpeg"
+style="width:1.04655in;height:1in" /><img
+src="/media-fr/media/image113.jpeg"
+style="width:0.99788in;height:1in" />Les sources sont liées dans un
+mouvement circulaire par le paramètre Radius, qui reste fixe et égal. La
+distance relative entre chaque source et le centre est la même pour
+toutes les sources.</td>
+</tr>
+<tr class="even">
+<td><strong>4) Circular Fixed Angle</strong> STEREO + MULTIPHONIQUE</td>
+</tr>
+<tr class="odd">
+<td><p><img src="/media-fr/media/image114.jpeg"
+style="width:0.83333in;height:1in" />Les sources sont liées dans un
+mouvement circulaire avec le paramètre Angle, qui reste fixe et
+égal.</p>
+<p>Par exemple, en octophonie, l'angle d'ouverture entre chacune des
+sources sera fixé à 45°.<img src="/media-fr/media/image115.jpeg"
+style="width:1in;height:1in" /></p></td>
+</tr>
+<tr class="even">
+<td><strong>5) Circular Fully Fixed</strong> STEREO + MULTIPHONIQUE</td>
+</tr>
+<tr class="odd">
+<td><img src="/media-fr/media/image116.jpeg"
+style="width:1.00167in;height:1in" />Les sources sont liées dans un
+mouvement circulaire par les paramètres Radius et Angle, qui restent
+fixes et égaux. L'ouverture entre les sources et leur rayon est donc
+toujours identique. <img src="/media-fr/media/image117.jpeg"
+style="width:1in;height:1in" /></td>
+</tr>
+<tr class="even">
+<td><strong>6) Delta Lock</strong> STEREO + MULTIPHONIQUE</td>
+</tr>
+<tr class="odd">
+<td><img src="/media-fr/media/image118.jpeg"
+style="width:1.21704in;height:1in" />Ce mode verrouille la position des
+sources par rapport aux autres selon les axes X et Y, sans possibilité
+de rotation.<img src="/media-fr/media/image119.jpeg"
+style="width:1in;height:1in" /></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>7) Symmetric X</strong> STEREO</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="/media-fr/media/image120.jpeg"
+style="width:1.33333in;height:1in" /><img
+src="/media-fr/media/image121.jpeg"
+style="width:1in;height:1in" />Ce mode permet la symétrie entre deux
+sources suivant l'axe X</td>
+</tr>
+<tr class="even">
+<td><strong>8) Symmetric Y</strong> STEREO</td>
+</tr>
+<tr class="odd">
+<td><img src="/media-fr/media/image122.jpeg"
+style="width:1.33333in;height:1in" />Ce mode permet la symétrie entre
+deux sources suivant l'axe Y.<img
+src="/media-fr/media/image123.jpeg"
+style="width:1in;height:1in" /></td>
+</tr>
+</tbody>
+</table>
+<h3 id="812-elevation-mode-cube-uniquement"><a class="header" href="#812-elevation-mode-cube-uniquement">8.1.2. Elevation (Mode CUBE uniquement)</a></h3>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>1) Independent</strong> MONO + STEREO + MULTIPHONIQUE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="/media-fr/media/image124.jpg"
+style="width:0.94654in;height:1in" />Ce mode est sélectionné par défaut.
+Les sources peuvent être déplacées indépendamment les unes des
+autres.</td>
+</tr>
+<tr class="even">
+<td><strong>2) Fixed Elevation</strong> STEREO + MULTIPHONIQUE</td>
+</tr>
+<tr class="odd">
+<td><img src="/media-fr/media/image125.jpg"
+style="width:0.9375in;height:1in" />Même élévation pour chaque
+source.</td>
+</tr>
+<tr class="even">
+<td><strong>3) Bottom Top</strong> STEREO + MULTIPHONIQUE</td>
+</tr>
+<tr class="odd">
+<td><img src="/media-fr/media/image126.jpeg"
+style="width:0.94643in;height:1in" />Ce mode bloque la position des
+sources d'une valeur minimale à une valeur maximale dans une relation
+linéaire.</td>
+</tr>
+<tr class="even">
+<td><strong>4) Top Bottom</strong> STEREO + MULTIPHONIQUE</td>
+</tr>
+<tr class="odd">
+<td><img src="/media-fr/media/image127.jpg"
+style="width:0.94028in;height:1in" />Ce mode verrouille la position des
+sources d'une valeur maximale à une valeur minimale dans une relation
+linéaire.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>5) Delta Lock</strong> STEREO + MULTIPHONIQUE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="/media-fr/media/image128.jpg"
+style="width:0.94654in;height:1in" />Ce mode verrouille la position des
+sources par rapport aux autres.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="82-descriptions-des-trajectoires"><a class="header" href="#82-descriptions-des-trajectoires">8.2. Descriptions des trajectoires</a></h2>
+<h3 id="821-azimuth-elevation-et-azimuth-distance"><a class="header" href="#821-azimuth-elevation-et-azimuth-distance">8.2.1. Azimuth-Elevation et Azimuth-Distance</a></h3>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>1) Circle</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><img src="/media-fr/media/image129.jpg"
+style="width:0.94097in;height:1in" />Mouvement circulaire autour du
+centre.</p>
+<p>Options : CW/CCW (Sens horaire/ sens antihoraire), Back &amp; Forth
+(va-et-vient), Dampening (amortissement), Deviation
+(déviation).</p></td>
+</tr>
+<tr class="even">
+<td><strong>2) Ellipse</strong></td>
+</tr>
+<tr class="odd">
+<td><p><img src="/media-fr/media/image130.jpg"
+style="width:0.94081in;height:1in" />Mouvement elliptique autour du
+centre.</p>
+<p>Options : CW/CCW (Sens horaire/ sens antihoraire), Back &amp; Forth
+(va-et-vient), Dampening (amortissement), Deviation
+(déviation).</p></td>
+</tr>
+<tr class="even">
+<td><strong>3) Spiral</strong></td>
+</tr>
+<tr class="odd">
+<td><p><img src="/media-fr/media/image131.jpg"
+style="width:0.94048in;height:1in" />Mouvement concentrique autour du
+centre.</p>
+<p>Options : CW/CCW (Sens horaire/ sens antihoraire), Back &amp; Forth
+(va-et-vient), Dampening (amortissement), Deviation
+(déviation).</p></td>
+</tr>
+<tr class="even">
+<td><strong>4) Square</strong></td>
+</tr>
+<tr class="odd">
+<td><p><img src="/media-fr/media/image132.jpg"
+style="width:0.94395in;height:1in" />Forme carrée autour du centre.</p>
+<p>Options : CW/CCW (Sens horaire/ sens antihoraire), Back &amp; Forth
+(va-et-vient), Dampening (amortissement), Deviation
+(déviation).</p></td>
+</tr>
+<tr class="even">
+<td><strong>5) Triangle</strong></td>
+</tr>
+<tr class="odd">
+<td><p><img src="/media-fr/media/image133.jpg"
+style="width:0.94097in;height:1in" />Forme de triangle autour du
+centre.</p>
+<p>Options : CW/CCW (Sens horaire/ sens antihoraire), Back &amp; Forth
+(va-et-vient), Dampening (amortissement), Deviation
+(déviation).</p></td>
+</tr>
+</tbody>
+</table>
+<h3 id="822-elevation-mode-cube-uniquement"><a class="header" href="#822-elevation-mode-cube-uniquement">8.2.2. Elevation (Mode CUBE uniquement)</a></h3>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>1) Down Up</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><img src="/media-fr/media/image134.jpeg"
+style="width:0.93146in;height:1in" /> De bas en haut.</p>
+<p>Options : Back &amp; Forth (va-et-vient) et Dampening
+(amortissement).</p></td>
+</tr>
+<tr class="even">
+<td><strong>2) Up Down</strong></td>
+</tr>
+<tr class="odd">
+<td><p><img src="/media-fr/media/image135.jpeg"
+style="width:0.94063in;height:1in" /> De haut en bas.</p>
+<p>Options: Back &amp; Forth (va-et-vient) et Dampening
+(amortissement).</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="83-messages-osc-dans-spatgris"><a class="header" href="#83-messages-osc-dans-spatgris">8.3. Messages OSC dans SpatGRIS</a></h2>
+<p>Les messages OSC peuvent être envoyés directement à <em>SpatGRIS</em> sans
+avoir à utiliser <em>ControlGRIS2</em>.</p>
+<p>Numéro du port d'entrée de l'OSC : 18032 par défaut (peut être modifié
+dans File -&gt; Settings)</p>
+<p>L'adresse du serveur est toujours /spat/serv.</p>
+<p><strong>Veuillez noter que les angles sont toujours mesurés dans le sens
+horaire, en partant du centre de la scène (direction Y positive).</strong></p>
+<p><strong>pol</strong> déplace une source en utilisant des coordonnées polaires en
+radians.</p>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 13%" />
+<col style="width: 28%" />
+<col style="width: 39%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>#parameter</strong></th>
+<th><strong>type</strong></th>
+<th><strong>valeurs autorisées</strong></th>
+<th><strong>signification</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>string</td>
+<td>pol</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>int</td>
+<td>[1, 128]</td>
+<td>Source index</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>float</td>
+<td>any</td>
+<td>azimuth angle</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>float</td>
+<td>any</td>
+<td>elevation angle</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>float</td>
+<td>[-3.0, 3.0]</td>
+<td>radius</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>float</td>
+<td>[0, 1]</td>
+<td>Horizontal span</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>float</td>
+<td>[0, 1]</td>
+<td>Vertical span</td>
+</tr>
+</tbody>
+</table>
+<p>ex : Le message /spat/serv pol 7 0.0 0.78 0.5 0.1 0.2 déplace la source
+n° 7 à l'avant, à mi-hauteur et à la moitié de la distance de l'origine,
+avec un Span horizontal de 10 % et un Span vertical de 20 %.</p>
+<p>**<br />
+**</p>
+<p><strong>deg</strong> éplace une source en utilisant des coordonnées polaires en
+degrés.</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 26%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>index</strong></th>
+<th><strong>type</strong></th>
+<th><strong>valeurs autorisées</strong></th>
+<th><strong>signification</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>string</td>
+<td>deg</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>int</td>
+<td>[1, 128]</td>
+<td>Source index</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>float</td>
+<td>any</td>
+<td>azimuth angle</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>float</td>
+<td>any</td>
+<td>elevation angle</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>float</td>
+<td>[-3.0, 3.0]</td>
+<td>radius</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>float</td>
+<td>[0, 1]</td>
+<td>Horizontal span</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>float</td>
+<td>[0, 1]</td>
+<td>Vertical span</td>
+</tr>
+</tbody>
+</table>
+<p>ex : Le message /spat/serv deg 7 -90.0 45.0 0.5 0.1 0.2 déplace la
+source #7 à l'extrême gauche, à la moitié de l'élévation et à la moitié
+de la distance de l'espace, avec un Span horizontal de 10% et un Span
+vertical de 20%.</p>
+<p><strong>car</strong> déplace une source en utilisant des coordonnées cartésiennes.</p>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 18%" />
+<col style="width: 22%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>index</strong></th>
+<th><strong>type</strong></th>
+<th><strong>valeurs autorisées</strong></th>
+<th><strong>signification</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>string,</td>
+<td>car</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>int</td>
+<td>[1, 128]</td>
+<td>Source index</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>float</td>
+<td>[-1.66, 1.66]</td>
+<td>x (left/right)</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>float</td>
+<td>[-1.66, 1.66]</td>
+<td>y (back/front)</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>float</td>
+<td>[-1.66, 1.66]</td>
+<td>z (down/up)</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>float</td>
+<td>[0, 1]</td>
+<td>Horizontal span</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>float</td>
+<td>[0, 1]</td>
+<td>Vertical span</td>
+</tr>
+</tbody>
+</table>
+<p>ex : le message /spat/serv car 7 1.0 1.0 1.0 0.0 0.0 déplace la source
+n° 7 dans le coin supérieur droit, sans Span horizontal ou vertical.</p>
+<p><strong>clr</strong> efface la position d'une source.</p>
+<table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 17%" />
+<col style="width: 20%" />
+<col style="width: 39%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>index</strong></th>
+<th><strong>type</strong></th>
+<th><strong>valeurs autorisées</strong></th>
+<th><strong>signification</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>string</td>
+<td>clr</td>
+<td>clear</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>int</td>
+<td>[1, 128]</td>
+<td>Source index</td>
+</tr>
+</tbody>
+</table>
+<p>ex : Le message /spat/serv clr 7 efface la position de la septième
+source.</p>
+<p><strong>alg</strong> sets a source's hybrid spatialization mode.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 15%" />
+<col style="width: 23%" />
+<col style="width: 36%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>index</strong></th>
+<th><strong>type</strong></th>
+<th><strong>valeurs autorisées</strong></th>
+<th><strong>signification</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>string</td>
+<td>alg</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>int</td>
+<td>[1, 128]</td>
+<td>Source index</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>string</td>
+<td>dome or cube</td>
+<td>Algorithm</td>
+</tr>
+</tbody>
+</table>
+<p>ex : Le message /spat/serv alg 7 cube définit l'algorithme de
+spatialisation de la septième source sur "cube" (ne fonctionne qu'en
+mode hybride).</p>
+<h2 id="84-messages-osc-dans-controlgris2"><a class="header" href="#84-messages-osc-dans-controlgris2">8.4. Messages OSC dans ControlGRIS2</a></h2>
+<p>Voici les messages OSC que <em>ControlGRIS2</em> peut envoyer et recevoir. Le
+premier numéro correspond à l'ID du plugiciel. Le second numéro
+correspond au numéro de la source. Ce sont les valeurs par défaut :</p>
+<p>• /controlgris/1/traj/1/x value =&gt; [0.0;1.0]</p>
+<p>• /controlgris/1/traj/1/y value =&gt; [0.0;1.0]</p>
+<p>• /controlgris/1/traj/1/z value =&gt; [0.0;1.0]</p>
+<p>• /controlgris/1/traj/1/xyz/1 value =&gt; [0.0;1.0] </p>
+<p>• /controlgris/1/traj/1/xyz/2 value =&gt; [0.0;1.0]</p>
+<p>• /controlgris/1/traj/1/xyz/3 value =&gt; [0.0;1.0]</p>
+<p>• /controlgris/1/traj/1/xy values =&gt; [0.0;1.0] [0.0;1.0]</p>
+<p>• /controlgris/1/traj/1/xyz values =&gt; [0.0;1.0] [0.0;1.0]
+[0.0;1.0]</p>
+<p>• /controlgris/1/azispan value =&gt; [0.0;1.0]</p>
+<p>• /controlgris/1/elespan value =&gt; [0.0;1.0]</p>
+<p>• /controlgris/1/sourcelink value =&gt; 1 to 8</p>
+<p>1: Independent</p>
+<p>2: Circular</p>
+<p>3: Circular Fixed Radius</p>
+<p>4: Circular Fixed angle</p>
+<p>5: Circular Fully Fixed</p>
+<p>6: Delta Lock</p>
+<p>7: Symmetrix X</p>
+<p>8: Symmetric Y</p>
+<p>• /controlgris/1/sourcelinkalt value =&gt; 1 to 5</p>
+<p>1: Independent</p>
+<p>2: Equal Elevation</p>
+<p>3: Bottom-Top</p>
+<p>4: Top-Bottom</p>
+<p>5: Delta Lock</p>
+<p>• /controlgris/1/presets value =&gt; 1 to 50</p>
+<p>• /controlgris/1/elevationmode value =&gt; 1 to 3</p>
+<p>1: Normal</p>
+<p>2: Extended Top</p>
+<p>3: Extended Top and Bottom</p>
+<h2 id="85-open-stage-control-et-lemur"><a class="header" href="#85-open-stage-control-et-lemur">8.5. Open Stage Control et Lemur</a></h2>
+<p>Deux contrôleurs externes sont disponibles pour <em>ControlGRIS</em> :</p>
+<p>• Un patch pour Open Stage Control pour <em>iPad</em>™.</p>
+<p>• Un patch pour Lemur pour <em>iPad</em>™.</p>
+<p>Un manuel Addendum concernant ces patches est disponible sur
+SourceForge.</p>
+<h2 id="86-désinstaller"><a class="header" href="#86-désinstaller">8.6. Désinstaller</a></h2>
+<h3 id="861-spatgris"><a class="header" href="#861-spatgris">8.6.1. SpatGRIS</a></h3>
+<p>Si vous devez désinstaller <em>SpatGRIS</em>, ou si vous constatez un
+comportement étrange du logiciel, vous devrez le faire manuellement.</p>
+<p>• Mettez l'application elle-même à la poubelle.</p>
+<p>• Mettez ces fichiers à la poubelle :</p>
+<p>~/Bibliothèque/Preferences/ca.umontreal.musique.gris.spatgris.plist</p>
+<p>~/Application Support/GRIS/ SpatGRIS.x.x.xml où x.x.x représente la
+version de <em>SpatGRIS</em> (3.2.11 par exemple).</p>
+<h3 id="862-controlgris2"><a class="header" href="#862-controlgris2">8.6.2. ControlGRIS2</a></h3>
+<p>Si vous devez désinstaller <em>ControlGRIS2</em>.</p>
+<p>Voici les parcours pour les utilisateur.trices de Mac :</p>
+<p>• Pour désinstaller la version Audio Unit, supprimez-la de l'emplacement
+suivant :</p>
+<p>~/Bibliothèque/Audio/Plug-Ins/Components</p>
+<p>• Pour désinstaller la version VST, supprimez-la du dossier VST à
+l'emplacement suivant :</p>
+<p>~/Bibliothèque/Audio/Plug-Ins/VST</p>
+<p>• Pour désinstaller la version VST3, supprimez-la du dossier VST3 à
+l'emplacement suivant :</p>
+<p>~/Bibliothèque/Audio/Plug-Ins/VST3.</p>
+<p>• Pour désinstaller la version AAX, supprimez-la à l'emplacement suivant
+:</p>
+<p>MacIntosh HD/Bibliothèque/Application Support/Avid/Audio/Plug-Ins/</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="groupe-de-recherche-en-immersion-spatiale-gris"><a class="header" href="#groupe-de-recherche-en-immersion-spatiale-gris">Groupe de Recherche en Immersion Spatiale (GRIS)</a></h1>
+<p>Directeur : Robert Normandeau.</p>
+<p>Programmeur en chef : Gaël Lane Lépine.</p>
+<p>Consultant : Devin Roth, créateur de <em>BlackHole</em>.</p>
+<p>Assistants : Nicola Giannini.</p>
+<p>Anciens programmeurs : Samuel Béland, Olivier Bélanger, Vincent
+Berthiaume.</p>
+<p>Ancien.nes assistant.es : Simone d’Ambrosio, Theo Mathien, Raphaël
+Néron-Baribeau, Ofer Pelz, Dominic Thibault, Alexis Langevin-Tétrault,
+Vincent Monastesse, David Ledoux, Yohan Brimicombe, Christophe Lengelé,
+Mélanie Frisoli, David Piazza. Gabrielle Caux.</p>
+<p>Anciens stagiaires: Ludovic Laffineur, Antoine Landrieu, Nicolas Masson,
+Hicheme Ben Gaied.</p>
+<p>Le GRIS a reçu des subventions de recherche d'Hexagram, du CRSH et du
+FRQSC depuis 2008 jusqu'en 2025.</p>
+<p>Merci à Yohan Brimicombe pour la création du site web :
+http://gris.musique.umontreal.ca</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>
