@@ -26,5 +26,6 @@
   - SpekerView stuff
   - Standalone ControlGRIS tips to automatically translate performance from one space to another
 - Add automated ci build of the manual
+- Update images
 - Add links to issue trackers
 - Add sat developpers, testers, project managers credits
