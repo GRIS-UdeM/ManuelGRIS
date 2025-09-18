@@ -26,6 +26,7 @@ jobs:
           mkdir github-page/english
           mv spatgris-man-fr/book/* github-page/francais
           mv spatgris-man-en/book/* github-page/english
+          ls github-page/english/*/*
 
       - name: Upload static files as artifact
         id: deployment
