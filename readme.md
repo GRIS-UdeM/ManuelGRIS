@@ -19,8 +19,6 @@
 - Make a more beautiful landing page
 - Update numbering in md files to match mdbook autonumbering
 - Update english doc to match french doc (and vice-versa)
-- Update with latest developments
-  - SpeakerView stuff
 - Update images
 - Add links to issue trackers
 - Add sat developpers, testers, project managers credits
