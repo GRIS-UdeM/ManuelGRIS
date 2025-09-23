@@ -8,6 +8,7 @@
 - [ControlGRIS](4.-ControlGRIS.md)
 - [SpatGRIS](5.-SpatGRIS.md)
 - [SpatGRIS PLAYER](6.-PLAYER.md)
+- [SpeakerView](speakerview.md)
 - [Menus](7.-Menus.md)
 - [Addendum](8.-Addendum.md)
 - [Known issues and warnings](9.-Known-issues-and-warnings.md)
